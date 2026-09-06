@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bvop3erna71a7"]
+
+[ext_resource type="PackedScene" uid="uid://twhmsepd8isx" path="res://addons/shrimpvm/scenes/ir_editor.tscn" id="1_f3sb7"]
+
+[node name="world" type="Node2D" unique_id=1864932419]
+
+[node name="IR-Editor" parent="." unique_id=1041740263 instance=ExtResource("1_f3sb7")]

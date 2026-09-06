@@ -15,6 +15,11 @@ run/main_scene="uid://bvop3erna71a7"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[debug]
+
+gdscript/warnings/directory_rules={}
+gdscript/warnings/static_called_on_instance=0
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/shrimpvm/plugin.cfg")

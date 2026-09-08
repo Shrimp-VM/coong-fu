@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://l7wp84i5htx2"]
 
 [ext_resource type="PackedScene" uid="uid://c8vq32awy28m1" path="res://abstracts/BaseLiving.tscn" id="1_u3tui"]
+[ext_resource type="Script" uid="uid://cjw6yp1itkhsk" path="res://abstracts/BaseEnemy.gd" id="2_igh7a"]
 
 [node name="BaseEntity" unique_id=334154807 instance=ExtResource("1_u3tui")]
+script = ExtResource("2_igh7a")

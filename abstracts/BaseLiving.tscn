@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://c8vq32awy28m1"]
+
+[ext_resource type="PackedScene" uid="uid://b1kxku01kygw3" path="res://abstracts/BaseEntity.tscn" id="1_xavev"]
+
+[node name="BaseEntity" unique_id=334154807 instance=ExtResource("1_xavev")]

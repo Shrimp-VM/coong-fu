@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://b1kxku01kygw3"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_opx8x"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_opx8x"]
+
+[node name="BaseEntity" type="CharacterBody2D" unique_id=334154807]
+
+[node name="texture" type="Node2D" parent="." unique_id=1274454792]
+
+[node name="frames" type="AnimatedSprite2D" parent="texture" unique_id=1408971701]
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_opx8x")
+
+[node name="static" type="Sprite2D" parent="texture" unique_id=193572939]
+unique_name_in_owner = true
+
+[node name="movebox" type="CollisionShape2D" parent="." unique_id=721984946]
+shape = SubResource("CircleShape2D_opx8x")

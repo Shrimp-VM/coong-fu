@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://df5x6avs57nxk"]
+
+[ext_resource type="PackedScene" uid="uid://b1w28mkl2r82l" path="res://abstracts/BasePlayer.tscn" id="1_dkvhb"]
+
+[node name="Rooster" unique_id=334154807 instance=ExtResource("1_dkvhb")]

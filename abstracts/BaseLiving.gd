@@ -6,3 +6,9 @@ class_name BaseLiving
 	Stats.Living.ATTACK_POWER: 100,
 	Stats.Living.MOVEMENT_FACTOR: 1
 }
+@export var attackGap: float = 500
+
+var attackCooldown: CooldownController
+
+func _ready() -> void:
+	attackCooldown = CooldownController.new(attackGap)

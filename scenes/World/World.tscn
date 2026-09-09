@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://bvop3erna71a7"]
 
-[ext_resource type="Script" uid="uid://cjj5by3hcu71f" path="res://scenes/World/World.gd" id="1_6rd1t"]
+[ext_resource type="Script" uid="uid://cfabockefwadv" path="res://utils/Managers/World.gd" id="1_kurpr"]
 [ext_resource type="Texture2D" uid="uid://dhhjg1pr6dq86" path="res://resources/tiles/Hospital_A4.png" id="2_1bnsl"]
 [ext_resource type="Script" uid="uid://dg4qnjilpkyvv" path="res://utils/Managers/Object.gd" id="2_kurpr"]
 [ext_resource type="Texture2D" uid="uid://dofkf2g40oc4k" path="res://resources/tiles/Modern_Int_A4.png" id="3_mbmvx"]
@@ -419,7 +419,7 @@ sources/2 = SubResource("TileSetAtlasSource_3fwkt")
 sources/3 = SubResource("TileSetAtlasSource_fngvn")
 
 [node name="World" type="Node2D" unique_id=1864932419]
-script = ExtResource("1_6rd1t")
+script = ExtResource("1_kurpr")
 
 [node name="camera" type="Camera2D" parent="." unique_id=1369065500]
 limit_left = -541
@@ -440,3 +440,4 @@ script = ExtResource("2_kurpr")
 
 [node name="Rooster" parent="objects" unique_id=334154807 instance=ExtResource("5_fngvn")]
 position = Vector2(154, 183)
+attackGap = 500.0

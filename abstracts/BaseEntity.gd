@@ -5,6 +5,8 @@ class_name BaseEntity
 @export var baseMovement: float = 4000
 @export var fraction: float = 10
 
+@onready var anchorParent: Node2D = $%anchors
+
 func _ready() -> void:
 	spawn()
 func _physics_process(delta: float) -> void:
@@ -23,3 +25,9 @@ func accelerate(direction: Vector2, delta: float, maxSpeed: float) -> Vector2:
 func isPlayer() -> bool:
 	assert(false, "未实现")
 	return false
+func getAnchor(namx: String) -> Vector2:
+	var anchor = anchorParent.get_node(namx)
+	if anchor is Node2D:
+		return anchor.global_position
+	else:
+		return Vector2.ZERO

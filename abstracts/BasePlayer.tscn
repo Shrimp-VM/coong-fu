@@ -5,3 +5,5 @@
 
 [node name="BaseEntity" unique_id=334154807 instance=ExtResource("1_dt300")]
 script = ExtResource("2_fmfuf")
+
+[node name="shootEntry" type="Node2D" parent="texture/anchors" parent_id_path=PackedInt32Array(1589403422) index="0" unique_id=871893019]

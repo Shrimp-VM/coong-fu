@@ -11,4 +11,5 @@ class_name BaseLiving
 var attackCooldown: CooldownController
 
 func _ready() -> void:
+	super._ready()
 	attackCooldown = CooldownController.new(attackGap)

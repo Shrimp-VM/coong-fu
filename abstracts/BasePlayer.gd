@@ -5,5 +5,9 @@ func spawn():
 	CameraManager.follow(self)
 func ai(delta: float):
 	accelerate(Input.get_vector("move_left", "move_right", "move_up", "move_down"), delta, 200)
+	if Input.is_action_pressed("attack"):
+		normalAttack()
 func isPlayer() -> bool:
 	return true
+func normalAttack():
+	pass

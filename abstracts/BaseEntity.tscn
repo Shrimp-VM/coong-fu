@@ -18,5 +18,8 @@ sprite_frames = SubResource("SpriteFrames_opx8x")
 [node name="static" type="Sprite2D" parent="texture" unique_id=193572939]
 unique_name_in_owner = true
 
+[node name="anchors" type="Node2D" parent="texture" unique_id=1589403422]
+unique_name_in_owner = true
+
 [node name="movebox" type="CollisionShape2D" parent="." unique_id=721984946]
 shape = SubResource("CircleShape2D_opx8x")

@@ -9,6 +9,7 @@ class BaseAI extends Resource:
 
 @export var baseMovement: float = 100
 
+var launcher: BaseEntity
 var ais: Array[BaseAI] = []
 
 func _physics_process(delta: float) -> void:

@@ -1,0 +1,2 @@
+extends BasePlayer
+class_name RoosterEntity

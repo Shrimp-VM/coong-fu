@@ -21,7 +21,6 @@ animations = [{
 
 [node name="Rooster" unique_id=334154807 instance=ExtResource("1_dkvhb")]
 script = ExtResource("2_514sj")
-fraction = 10.0
 
 [node name="frames" parent="texture" parent_id_path=PackedInt32Array(1274454792) index="0" unique_id=1408971701]
 position = Vector2(0, -70)

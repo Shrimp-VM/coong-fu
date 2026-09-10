@@ -6,8 +6,8 @@ static var instance: ObjectManager
 func _ready() -> void:
 	instance = self
 
-static func shootToMouse(bullet: String, launcher: BaseEntity, anchor: String = "shootEntry"):
-	addBullet(
+static func shootToMouse(bullet: String, launcher: BaseEntity, anchor: String = "shootEntry") -> Array[BaseBullet]:
+	return addBullet(
 		bullet,
 		launcher,
 		launcher.getAnchor(anchor),

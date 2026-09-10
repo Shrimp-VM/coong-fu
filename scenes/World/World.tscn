@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://cfabockefwadv" path="res://utils/Managers/World.gd" id="1_kurpr"]
 [ext_resource type="Texture2D" uid="uid://dhhjg1pr6dq86" path="res://resources/tiles/Hospital_A4.png" id="2_1bnsl"]
 [ext_resource type="Script" uid="uid://dg4qnjilpkyvv" path="res://utils/Managers/Object.gd" id="2_kurpr"]
+[ext_resource type="Script" uid="uid://hbqyi720ydet" path="res://utils/Managers/Editor.gd" id="2_p47ta"]
+[ext_resource type="PackedScene" uid="uid://twhmsepd8isx" path="res://addons/shrimpvm/scenes/ir_editor.tscn" id="3_ictkp"]
 [ext_resource type="Texture2D" uid="uid://dofkf2g40oc4k" path="res://resources/tiles/Modern_Int_A4.png" id="3_mbmvx"]
 [ext_resource type="Texture2D" uid="uid://cbnybut0p01kw" path="res://resources/tiles/Inside_A5.png" id="4_3fwkt"]
 [ext_resource type="PackedScene" uid="uid://df5x6avs57nxk" path="res://contents/Entity/Rooster/Rooster.tscn" id="5_fngvn"]
@@ -420,6 +422,12 @@ sources/3 = SubResource("TileSetAtlasSource_fngvn")
 
 [node name="World" type="Node2D" unique_id=1864932419]
 script = ExtResource("1_kurpr")
+
+[node name="EditorManager" type="Node" parent="." unique_id=1625709633]
+script = ExtResource("2_p47ta")
+
+[node name="editor" parent="EditorManager" unique_id=1041740263 instance=ExtResource("3_ictkp")]
+visible = false
 
 [node name="camera" type="Camera2D" parent="." unique_id=1369065500]
 limit_left = -541

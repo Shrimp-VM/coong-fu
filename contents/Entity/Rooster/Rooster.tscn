@@ -19,6 +19,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m1qjg"]
+size = Vector2(112, 149)
+
 [node name="Rooster" unique_id=334154807 instance=ExtResource("1_dkvhb")]
 script = ExtResource("2_514sj")
 attackGap = 500.0
@@ -30,3 +33,7 @@ frame_progress = 0.09799323
 
 [node name="shootEntry" parent="texture/anchors" parent_id_path=PackedInt32Array(1589403422) index="0" unique_id=871893019]
 position = Vector2(55, -112)
+
+[node name="hitbox" parent="texture/hurtbox" parent_id_path=PackedInt32Array(1386083865) index="0" unique_id=2083183266]
+position = Vector2(0, -64.5)
+shape = SubResource("RectangleShape2D_m1qjg")

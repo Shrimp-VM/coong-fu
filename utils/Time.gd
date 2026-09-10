@@ -5,3 +5,5 @@ static func current() -> float:
 		return WorldManager.instance.running * 1000
 	else:
 		return 0
+static func frame():
+	return WorldManager.instance.get_tree().process_frame

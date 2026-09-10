@@ -4,6 +4,9 @@
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_opx8x"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ngy2r"]
+size = Vector2(38, 52.25)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_opx8x"]
 
 [node name="BaseEntity" type="CharacterBody2D" unique_id=334154807]
@@ -20,6 +23,13 @@ unique_name_in_owner = true
 
 [node name="anchors" type="Node2D" parent="texture" unique_id=1589403422]
 unique_name_in_owner = true
+
+[node name="hurtbox" type="Area2D" parent="texture" unique_id=1386083865]
+unique_name_in_owner = true
+
+[node name="hitbox" type="CollisionShape2D" parent="texture/hurtbox" unique_id=2083183266]
+position = Vector2(0, -26.125)
+shape = SubResource("RectangleShape2D_ngy2r")
 
 [node name="movebox" type="CollisionShape2D" parent="." unique_id=721984946]
 shape = SubResource("CircleShape2D_opx8x")

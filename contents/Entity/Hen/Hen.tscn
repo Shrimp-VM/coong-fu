@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://du16onrbqc1c2"]
+
+[ext_resource type="PackedScene" uid="uid://l7wp84i5htx2" path="res://abstracts/BaseEnemy.tscn" id="1_ngdyy"]
+[ext_resource type="Texture2D" uid="uid://bwg0pp0ak42li" path="res://contents/Entity/Hen/walk/hen-a.svg" id="2_780vb"]
+[ext_resource type="Texture2D" uid="uid://pss4jidj8bjm" path="res://contents/Entity/Hen/walk/hen-b.svg" id="3_3nbgq"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uarmr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_780vb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_3nbgq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_780vb"]
+size = Vector2(118, 104)
+
+[node name="BaseEntity" unique_id=334154807 instance=ExtResource("1_ngdyy")]
+attackGap = 500.0
+
+[node name="frames" parent="texture" parent_id_path=PackedInt32Array(1274454792) index="0" unique_id=1408971701]
+position = Vector2(0, -51)
+sprite_frames = SubResource("SpriteFrames_uarmr")
+frame_progress = 0.7660225
+
+[node name="hitbox" parent="texture/hurtbox" parent_id_path=PackedInt32Array(1386083865) index="0" unique_id=2083183266]
+position = Vector2(0, -52)
+shape = SubResource("RectangleShape2D_780vb")

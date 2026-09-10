@@ -18,5 +18,7 @@ static func addBullet(namx: String, launcher: BaseEntity, positiox: Vector2 = Ve
 	bullet.launcher = launcher
 	bullet.position = positiox
 	bullet.rotation = rotatiox
+	if launcher is BaseLiving:
+		bullet.rotation_degrees += randf_range(-1, 1) * launcher.getStat(Stats.Living.OFFSET_SHOOT)
 	instance.add_child(bullet)
 	return [bullet]

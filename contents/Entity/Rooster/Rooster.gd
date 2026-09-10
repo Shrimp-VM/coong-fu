@@ -1,8 +1,10 @@
 extends BasePlayer
 class_name RoosterEntity
 
+func spawn():
+	super.spawn()
+	setStat(Stats.Living.OFFSET_SHOOT, 10)
 func normalAttack():
-	for i in 3:
-		for b in ObjectManager.shootToMouse("PurpleCrystal", self):
-			if b is BaseBullet:
-				b.rotation_degrees += i * 10
+	var attack = EditorManager.instance.editor.fileManager.search("normalAttack")
+	if attack is VirtualFile:
+		WorldManager.instance.vm.execute(ShrimpCompiler.import_json(attack.content), WorldManager.instance.fightContext)

@@ -11,3 +11,6 @@ func _ready() -> void:
 func _physics_process(_delta: float) -> void:
 	if Input.is_action_just_pressed("editor"):
 		editor.visible = !editor.visible
+
+static func isOpening() -> bool:
+	return instance.editor.visible

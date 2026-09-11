@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://du16onrbqc1c2"]
 
 [ext_resource type="PackedScene" uid="uid://l7wp84i5htx2" path="res://abstracts/BaseEnemy.tscn" id="1_ngdyy"]
+[ext_resource type="Script" uid="uid://d2aed1u6273t4" path="res://contents/Entity/Hen/Hen.gd" id="2_3nbgq"]
 [ext_resource type="Texture2D" uid="uid://bwg0pp0ak42li" path="res://contents/Entity/Hen/walk/hen-a.svg" id="2_780vb"]
 [ext_resource type="Texture2D" uid="uid://pss4jidj8bjm" path="res://contents/Entity/Hen/walk/hen-b.svg" id="3_3nbgq"]
 
@@ -22,6 +23,7 @@ animations = [{
 size = Vector2(118, 104)
 
 [node name="BaseEntity" unique_id=334154807 instance=ExtResource("1_ngdyy")]
+script = ExtResource("2_3nbgq")
 
 [node name="frames" parent="texture" parent_id_path=PackedInt32Array(1274454792) index="0" unique_id=1408971701]
 position = Vector2(0, -51)

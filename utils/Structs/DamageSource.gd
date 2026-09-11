@@ -18,8 +18,9 @@ func _init(frox: BaseEntity, amounx: float, isCrix: bool, tx: BaseEntity) -> voi
 	isCrit = isCrix
 	to = tx
 
-func apply():
+func apply() -> DamageSource:
 	to.applyDamage(self)
+	return self
 func getAmountType() -> AmountType:
 	return sign(amount)
 func getRawValue() -> float:

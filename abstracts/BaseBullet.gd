@@ -57,4 +57,4 @@ func isLiving() -> bool:
 		!isFullPenetrated()
 	)
 func isFullPenetrated() -> bool:
-	return currentPenetrated >= getStat(Stats.Bullet.PENETRATE)
+	return currentPenetrated > getStat(Stats.Bullet.PENETRATE)

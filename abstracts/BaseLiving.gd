@@ -1,6 +1,13 @@
 extends BaseEntity
 class_name BaseLiving
 
+@export var attackGap: float = 500
+
+@onready var stateBar: StateBar = $%stateBar
+var attackCooldowns: Dictionary[int, CooldownController] = {
+	0: CooldownController.new(200)
+}
+var attackings: Array[int] = []
 var stats: Dictionary[Stats.Living, float] = {
 	Stats.Living.MAX_HEALTH: 500,
 	Stats.Living.ATTACK_POWER: 100,
@@ -10,13 +17,6 @@ var stats: Dictionary[Stats.Living, float] = {
 	Stats.Living.CRIT_RATE: 0.05,
 	Stats.Living.CRIT_DAMAGE: 1
 }
-@export var attackGap: float = 500
-
-@onready var stateBar: StateBar = $%stateBar
-var attackCooldowns: Dictionary[int, CooldownController] = {
-	0: CooldownController.new(200)
-}
-var attackings: Array[int] = []
 
 func _ready() -> void:
 	super._ready()

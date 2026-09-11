@@ -6,13 +6,8 @@
 
 [node name="BaseEntity" unique_id=334154807 instance=ExtResource("1_xavev")]
 script = ExtResource("2_3px8a")
-stats = Dictionary[int, float]({
-0: 100.0,
-1: 100.0,
-2: 1.0
-})
 attackGap = 500.0
 
-[node name="stateBar" parent="texture" parent_id_path=PackedInt32Array(1274454792) index="4" unique_id=1623109392 instance=ExtResource("3_5u38y")]
+[node name="stateBar" parent="." index="1" unique_id=1623109392 instance=ExtResource("3_5u38y")]
 unique_name_in_owner = true
 position = Vector2(0, -60)

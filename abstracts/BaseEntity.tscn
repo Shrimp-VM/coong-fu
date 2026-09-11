@@ -13,6 +13,7 @@ size = Vector2(38, 52.25)
 script = ExtResource("1_ngy2r")
 
 [node name="texture" type="Node2D" parent="." unique_id=1274454792]
+unique_name_in_owner = true
 
 [node name="frames" type="AnimatedSprite2D" parent="texture" unique_id=1408971701]
 unique_name_in_owner = true

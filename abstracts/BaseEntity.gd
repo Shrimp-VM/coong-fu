@@ -10,6 +10,8 @@ signal damageTaken(dmg: DamageSource)
 
 @onready var anchorParent: Node2D = $%anchors
 @onready var hurtboxArea: Area2D = $%hurtbox
+@onready var texture: Node2D = $%texture
+var faceX: int = 1
 
 func _ready() -> void:
 	hurtboxArea.area_entered.connect(
@@ -27,6 +29,7 @@ func _physics_process(delta: float) -> void:
 	ai(delta)
 	move_and_slide()
 	velocity *= 1 - fraction * delta
+	texture.scale.x = lerpf(texture.scale.x, faceX, 10 * delta)
 
 func accelerationFactor() -> float:
 	return 1
@@ -43,6 +46,8 @@ func applyDamage(dmg: DamageSource):
 	setHealth(currentHealth - dmg.amount)
 func accelerate(direction: Vector2, delta: float, maxSpeed: float) -> Vector2:
 	velocity = (velocity + direction.normalized() * baseMovement * 200 * accelerationFactor() * delta).limit_length(maxSpeed)
+	if abs(direction.x) > 0:
+		faceX = sign(direction.x)
 	return velocity
 func isPlayer() -> bool:
 	assert(false, "未实现")

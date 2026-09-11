@@ -21,15 +21,17 @@ func _ready() -> void:
 		func(new, _o):
 			stateBar.healthBar.setCurrent(new)
 	)
-	setHealth(getStat(Stats.Living.MAX_HEALTH))
+	applyMaxHealth()
 	attackCooldown = CooldownController.new(attackGap)
 
 func accelerationFactor() -> float:
 	return getStat(Stats.Living.MOVEMENT_FACTOR)
 
+func applyMaxHealth():
+	stateBar.healthBar.maxValue = getStat(Stats.Living.MAX_HEALTH)
+	setHealth(getStat(Stats.Living.MAX_HEALTH))
 func setHealth(newHealth: float):
-	newHealth = clamp(newHealth, 0, getStat(Stats.Living.MAX_HEALTH))
-	super.setHealth(newHealth)
+	super.setHealth(clamp(newHealth, 0, getStat(Stats.Living.MAX_HEALTH)))
 func setStat(key: Stats.Living, value: float):
 	stats.set(key, value)
 func getStat(key: Stats.Living) -> float:

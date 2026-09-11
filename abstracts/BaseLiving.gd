@@ -17,6 +17,10 @@ var attackCooldown: CooldownController
 
 func _ready() -> void:
 	super._ready()
+	healthChanged.connect(
+		func(new, _o):
+			stateBar.healthBar.setCurrent(new)
+	)
 	attackCooldown = CooldownController.new(attackGap)
 
 func accelerationFactor() -> float:

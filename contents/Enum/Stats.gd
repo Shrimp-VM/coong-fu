@@ -9,3 +9,6 @@ enum Living {
 	CRIT_RATE,
 	CRIT_DAMAGE
 }
+enum Bullet {
+	PENETRATE
+}

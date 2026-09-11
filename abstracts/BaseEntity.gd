@@ -9,6 +9,7 @@ signal damageTaken(dmg: DamageSource)
 @export var fraction: float = 10
 
 @onready var anchorParent: Node2D = $%anchors
+@onready var hurtboxArea: Area2D = $%hurtbox
 
 func _ready() -> void:
 	spawn()

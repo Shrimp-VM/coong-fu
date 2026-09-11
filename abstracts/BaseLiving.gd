@@ -2,10 +2,11 @@ extends BaseEntity
 class_name BaseLiving
 
 @export var stats: Dictionary[Stats.Living, float] = {
-	Stats.Living.MAX_HEALTH: 100,
+	Stats.Living.MAX_HEALTH: 500,
 	Stats.Living.ATTACK_POWER: 100,
 	Stats.Living.MOVEMENT_FACTOR: 1,
-	Stats.Living.OFFSET_SHOOT: 0
+	Stats.Living.OFFSET_SHOOT: 0,
+	Stats.Living.ATTACK_FACTOR: 1
 }
 @export var attackGap: float = 500
 

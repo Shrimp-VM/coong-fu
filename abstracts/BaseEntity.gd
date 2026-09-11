@@ -17,6 +17,11 @@ func _ready() -> void:
 			if body is BaseBullet:
 				GameRuleManager.bulletHitEntity(body, self)
 	)
+	healthChanged.connect(
+		func(new, _o):
+			if new <= 0:
+				queue_free()
+	)
 	spawn()
 func _physics_process(delta: float) -> void:
 	ai(delta)

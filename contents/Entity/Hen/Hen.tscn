@@ -22,7 +22,6 @@ animations = [{
 size = Vector2(118, 104)
 
 [node name="BaseEntity" unique_id=334154807 instance=ExtResource("1_ngdyy")]
-attackGap = 500.0
 
 [node name="frames" parent="texture" parent_id_path=PackedInt32Array(1274454792) index="0" unique_id=1408971701]
 position = Vector2(0, -51)
@@ -32,3 +31,6 @@ frame_progress = 0.7660225
 [node name="hitbox" parent="texture/hurtbox" parent_id_path=PackedInt32Array(1386083865) index="0" unique_id=2083183266]
 position = Vector2(0, -52)
 shape = SubResource("RectangleShape2D_780vb")
+
+[node name="stateBar" parent="texture" parent_id_path=PackedInt32Array(1274454792) index="4" unique_id=1623109392]
+position = Vector2(0, -114)

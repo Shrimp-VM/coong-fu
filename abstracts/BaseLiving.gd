@@ -9,6 +9,7 @@ class_name BaseLiving
 }
 @export var attackGap: float = 500
 
+@onready var stateBar: StateBar = $%stateBar
 var attackCooldown: CooldownController
 
 func _ready() -> void:

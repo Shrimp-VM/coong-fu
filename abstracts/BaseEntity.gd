@@ -1,6 +1,9 @@
 extends CharacterBody2D
 class_name BaseEntity
 
+signal healthChanged(new: float, old: float)
+signal damageTaken(dmg: DamageSource)
+
 @export var currentHealth: float = 100
 @export var baseMovement: float = 20
 @export var fraction: float = 10
@@ -21,6 +24,12 @@ func spawn():
 func ai(delta: float):
 	return delta
 
+func setHealth(newHealth: float):
+	healthChanged.emit(newHealth, currentHealth)
+	currentHealth = newHealth
+func applyDamage(dmg: DamageSource):
+	damageTaken.emit(dmg)
+	setHealth(currentHealth - dmg.amount)
 func accelerate(direction: Vector2, delta: float, maxSpeed: float) -> Vector2:
 	velocity = (velocity + direction.normalized() * baseMovement * 200 * accelerationFactor() * delta).limit_length(maxSpeed)
 	return velocity

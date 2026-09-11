@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://8u3jev3pleu"]
+
+[ext_resource type="Script" uid="uid://cdltmkrkxojg6" path="res://contents/Bar/StateBar.gd" id="1_obv78"]
+[ext_resource type="PackedScene" uid="uid://cgbxfx3gqev3u" path="res://contents/Bar/ColorBar.tscn" id="1_xjsuh"]
+
+[node name="StateBar" type="Node2D" unique_id=1623109392]
+script = ExtResource("1_obv78")
+
+[node name="healthBar" parent="." unique_id=103800454 instance=ExtResource("1_xjsuh")]
+unique_name_in_owner = true
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = -10.0
+offset_right = 50.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 0
+textMode = 2

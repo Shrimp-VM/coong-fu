@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://cgbxfx3gqev3u"]
+
+[ext_resource type="Script" uid="uid://cbg1rnjjedusg" path="res://contents/Bar/ColorBar.gd" id="1_3ktji"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ktji"]
+bg_color = Color(0, 0, 0, 0.5)
+skew = Vector2(0.4, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ujd40"]
+bg_color = Color(1, 0, 0, 0.5)
+skew = Vector2(0.4, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kndky"]
+bg_color = Color(0, 1, 0, 0.5)
+skew = Vector2(0.4, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r6nfi"]
+bg_color = Color(1, 1, 1, 1)
+skew = Vector2(0.4, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_3ktji"]
+font_size = 10
+font_color = Color(0, 0, 0, 1)
+outline_size = 2
+
+[node name="ColorBar" type="Control" unique_id=103800454]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 100.0
+offset_bottom = 15.0
+script = ExtResource("1_3ktji")
+back = SubResource("StyleBoxFlat_3ktji")
+middleA = SubResource("StyleBoxFlat_ujd40")
+middleB = SubResource("StyleBoxFlat_kndky")
+front = SubResource("StyleBoxFlat_r6nfi")
+
+[node name="text" type="Label" parent="." unique_id=581598374]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_right = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "50.0%"
+label_settings = SubResource("LabelSettings_3ktji")
+vertical_alignment = 1
+metadata/_edit_lock_ = true

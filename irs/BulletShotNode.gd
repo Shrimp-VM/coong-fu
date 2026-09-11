@@ -5,7 +5,11 @@ class_name BulletShootNode
 @export var bullet: ShrimpIR
 
 func execute(vm: ShrimpVM, context: ExecutionContext) -> Variant:
-	return ObjectManager.shootToMouse(await vm.execute(bullet, context), context.env.read_symbol("player"))
+	var player = context.env.read_symbol("player")
+	if player is BasePlayer:
+		ObjectManager.shootToMouse(await vm.execute(bullet, context), player)
+		player.energyInjected = 0
+	return
 
 static func get_category_tag() -> String:
 	return "攻击"

@@ -20,6 +20,7 @@ static func addBullet(namx: String, launcher: BaseEntity, positiox: Vector2 = Ve
 	bullet.rotation = rotatiox
 	if launcher is BaseLiving:
 		bullet.rotation_degrees += randf_range(-1, 1) * launcher.getStat(Stats.Living.OFFSET_SHOOT)
+		bullet.energyInjected = launcher.energyInjected
 	instance.add_child(bullet)
 	return [bullet]
 static func addEntity(namx: String, positiox: Vector2 = Vector2.ZERO) -> Array[BaseEntity]:

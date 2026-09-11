@@ -5,7 +5,7 @@ class_name BaseLiving
 
 @onready var stateBar: StateBar = $%stateBar
 var attackCooldowns: Dictionary[int, CooldownController] = {
-	0: CooldownController.new(200)
+	0: CooldownController.new(0)
 }
 var attackings: Array[int] = []
 var stats: Dictionary[Stats.Living, float] = {
@@ -17,6 +17,7 @@ var stats: Dictionary[Stats.Living, float] = {
 	Stats.Living.CRIT_RATE: 0.05,
 	Stats.Living.CRIT_DAMAGE: 1
 }
+var energyInjected: float = 10
 
 func _ready() -> void:
 	super._ready()

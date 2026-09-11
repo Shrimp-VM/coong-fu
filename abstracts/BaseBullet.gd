@@ -21,6 +21,7 @@ var spawnTime: float
 var currentPenetrated: int = 0
 var launcher: BaseEntity
 var ais: Array[BaseAI] = []
+var energyInjected: float = 10
 
 func _ready() -> void:
 	spawnPosition = position
@@ -41,7 +42,7 @@ func hitEntity(entity: BaseEntity) -> bool:
 
 func getBaseDamage() -> float:
 	if launcher is BaseLiving:
-		return launcher.getStat(Stats.Living.ATTACK_POWER) * launcher.getStat(Stats.Living.ATTACK_FACTOR) * damageFactor
+		return launcher.getStat(Stats.Living.ATTACK_POWER) * launcher.getStat(Stats.Living.ATTACK_FACTOR) * (energyInjected * 0.1) * damageFactor
 	else:
 		return defaultDamage * damageFactor
 func getAI() -> Array[BaseAI]:

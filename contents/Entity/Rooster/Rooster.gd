@@ -12,4 +12,4 @@ func attack(type: int):
 		0:
 			var script = EditorManager.instance.editor.fileManager.search("normalAttack")
 			if script is VirtualFile:
-				WorldManager.instance.vm.execute(ShrimpCompiler.import_json(script.content), WorldManager.instance.fightContext)
+				await WorldManager.instance.vm.execute(ShrimpCompiler.import_json(script.content), WorldManager.instance.fightContext)

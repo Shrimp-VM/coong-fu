@@ -13,7 +13,10 @@ var stats: Dictionary[Stats.Living, float] = {
 @export var attackGap: float = 500
 
 @onready var stateBar: StateBar = $%stateBar
-var attackCooldown: CooldownController
+var attackCooldowns: Dictionary[int, CooldownController] = {
+	0: CooldownController.new(200)
+}
+var attackings: Array[int] = []
 
 func _ready() -> void:
 	super._ready()
@@ -22,11 +25,20 @@ func _ready() -> void:
 			stateBar.healthBar.setCurrent(new)
 	)
 	applyMaxHealth()
-	attackCooldown = CooldownController.new(attackGap)
 
 func accelerationFactor() -> float:
 	return getStat(Stats.Living.MOVEMENT_FACTOR)
+func attack(type: int):
+	match type:
+		0:
+			pass
 
+func enterAttack(type: int):
+	if type in attackings: return
+	if !attackCooldowns[type].flag(): return
+	attackings.append(type)
+	await attack(type)
+	attackings.erase(type)
 func applyMaxHealth():
 	stateBar.healthBar.maxValue = getStat(Stats.Living.MAX_HEALTH)
 	setHealth(getStat(Stats.Living.MAX_HEALTH))

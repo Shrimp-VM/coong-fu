@@ -20,7 +20,9 @@ func _physics_process(delta: float) -> void:
 			ai.physics(self, delta)
 
 func hitEntity(entity: BaseEntity):
-	return DamageSource.new(launcher, getBaseDamage(), false, entity).apply()
+	match GameRuleManager.judgeCirt(launcher, getBaseDamage()):
+		[ var state, var dmg]:
+			return DamageSource.new(launcher, dmg, state, entity).apply()
 
 func getBaseDamage() -> float:
 	if launcher is BaseLiving:

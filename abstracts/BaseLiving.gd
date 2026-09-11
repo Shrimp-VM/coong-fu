@@ -6,7 +6,9 @@ class_name BaseLiving
 	Stats.Living.ATTACK_POWER: 100,
 	Stats.Living.MOVEMENT_FACTOR: 1,
 	Stats.Living.OFFSET_SHOOT: 0,
-	Stats.Living.ATTACK_FACTOR: 1
+	Stats.Living.ATTACK_FACTOR: 1,
+	Stats.Living.CRIT_RATE: 0.05,
+	Stats.Living.CRIT_DAMAGE: 1
 }
 @export var attackGap: float = 500
 

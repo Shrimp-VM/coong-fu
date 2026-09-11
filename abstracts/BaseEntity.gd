@@ -12,6 +12,11 @@ signal damageTaken(dmg: DamageSource)
 @onready var hurtboxArea: Area2D = $%hurtbox
 
 func _ready() -> void:
+	hurtboxArea.body_entered.connect(
+		func(body):
+			if body is BaseBullet:
+				GameRuleManager.bulletHitEntity(body, self)
+	)
 	spawn()
 func _physics_process(delta: float) -> void:
 	ai(delta)

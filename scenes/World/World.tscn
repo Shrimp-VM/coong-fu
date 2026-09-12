@@ -4,8 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://dhhjg1pr6dq86" path="res://resources/tiles/Hospital_A4.png" id="2_1bnsl"]
 [ext_resource type="Script" uid="uid://do3mm7p52m7hj" path="res://utils/Managers/Wave.gd" id="2_evp4r"]
 [ext_resource type="Script" uid="uid://dg4qnjilpkyvv" path="res://utils/Managers/Object.gd" id="2_kurpr"]
-[ext_resource type="Script" uid="uid://hbqyi720ydet" path="res://utils/Managers/Editor.gd" id="2_p47ta"]
-[ext_resource type="PackedScene" uid="uid://twhmsepd8isx" path="res://addons/shrimpvm/scenes/ir_editor.tscn" id="3_ictkp"]
 [ext_resource type="Texture2D" uid="uid://dofkf2g40oc4k" path="res://resources/tiles/Modern_Int_A4.png" id="3_mbmvx"]
 [ext_resource type="Texture2D" uid="uid://cbnybut0p01kw" path="res://resources/tiles/Inside_A5.png" id="4_3fwkt"]
 [ext_resource type="Script" uid="uid://drxoblkew75eu" path="res://addons/shrimpvm/shrimp_vm.gd" id="4_evp4r"]
@@ -434,14 +432,6 @@ script = ExtResource("2_evp4r")
 process_mode = 3
 script = ExtResource("5_dvfe2")
 metadata/_custom_type_script = "uid://d3snnnxwtodpe"
-
-[node name="EditorManager" type="Node" parent="." unique_id=1625709633]
-process_mode = 3
-script = ExtResource("2_p47ta")
-
-[node name="editor" parent="EditorManager" unique_id=1041740263 instance=ExtResource("3_ictkp")]
-visible = false
-finiteBlockCount = true
 
 [node name="vm" type="Node" parent="." unique_id=1545776356]
 unique_name_in_owner = true

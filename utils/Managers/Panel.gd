@@ -20,9 +20,15 @@ func _ready() -> void:
 static func close():
 	instance.get_tree().paused = false
 	if is_instance_valid(instance.current):
+		instance.current.z_index = 0
 		await instance.current.exit()
+	instance.current = null
 static func setCurrent(namx: String):
 	close()
 	instance.get_tree().paused = true
 	instance.current = instance.get_node(namx)
+	instance.current.z_index = 1
 	await instance.current.enter()
+static func getCurrent() -> String:
+	if !is_instance_valid(instance.current): return ""
+	return instance.current.name

@@ -22,6 +22,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_780vb"]
 size = Vector2(118, 104)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3nbgq"]
+size = Vector2(94, 30)
+
 [node name="BaseEntity" unique_id=334154807 instance=ExtResource("1_ngdyy")]
 script = ExtResource("2_3nbgq")
 
@@ -36,3 +39,6 @@ shape = SubResource("RectangleShape2D_780vb")
 
 [node name="stateBar" parent="." index="1" unique_id=1623109392]
 position = Vector2(0, -114)
+
+[node name="movebox" parent="." index="2" unique_id=721984946]
+shape = SubResource("RectangleShape2D_3nbgq")

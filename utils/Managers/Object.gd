@@ -23,9 +23,28 @@ static func addBullet(namx: String, launcher: BaseEntity, positiox: Vector2 = Ve
 		bullet.energyInjected = launcher.energyInjected
 		launcher.impact(GameRuleManager.impactVector(Vector2.from_angle(rotatiox), -bullet.recoil))
 	instance.add_child(bullet)
+	bullet.add_to_group("bullet")
 	return [bullet]
 static func addEntity(namx: String, positiox: Vector2 = Vector2.ZERO) -> Array[BaseEntity]:
 	var entity = (load("res://contents/Entity/%s/%s.tscn" % [namx, namx]) as PackedScene).instantiate() as BaseEntity
 	entity.position = positiox
 	instance.add_child(entity)
+	entity.add_to_group("entity")
+	if entity is BaseLiving:
+		entity.add_to_group("living")
+	if entity.isPlayer():
+		entity.add_to_group("player")
+	else:
+		entity.add_to_group("enemy")
 	return [entity]
+static func attractPlayer():
+	return MathUtil.weightPick(collectAttractonMap(instance.get_tree().get_nodes_in_group("player")))
+static func collectAttractonMap(livings: Array) -> Dictionary[BaseLiving, float]:
+	return livings.reduce(
+		func(current: Dictionary, next):
+			if next is BaseLiving:
+				return current.merged({next: next.getStat(Stats.Living.ATTRACTION_WEIGHT)}, true)
+			else:
+				return current,
+		{} as Dictionary[BaseLiving, float]
+	)

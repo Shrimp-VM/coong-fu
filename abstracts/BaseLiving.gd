@@ -2,10 +2,10 @@ extends BaseEntity
 class_name BaseLiving
 
 class BaseAI:
-	func run(entity: BaseEntity):
-		return entity
-	func physics(entity: BaseEntity, delta: float):
-		return [entity, delta]
+	func run(living: BaseLiving):
+		return living
+	func physics(living: BaseLiving, delta: float):
+		return [living, delta]
 
 @export var attackGap: float = 500
 
@@ -22,7 +22,8 @@ var stats: Dictionary[Stats.Living, float] = {
 	Stats.Living.ATTACK_FACTOR: 1,
 	Stats.Living.CRIT_RATE: 0.05,
 	Stats.Living.CRIT_DAMAGE: 1,
-	Stats.Living.ANTI_IMPACT: 0
+	Stats.Living.ANTI_IMPACT: 0,
+	Stats.Living.ATTRACTION_WEIGHT: 100
 }
 var energyInjected: float = 10
 var dashing: bool = false

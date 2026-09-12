@@ -4,3 +4,17 @@ static func rate(value: float) -> bool:
 	return randf() < value
 static func sampleCircle(radius: float) -> Vector2:
 	return Vector2.from_angle(randf_range(0, 2 * PI)) * randf_range(0, radius)
+static func weightPick(items: Dictionary) -> Variant:
+	var total = 0
+	for key in items:
+		total += items[key]
+	var roll = randi_range(1, total)
+	var current = 0
+	for key in items:
+		current += items[key]
+		if roll <= current:
+			return key
+	if items.is_empty():
+		return null
+	else:
+		return items.keys()[0]

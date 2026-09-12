@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://dofkf2g40oc4k" path="res://resources/tiles/Modern_Int_A4.png" id="3_mbmvx"]
 [ext_resource type="Texture2D" uid="uid://cbnybut0p01kw" path="res://resources/tiles/Inside_A5.png" id="4_3fwkt"]
 [ext_resource type="Script" uid="uid://drxoblkew75eu" path="res://addons/shrimpvm/shrimp_vm.gd" id="4_evp4r"]
-[ext_resource type="PackedScene" uid="uid://df5x6avs57nxk" path="res://contents/Entity/Rooster/Rooster.tscn" id="5_fngvn"]
 [ext_resource type="Script" uid="uid://c7vgbs6qjcs13" path="res://utils/Managers/Camera.gd" id="6_hkgio"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mbmvx"]
@@ -455,7 +454,3 @@ tile_set = SubResource("TileSet_6rd1t")
 [node name="objects" type="Node2D" parent="." unique_id=710241707]
 y_sort_enabled = true
 script = ExtResource("2_kurpr")
-
-[node name="Rooster" parent="objects" unique_id=334154807 instance=ExtResource("5_fngvn")]
-position = Vector2(154, 183)
-dashSpeed = 10.0

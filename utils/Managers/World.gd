@@ -10,5 +10,6 @@ var running: float = 0
 
 func _ready() -> void:
 	instance = self
+	ObjectManager.addEntity("Rooster")
 func _process(delta: float) -> void:
 	running += delta

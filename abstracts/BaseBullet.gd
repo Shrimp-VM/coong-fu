@@ -48,7 +48,7 @@ func hitEntity(entity: BaseEntity) -> bool:
 
 func getBaseDamage() -> float:
 	if launcher is BaseLiving:
-		return launcher.getStat(Stats.Living.ATTACK_POWER) * launcher.getStat(Stats.Living.ATTACK_FACTOR) * GameRuleManager.energyMapDamage(energyInjected) * damageFactor
+		return launcher.getBaseDamage() * GameRuleManager.energyMapDamage(energyInjected) * damageFactor
 	else:
 		return defaultDamage * damageFactor
 func getAI() -> Array[BaseAI]:

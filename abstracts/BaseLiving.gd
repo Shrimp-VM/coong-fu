@@ -49,9 +49,11 @@ func attack(type: int):
 	match type:
 		0:
 			pass
-
 func getAI() -> Array[BaseAI]:
 	return []
+
+func getBaseDamage() -> float:
+	return getStat(Stats.Living.ATTACK_POWER) * getStat(Stats.Living.ATTACK_FACTOR)
 func dash(force: Vector2):
 	if !dashCooldown.flag(): return
 	dashing = true

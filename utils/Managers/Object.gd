@@ -42,7 +42,11 @@ static func getEnemyCount(type: String) -> int:
 static func spawnAroundPlayer(namx: String) -> Array[BaseEntity]:
 	return addEntity(namx, getPlayer().position + GameRuleManager.enemySpawnOffset())
 static func getPlayer() -> BasePlayer:
-	return instance.get_tree().get_nodes_in_group("player")[0]
+	var players = instance.get_tree().get_nodes_in_group("player")
+	if !players.is_empty():
+		return players[0]
+	else:
+		return null
 static func collectAttractonMap(livings: Array) -> Dictionary[BaseLiving, float]:
 	return livings.reduce(
 		func(current: Dictionary, next):
@@ -52,3 +56,9 @@ static func collectAttractonMap(livings: Array) -> Dictionary[BaseLiving, float]
 				return current,
 		{} as Dictionary[BaseLiving, float]
 	)
+static func addExpBall(positiox: Vector2, impluse: Vector2 = Vector2.RIGHT) -> ExpBall:
+	var ball = (load("res://contents/Items/ExpBall.tscn") as PackedScene).instantiate() as ExpBall
+	ball.position = positiox
+	instance.add_child.call_deferred(ball)
+	ball.apply_impulse(impluse.normalized() * randf_range(100, 200))
+	return ball

@@ -4,6 +4,7 @@ class_name BasePlayer
 @export var dashSpeed: float = 40
 
 var hurtCooldown: CooldownController = CooldownController.new(1000)
+var expCount: float = 0
 
 func spawn():
 	CameraManager.follow(self)
@@ -23,3 +24,5 @@ func isPlayer() -> bool:
 	return true
 func isInvincible() -> bool:
 	return !hurtCooldown.canFlagNow() || super.isInvincible()
+func die() -> bool:
+	return false

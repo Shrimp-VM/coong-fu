@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://xq3jgkguhc8c"]
+
+[ext_resource type="Script" uid="uid://cpaua7vl1528r" path="res://contents/Items/ExpBall.gd" id="1_8lajo"]
+[ext_resource type="Texture2D" uid="uid://hdc7sc2xdxyt" path="res://contents/Items/basketball.svg" id="1_37q1j"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8lajo"]
+
+[node name="ExpBall" type="RigidBody2D" unique_id=846571145]
+gravity_scale = 0.0
+continuous_cd = 1
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_8lajo")
+
+[node name="texture" type="Sprite2D" parent="." unique_id=687914]
+scale = Vector2(0.43348768, 0.43348768)
+texture = ExtResource("1_37q1j")
+
+[node name="hitbox" type="CollisionShape2D" parent="." unique_id=571178138]
+shape = SubResource("CircleShape2D_8lajo")
+disabled = true

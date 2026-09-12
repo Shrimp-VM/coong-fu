@@ -13,6 +13,7 @@ signal damageTaken(dmg: DamageSource)
 @onready var texture: Node2D = $%texture
 var faceX: int = 1
 var forceInvincible: bool = false
+var dieing: bool = false
 
 func _ready() -> void:
 	hurtboxArea.area_entered.connect(
@@ -20,16 +21,13 @@ func _ready() -> void:
 			if body is BaseBullet:
 				GameRuleManager.bulletHitEntity(body, self)
 	)
-	healthChanged.connect(
-		func(new, _o):
-			if new <= 0:
-				queue_free()
-	)
+	healthChanged.connect(func(new, _o): if new <= 0: enterDie())
 	spawn()
 func _physics_process(delta: float) -> void:
-	ai(delta)
-	move_and_slide()
-	velocity *= 1 - fraction * delta
+	if isAlive():
+		ai(delta)
+		move_and_slide()
+		velocity *= 1 - fraction * delta
 	texture.scale.x = lerpf(texture.scale.x, faceX, 10 * delta)
 
 func accelerationFactor() -> float:
@@ -38,7 +36,14 @@ func spawn():
 	pass
 func ai(delta: float):
 	return delta
+func die() -> bool:
+	await get_tree().process_frame
+	return true
 
+func enterDie():
+	dieing = true
+	if await die():
+		queue_free()
 func setHealth(newHealth: float):
 	healthChanged.emit(newHealth, currentHealth)
 	currentHealth = newHealth
@@ -55,6 +60,8 @@ func accelerate(direction: Vector2, delta: float, maxSpeed: float) -> Vector2:
 func isPlayer() -> bool:
 	assert(false, "未实现")
 	return false
+func isAlive() -> bool:
+	return !dieing && currentHealth > 0
 func getAnchor(namx: String) -> Vector2:
 	var anchor = anchorParent.get_node(namx)
 	if anchor is Node2D:

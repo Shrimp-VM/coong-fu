@@ -47,6 +47,7 @@ func hitEntity(entity: BaseEntity) -> bool:
 	return true
 
 func getBaseDamage() -> float:
+	if !is_instance_valid(launcher): return 0
 	if launcher is BaseLiving:
 		return launcher.getBaseDamage() * GameRuleManager.energyMapDamage(energyInjected) * damageFactor
 	else:

@@ -1,9 +1,9 @@
 extends BaseLiving
 class_name BasePlayer
 
-@export var dashSpeed: float = 20
+@export var dashSpeed: float = 40
 
-var hurtCooldown: CooldownController = CooldownController.new(1000)
+var hurtCooldown: CooldownController = CooldownController.new(500)
 
 func spawn():
 	CameraManager.follow(self)

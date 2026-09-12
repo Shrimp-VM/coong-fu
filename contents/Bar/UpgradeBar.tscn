@@ -2,8 +2,11 @@
 
 [ext_resource type="Script" uid="uid://dcqp1jpjelc4t" path="res://contents/Bar/UpgradeBar.gd" id="1_0ts7g"]
 [ext_resource type="PackedScene" uid="uid://daf1is503pe2i" path="res://addons/shrimpvm/scenes/node_block.tscn" id="1_104vb"]
-[ext_resource type="Script" uid="uid://1hlfdlxujevh" path="res://irs/CreateBulletNode.gd" id="2_art3g"]
+[ext_resource type="Script" uid="uid://qq17orpp58tj" path="res://addons/shrimpvm/shrimp_ir.gd" id="2_nd3jx"]
 [ext_resource type="PackedScene" uid="uid://cwjvn21pj3cv0" path="res://contents/Bar/Triangle.tscn" id="3_366hu"]
+[ext_resource type="Script" uid="uid://wcx6kruoo167" path="res://addons/shrimpvm/nodes/literals/string_node.gd" id="3_masfi"]
+[ext_resource type="Script" uid="uid://da63e86ydg0o" path="res://addons/shrimpvm/nodes/functions/print_node.gd" id="4_y8j1k"]
+[ext_resource type="Script" uid="uid://uw4oee4tvks" path="res://addons/shrimpvm/nodes/base/root_node.gd" id="5_ahs37"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ek2hm"]
 content_margin_left = 20.0
@@ -21,9 +24,20 @@ corner_radius_top_left = 15
 corner_radius_bottom_right = 15
 corner_detail = 1
 
-[sub_resource type="Resource" id="Resource_366hu"]
-script = ExtResource("2_art3g")
-metadata/_custom_type_script = "uid://1hlfdlxujevh"
+[sub_resource type="Resource" id="Resource_wgnbx"]
+script = ExtResource("3_masfi")
+content = "data"
+metadata/_custom_type_script = "uid://wcx6kruoo167"
+
+[sub_resource type="Resource" id="Resource_dpqxb"]
+script = ExtResource("4_y8j1k")
+content = SubResource("Resource_wgnbx")
+metadata/_custom_type_script = "uid://da63e86ydg0o"
+
+[sub_resource type="Resource" id="Resource_ni6rw"]
+script = ExtResource("5_ahs37")
+body = Array[ExtResource("2_nd3jx")]([SubResource("Resource_dpqxb")])
+metadata/_custom_type_script = "uid://uw4oee4tvks"
 
 [sub_resource type="Animation" id="Animation_366hu"]
 length = 0.001
@@ -67,7 +81,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.25),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0.0, 1.0]
+"values": [1.0, 0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_x5d7a"]
@@ -94,7 +108,7 @@ corner_detail = 1
 [node name="UpgradeBar" type="PanelContainer" unique_id=734359202]
 theme_override_styles/panel = SubResource("StyleBoxFlat_ek2hm")
 script = ExtResource("1_0ts7g")
-ir = SubResource("Resource_366hu")
+ir = SubResource("Resource_ni6rw")
 
 [node name="animator" type="AnimationPlayer" parent="." unique_id=2140310474]
 unique_name_in_owner = true
@@ -126,7 +140,7 @@ layout_mode = 2
 inDesk = true
 
 [node name="t2" parent="wrapper/wrapper2/wrapper" unique_id=2105296170 instance=ExtResource("3_366hu")]
-modulate = Color(1, 1, 1, 0)
+modulate = Color(1, 1, 1, 0.50666666)
 custom_minimum_size = Vector2(15, 10)
 layout_mode = 2
 size_flags_horizontal = 1

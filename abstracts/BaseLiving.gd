@@ -27,7 +27,7 @@ var stats: Dictionary[Stats.Living, float] = {
 }
 var energyInjected: float = 10
 var dashing: bool = false
-var dashCooldown: CooldownController = CooldownController.new(1000)
+var dashCooldown: CooldownController = CooldownController.new(500)
 var ais: Array[BaseAI] = []
 var focusingEntity: BaseEntity = null
 

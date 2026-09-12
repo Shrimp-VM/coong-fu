@@ -3,7 +3,7 @@ class_name BasePlayer
 
 @export var dashSpeed: float = 40
 
-var hurtCooldown: CooldownController = CooldownController.new(500)
+var hurtCooldown: CooldownController = CooldownController.new(1000)
 
 func spawn():
 	CameraManager.follow(self)

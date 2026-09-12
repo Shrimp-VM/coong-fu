@@ -19,6 +19,8 @@ var stats: Dictionary[Stats.Living, float] = {
 	Stats.Living.ANTI_IMPACT: 0
 }
 var energyInjected: float = 10
+var dashing: bool = false
+var dashCooldown: CooldownController = CooldownController.new(1000)
 
 func _ready() -> void:
 	super._ready()
@@ -35,6 +37,16 @@ func attack(type: int):
 		0:
 			pass
 
+func dash(force: Vector2, duration: float):
+	if !dashCooldown.flag(): return
+	dashing = true
+	fraction *= 0.1
+	dashCooldown.lock()
+	impact(force)
+	await TimeUtil.millseconds(duration)
+	dashCooldown.unlock()
+	fraction /= 0.1
+	dashing = false
 func impact(force: Vector2):
 	return super.impact(force / (1 + getStat(Stats.Living.ANTI_IMPACT)))
 func enterAttack(type: int):
@@ -45,6 +57,7 @@ func enterAttack(type: int):
 	attackings.erase(type)
 func applyMaxHealth():
 	stateBar.healthBar.maxValue = getStat(Stats.Living.MAX_HEALTH)
+	stateBar.healthBar.fillTo(getStat(Stats.Living.MAX_HEALTH))
 	setHealth(getStat(Stats.Living.MAX_HEALTH))
 func setHealth(newHealth: float):
 	super.setHealth(clamp(newHealth, 0, getStat(Stats.Living.MAX_HEALTH)))

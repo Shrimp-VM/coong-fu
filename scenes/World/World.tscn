@@ -436,10 +436,12 @@ script = ExtResource("4_evp4r")
 metadata/_custom_type_script = "uid://drxoblkew75eu"
 
 [node name="camera" type="Camera2D" parent="." unique_id=1369065500]
+process_callback = 0
 limit_left = -541
 limit_top = -321
 limit_right = 1357
 limit_bottom = 653
+position_smoothing_enabled = true
 script = ExtResource("6_hkgio")
 
 [node name="map" type="Node2D" parent="." unique_id=160997719]
@@ -454,3 +456,4 @@ script = ExtResource("2_kurpr")
 
 [node name="Rooster" parent="objects" unique_id=334154807 instance=ExtResource("5_fngvn")]
 position = Vector2(154, 183)
+dashSpeed = 10.0

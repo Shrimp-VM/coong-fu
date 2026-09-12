@@ -1,9 +1,40 @@
 [gd_scene format=3 uid="uid://xupooukqxg26"]
 
 [ext_resource type="PackedScene" uid="uid://twhmsepd8isx" path="res://addons/shrimpvm/scenes/ir_editor.tscn" id="1_k7vvl"]
+[ext_resource type="Script" uid="uid://qq17orpp58tj" path="res://addons/shrimpvm/shrimp_ir.gd" id="2_mj2nh"]
+[ext_resource type="Script" uid="uid://drn2wt71gsryb" path="res://irs/InjectEnergyNode.gd" id="3_kki3y"]
+[ext_resource type="Script" uid="uid://uw4oee4tvks" path="res://addons/shrimpvm/nodes/base/root_node.gd" id="3_w4jcu"]
+[ext_resource type="Script" uid="uid://1hlfdlxujevh" path="res://irs/CreateBulletNode.gd" id="4_d6eph"]
+[ext_resource type="Script" uid="uid://c3vuueq616p48" path="res://irs/BulletShotNode.gd" id="5_vuoy2"]
+
+[sub_resource type="Resource" id="Resource_mj2nh"]
+script = ExtResource("3_w4jcu")
+metadata/_custom_type_script = "uid://uw4oee4tvks"
+
+[sub_resource type="Resource" id="Resource_kki3y"]
+script = ExtResource("3_kki3y")
+metadata/_custom_type_script = "uid://drn2wt71gsryb"
+
+[sub_resource type="Resource" id="Resource_d6eph"]
+script = ExtResource("4_d6eph")
+metadata/_custom_type_script = "uid://1hlfdlxujevh"
+
+[sub_resource type="Resource" id="Resource_vuoy2"]
+script = ExtResource("5_vuoy2")
+bullet = SubResource("Resource_d6eph")
+metadata/_custom_type_script = "uid://c3vuueq616p48"
+
+[sub_resource type="Resource" id="Resource_lsboy"]
+script = ExtResource("3_w4jcu")
+body = Array[ExtResource("2_mj2nh")]([SubResource("Resource_kki3y"), SubResource("Resource_vuoy2")])
+metadata/_custom_type_script = "uid://uw4oee4tvks"
 
 [node name="CoongFuEditor" unique_id=2000783686 instance=ExtResource("1_k7vvl")]
 finiteBlockCount = true
+initialDesk = Array[ExtResource("2_mj2nh")]([SubResource("Resource_mj2nh")])
+defaultFileSystem = Dictionary[StringName, ExtResource("2_mj2nh")]({
+&"normalAttack": SubResource("Resource_lsboy")
+})
 
 [node name="fileManager" parent="." index="1" unique_id=1307891398]
 allowArchive = false

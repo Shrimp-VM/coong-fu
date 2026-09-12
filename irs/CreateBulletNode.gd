@@ -6,6 +6,10 @@ class_name CreateBulletNode
 
 func execute(_vm: ShrimpVM, _context: ExecutionContext) -> Variant:
 	return get_keys_type("content")[content]
+func decompile() -> Dictionary:
+	return {
+		"content": content
+	}
 
 static func get_category_tag() -> String:
 	return "攻击"

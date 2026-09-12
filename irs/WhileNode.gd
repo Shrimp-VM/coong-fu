@@ -10,6 +10,11 @@ func execute(vm: ShrimpVM, context: ExecutionContext) -> Variant:
 		var newContext = ExecutionContext.new(context)
 		await vm.execute_all(body, newContext)
 	return
+func decompile() -> Dictionary:
+	return {
+		"count": ShrimpCompiler.decompile(count),
+		"body": ShrimpCompiler.decompile_body(body)
+	}
 
 static func get_category_tag() -> String:
 	return "控制流"

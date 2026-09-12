@@ -80,3 +80,13 @@ func setStat(key: Stats.Living, value: float):
 	stats.set(key, value)
 func getStat(key: Stats.Living) -> float:
 	return stats.get(key, 0)
+func distanceToFocusing() -> float:
+	if is_instance_valid(focusingEntity):
+		return position.distance_to(focusingEntity.position)
+	else:
+		return INF
+func rotationToFocusing() -> float:
+	if is_instance_valid(focusingEntity):
+		return position.angle_to_point(focusingEntity.position)
+	else:
+		return 0

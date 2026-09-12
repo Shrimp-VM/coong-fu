@@ -7,6 +7,8 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_opx8x"]
 
 [node name="BaseBullet" type="Area2D" unique_id=568331356]
+z_index = 5
+z_as_relative = false
 script = ExtResource("2_2plmj")
 
 [node name="texture" type="Node2D" parent="." unique_id=1274454792]

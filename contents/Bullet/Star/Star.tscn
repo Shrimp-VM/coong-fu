@@ -9,6 +9,7 @@ radius = 6.0
 
 [node name="BaseBullet" unique_id=568331356 instance=ExtResource("1_52hw3")]
 script = ExtResource("2_75ws4")
+baseMovement = 1000.0
 
 [node name="static" parent="texture" parent_id_path=PackedInt32Array(1274454792) index="1" unique_id=193572939]
 rotation = -0.08806022

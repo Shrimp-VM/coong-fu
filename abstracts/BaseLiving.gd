@@ -90,3 +90,5 @@ func rotationToFocusing() -> float:
 		return position.angle_to_point(focusingEntity.position)
 	else:
 		return 0
+func isInvincible() -> bool:
+	return dashing || super.isInvincible()

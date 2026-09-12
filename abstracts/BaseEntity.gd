@@ -12,6 +12,7 @@ signal damageTaken(dmg: DamageSource)
 @onready var hurtboxArea: Area2D = $%hurtbox
 @onready var texture: Node2D = $%texture
 var faceX: int = 1
+var forceInvincible: bool = false
 
 func _ready() -> void:
 	hurtboxArea.area_entered.connect(
@@ -60,3 +61,5 @@ func getAnchor(namx: String) -> Vector2:
 		return anchor.global_position
 	else:
 		return Vector2.ZERO
+func isInvincible() -> bool:
+	return forceInvincible

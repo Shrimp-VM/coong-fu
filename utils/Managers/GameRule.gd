@@ -1,6 +1,7 @@
 class_name GameRuleManager
 
 static func bulletHitEntity(bullet: BaseBullet, entity: BaseEntity):
+	if entity.isInvincible(): return
 	if is_instance_valid(bullet.launcher):
 		if bullet.launcher.isPlayer() == entity.isPlayer(): return
 	if bullet.hitEntity(entity):

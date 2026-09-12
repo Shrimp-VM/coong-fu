@@ -5,15 +5,14 @@
 [ext_resource type="Script" uid="uid://digc1bjctaeyy" path="res://contents/Bullet/Star/Star.gd" id="2_75ws4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_38wsh"]
-radius = 6.0
+radius = 13.152946
 
 [node name="BaseBullet" unique_id=568331356 instance=ExtResource("1_52hw3")]
 script = ExtResource("2_75ws4")
-baseMovement = 1000.0
+baseMovement = 500.0
 
 [node name="static" parent="texture" parent_id_path=PackedInt32Array(1274454792) index="1" unique_id=193572939]
 rotation = -0.08806022
-scale = Vector2(0.5169607, 0.5169607)
 texture = ExtResource("2_38wsh")
 
 [node name="movebox" parent="." index="1" unique_id=721984946]

@@ -59,6 +59,7 @@ func getStat(key: Stats.Bullet) -> float:
 	return stats.get(key, 0)
 func isLiving() -> bool:
 	return (
+		is_instance_valid(launcher) &&
 		position.distance_to(spawnPosition) < lifeDistance &&
 		TimeUtil.current() - spawnTime < lifeTime &&
 		!isFullPenetrated()

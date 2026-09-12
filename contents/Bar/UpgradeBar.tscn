@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dcqp1jpjelc4t" path="res://contents/Bar/UpgradeBar.gd" id="1_0ts7g"]
 [ext_resource type="PackedScene" uid="uid://daf1is503pe2i" path="res://addons/shrimpvm/scenes/node_block.tscn" id="1_104vb"]
 [ext_resource type="Script" uid="uid://qq17orpp58tj" path="res://addons/shrimpvm/shrimp_ir.gd" id="2_nd3jx"]
-[ext_resource type="PackedScene" uid="uid://cwjvn21pj3cv0" path="res://contents/Bar/Triangle.tscn" id="3_366hu"]
+[ext_resource type="PackedScene" uid="uid://cwjvn21pj3cv0" path="res://addons/shrimpvm/scenes/triangle.tscn" id="3_366hu"]
 [ext_resource type="Script" uid="uid://wcx6kruoo167" path="res://addons/shrimpvm/nodes/literals/string_node.gd" id="3_masfi"]
 [ext_resource type="Script" uid="uid://da63e86ydg0o" path="res://addons/shrimpvm/nodes/functions/print_node.gd" id="4_y8j1k"]
 [ext_resource type="Script" uid="uid://uw4oee4tvks" path="res://addons/shrimpvm/nodes/base/root_node.gd" id="5_ahs37"]

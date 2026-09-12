@@ -5,8 +5,10 @@ class_name SpeedUpNode
 class SpeedUpEffect extends FightHook:
 	func getLivingStatsModifiers(_l) -> Dictionary[Stats.Living, ValueModifier]:
 		return {
-			Stats.Living.ATTACK_SPEED: ValueModifier.new(ValueModifier.Method.ADD, 2)
+			Stats.Living.ATTACK_SPEED: ValueModifier.new(ValueModifier.Method.ADD, 0.1)
 		}
+	func onLivingAttack(_living: BaseLiving, _type: int):
+		exit()
 
 func execute(_vm: ShrimpVM, context: ExecutionContext) -> Variant:
 	var player = context.env.read_symbol("player")

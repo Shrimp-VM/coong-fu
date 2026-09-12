@@ -18,7 +18,7 @@ class BaseAI:
 	Stats.Bullet.PENETRATE: 0
 }
 @export var impact: float = 1
-@export var recoil: float = 1
+@export var recoil: float = 0
 
 var spawnPosition: Vector2
 var spawnTime: float

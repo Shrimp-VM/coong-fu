@@ -2,7 +2,8 @@ extends Node
 class_name HookController
 
 enum EventName {
-	getLivingStatsModifiers
+	getLivingStatsModifiers,
+	onLivingAttack
 }
 
 var hooks: Array[FightHook] = []
@@ -18,6 +19,7 @@ func unsubscribe(hook: FightHook):
 func subscribe(hook: FightHook):
 	if hook in hooks: return
 	hooks.append(hook)
+	hook.queueExit.connect(func(): unsubscribe(hook))
 
 static func getEventMethod(event: EventName) -> StringName:
 	return EventName.find_key(event)

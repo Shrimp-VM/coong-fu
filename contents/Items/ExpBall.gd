@@ -1,7 +1,7 @@
 extends RigidBody2D
 class_name ExpBall
 
-const ATTRACT_DISTANCE = 300
+const ATTRACT_DISTANCE = 600
 const COLLECT_DISTANCE = 50
 
 @export var value: float = 100

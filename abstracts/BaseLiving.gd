@@ -74,6 +74,7 @@ func enterAttack(type: int):
 	attackCooldowns[type].cooldownSpeed = getStat(Stats.Living.ATTACK_SPEED)
 	if !attackCooldowns[type].flag(): return
 	attackings.append(type)
+	hook.callEvent(HookController.EventName.onLivingAttack, [self, type])
 	await attack(type)
 	attackings.erase(type)
 func applyMaxHealth():
@@ -90,7 +91,7 @@ func getStat(key: Stats.Living) -> float:
 			pass
 	return (
 		ValueModifier
-			.fromChain(hook.callEvent(HookController.EventName.getLivingStatsModifiers, [self]))
+			.fromChain(hook.callEvent(HookController.EventName.getLivingStatsModifiers, [self]).map(func(e: Dictionary): return e.get(key)))
 			.modify(stats.get(key, 0))
 	)
 func distanceToFocusing() -> float:

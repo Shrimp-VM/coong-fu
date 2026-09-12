@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://d4dd3x8rjd780" path="res://contents/Bullet/PurpleCrystal/PurpleCrystal.gd" id="2_lrwsk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k4xp3"]
-size = Vector2(46, 14)
+size = Vector2(23, 14)
 
 [node name="BaseBullet" unique_id=568331356 instance=ExtResource("1_k4xp3")]
 script = ExtResource("2_lrwsk")
@@ -16,4 +16,5 @@ baseMovement = 300.0
 texture = ExtResource("2_72ib2")
 
 [node name="movebox" parent="." index="1" unique_id=721984946]
+position = Vector2(-11.5, 0)
 shape = SubResource("RectangleShape2D_k4xp3")

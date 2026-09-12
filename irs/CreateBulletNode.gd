@@ -8,7 +8,7 @@ func execute(_vm: ShrimpVM, _context: ExecutionContext) -> Variant:
 	return get_keys_type("content")[content]
 
 static func get_category_tag() -> String:
-	return "子弹"
+	return "攻击"
 static func create_from(wrapper: Dictionary) -> CreateBulletNode:
 	var result = new()
 	result.content = wrapper.content

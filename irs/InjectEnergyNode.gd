@@ -5,7 +5,6 @@ class_name InjectEnergyNode
 func execute(_vm: ShrimpVM, context: ExecutionContext) -> Variant:
 	var player = context.env.read_symbol("player")
 	if player is BasePlayer:
-		await TimeUtil.millseconds(400)
 		player.energyInjected += 10
 	return
 

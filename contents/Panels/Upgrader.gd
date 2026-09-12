@@ -6,8 +6,10 @@ var irs: Array[ShrimpIR] = ShrimpVMUtil.scan_ir_nodes(["res://irs/"])
 
 func beforeEnter():
 	ShrimpVMUtil.disconnect_children(blocksContainer)
+	var pool = irs.duplicate()
 	for i in 3:
-		var ir = irs.pick_random()
+		var ir = pool.pick_random()
+		pool.erase(ir)
 		var bar = preload("res://contents/Bar/UpgradeBar.tscn").instantiate() as UpgradeBar
 		bar.ir = ir
 		bar.select.connect(

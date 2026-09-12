@@ -12,7 +12,7 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
 tracks/1/type = "bezier"
@@ -23,7 +23,7 @@ tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
 tracks/2/type = "bezier"
@@ -45,7 +45,7 @@ tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.125, 0, 0.125, 0),
+"points": PackedFloat32Array(1, -0.125, 0, 0.125, 0),
 "times": PackedFloat32Array(0)
 }
 tracks/4/type = "value"
@@ -58,7 +58,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0.0]
+"values": [1.0]
 }
 
 [sub_resource type="Animation" id="Animation_q5ee2"]
@@ -214,7 +214,6 @@ unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_yfg6g")
 
 [node name="background" type="ColorRect" parent="." unique_id=994592189]
-modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -224,14 +223,12 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0.70000005)
 
 [node name="wrapper" type="PanelContainer" parent="." unique_id=67005981]
-modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(1e-05, 1e-05)
 pivot_offset_ratio = Vector2(0.5, 0.5)
 theme_override_styles/panel = SubResource("StyleBoxEmpty_q5ee2")
 

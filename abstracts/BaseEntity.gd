@@ -41,6 +41,7 @@ func die() -> bool:
 	return true
 
 func enterDie():
+	if dieing: return
 	dieing = true
 	if await die():
 		queue_free()

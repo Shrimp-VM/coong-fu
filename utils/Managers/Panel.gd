@@ -13,21 +13,21 @@ func _ready() -> void:
 		var scene = load(SCENE_DIR.path_join(fp))
 		if scene is PackedScene:
 			var panel = scene.instantiate() as BasePanel
-			panel.show()
+			panel.hide()
 			add_child(panel)
-			panel.animator.play("RESET")
 
 static func close():
 	instance.get_tree().paused = false
 	if is_instance_valid(instance.current):
-		instance.current.z_index = 0
-		await instance.current.exit()
+		var currency = instance.current
+		await currency.exit()
+		currency.hide()
 	instance.current = null
 static func setCurrent(namx: String):
 	close()
 	instance.get_tree().paused = true
 	instance.current = instance.get_node(namx)
-	instance.current.z_index = 1
+	instance.current.show()
 	await instance.current.enter()
 static func getCurrent() -> String:
 	if !is_instance_valid(instance.current): return ""

@@ -2,8 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://twhmsepd8isx" path="res://addons/shrimpvm/scenes/ir_editor.tscn" id="1_k7vvl"]
 
-[node name="IR-Editor" unique_id=2000783686 instance=ExtResource("1_k7vvl")]
+[node name="CoongFuEditor" unique_id=2000783686 instance=ExtResource("1_k7vvl")]
 finiteBlockCount = true
+
+[node name="fileManager" parent="." index="1" unique_id=1307891398]
+allowArchive = false
 
 [node name="bg" parent="." index="2" unique_id=481410875]
 visible = false

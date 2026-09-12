@@ -3,11 +3,17 @@
 [ext_resource type="PackedScene" uid="uid://b1kxku01kygw3" path="res://abstracts/BaseEntity.tscn" id="1_xavev"]
 [ext_resource type="Script" uid="uid://dn2ogwm58m3tt" path="res://abstracts/BaseLiving.gd" id="2_3px8a"]
 [ext_resource type="PackedScene" uid="uid://8u3jev3pleu" path="res://contents/Bar/StateBar.tscn" id="3_5u38y"]
+[ext_resource type="Script" uid="uid://smd2owv864g8" path="res://utils/Controllers/HookController.gd" id="3_fkwij"]
 
 [node name="BaseEntity" unique_id=334154807 instance=ExtResource("1_xavev")]
 script = ExtResource("2_3px8a")
 attackGap = 500.0
 
-[node name="stateBar" parent="." index="1" unique_id=1623109392 instance=ExtResource("3_5u38y")]
+[node name="hook" type="Node" parent="." index="0" unique_id=1033302218]
+unique_name_in_owner = true
+script = ExtResource("3_fkwij")
+metadata/_custom_type_script = "uid://smd2owv864g8"
+
+[node name="stateBar" parent="." index="2" unique_id=1623109392 instance=ExtResource("3_5u38y")]
 unique_name_in_owner = true
 position = Vector2(0, -60)

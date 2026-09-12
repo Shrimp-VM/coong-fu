@@ -4,6 +4,7 @@ class_name CooldownController
 var cooldown: float
 var lastFlag: float
 var locking: bool = false
+var cooldownSpeed: float = 1
 
 func _init(cooldowx: float, canFlag: bool = false) -> void:
 	cooldown = cooldowx
@@ -12,10 +13,12 @@ func _init(cooldowx: float, canFlag: bool = false) -> void:
 	else:
 		lastFlag = TimeUtil.current()
 
+func scaledCooldown() -> float:
+	return cooldown / cooldownSpeed
 func timeSince():
 	return TimeUtil.current() - lastFlag
 func canFlagNow() -> bool:
-	return !locking && timeSince() >= cooldown
+	return !locking && timeSince() >= scaledCooldown()
 func flag() -> bool:
 	if canFlagNow():
 		lastFlag = TimeUtil.current()

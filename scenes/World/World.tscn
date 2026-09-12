@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://dg4qnjilpkyvv" path="res://utils/Managers/Object.gd" id="2_kurpr"]
 [ext_resource type="Texture2D" uid="uid://dofkf2g40oc4k" path="res://resources/tiles/Modern_Int_A4.png" id="3_mbmvx"]
 [ext_resource type="Texture2D" uid="uid://cbnybut0p01kw" path="res://resources/tiles/Inside_A5.png" id="4_3fwkt"]
+[ext_resource type="Script" uid="uid://smd2owv864g8" path="res://utils/Controllers/HookController.gd" id="4_dvfe2"]
 [ext_resource type="Script" uid="uid://drxoblkew75eu" path="res://addons/shrimpvm/shrimp_vm.gd" id="4_evp4r"]
 [ext_resource type="Script" uid="uid://d3snnnxwtodpe" path="res://utils/Managers/Panel.gd" id="5_dvfe2"]
 [ext_resource type="Script" uid="uid://c7vgbs6qjcs13" path="res://utils/Managers/Camera.gd" id="6_hkgio"]
@@ -432,6 +433,10 @@ script = ExtResource("2_evp4r")
 process_mode = 3
 script = ExtResource("5_dvfe2")
 metadata/_custom_type_script = "uid://d3snnnxwtodpe"
+
+[node name="hook" type="Node" parent="." unique_id=59960415]
+unique_name_in_owner = true
+script = ExtResource("4_dvfe2")
 
 [node name="vm" type="Node" parent="." unique_id=1545776356]
 unique_name_in_owner = true

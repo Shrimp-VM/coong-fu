@@ -10,6 +10,7 @@ class BaseAI:
 @export var attackGap: float = 500
 
 @onready var stateBar: StateBar = $%stateBar
+@onready var hook: HookController = $%hook
 var attackCooldowns: Dictionary[int, CooldownController] = {
 	0: CooldownController.new(0)
 }
@@ -23,7 +24,8 @@ var stats: Dictionary[Stats.Living, float] = {
 	Stats.Living.CRIT_RATE: 0.05,
 	Stats.Living.CRIT_DAMAGE: 1,
 	Stats.Living.ANTI_IMPACT: 0,
-	Stats.Living.ATTRACTION_WEIGHT: 100
+	Stats.Living.ATTRACTION_WEIGHT: 100,
+	Stats.Living.ATTACK_SPEED: 1
 }
 var energyInjected: float = 10
 var dashing: bool = false
@@ -69,6 +71,7 @@ func impact(force: Vector2):
 	return super.impact(force / (1 + getStat(Stats.Living.ANTI_IMPACT)))
 func enterAttack(type: int):
 	if type in attackings: return
+	attackCooldowns[type].cooldownSpeed = getStat(Stats.Living.ATTACK_SPEED)
 	if !attackCooldowns[type].flag(): return
 	attackings.append(type)
 	await attack(type)
@@ -82,7 +85,14 @@ func setHealth(newHealth: float):
 func setStat(key: Stats.Living, value: float):
 	stats.set(key, value)
 func getStat(key: Stats.Living) -> float:
-	return stats.get(key, 0)
+	if key == Stats.Living.ATTACK_SPEED:
+		if isPlayer():
+			pass
+	return (
+		ValueModifier
+			.fromChain(hook.callEvent(HookController.EventName.getLivingStatsModifiers, [self]))
+			.modify(stats.get(key, 0))
+	)
 func distanceToFocusing() -> float:
 	if is_instance_valid(focusingEntity):
 		return position.distance_to(focusingEntity.position)

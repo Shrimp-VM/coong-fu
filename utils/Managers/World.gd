@@ -6,6 +6,7 @@ static var instance: WorldManager
 static var fightContext: ExecutionContext = ExecutionContext.new()
 
 @onready var vm: ShrimpVM = $%vm
+@onready var hook: HookController = $%hook
 var running: float = 0
 
 func _ready() -> void:

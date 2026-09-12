@@ -44,6 +44,8 @@ func setHealth(newHealth: float):
 func applyDamage(dmg: DamageSource):
 	damageTaken.emit(dmg)
 	setHealth(currentHealth - dmg.amount)
+func impact(force: Vector2):
+	velocity += force
 func accelerate(direction: Vector2, delta: float, maxSpeed: float) -> Vector2:
 	velocity = (velocity + direction.normalized() * baseMovement * 200 * accelerationFactor() * delta).limit_length(maxSpeed)
 	if abs(direction.x) > 0:

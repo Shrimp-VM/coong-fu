@@ -15,7 +15,8 @@ var stats: Dictionary[Stats.Living, float] = {
 	Stats.Living.OFFSET_SHOOT: 0,
 	Stats.Living.ATTACK_FACTOR: 1,
 	Stats.Living.CRIT_RATE: 0.05,
-	Stats.Living.CRIT_DAMAGE: 1
+	Stats.Living.CRIT_DAMAGE: 1,
+	Stats.Living.ANTI_IMPACT: 0
 }
 var energyInjected: float = 10
 
@@ -34,6 +35,8 @@ func attack(type: int):
 		0:
 			pass
 
+func impact(force: Vector2):
+	return super.impact(force / (1 + getStat(Stats.Living.ANTI_IMPACT)))
 func enterAttack(type: int):
 	if type in attackings: return
 	if !attackCooldowns[type].flag(): return

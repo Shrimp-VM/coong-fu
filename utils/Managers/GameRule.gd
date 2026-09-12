@@ -13,3 +13,7 @@ static func judgeCirt(launcher: BaseEntity, base: float = 0):
 		return [state, base * (1 + int(state) * launcher.getStat(Stats.Living.CRIT_DAMAGE))]
 	else:
 		return [false, base]
+static func energyMapDamage(energy: float) -> float:
+	return energy * 0.1
+static func impactVector(direction: Vector2, speed: float):
+	return direction.normalized() * speed * 100

@@ -37,5 +37,5 @@ position = Vector2(55, -112)
 position = Vector2(0, -64.5)
 shape = SubResource("RectangleShape2D_m1qjg")
 
-[node name="stateBar" parent="texture" parent_id_path=PackedInt32Array(1274454792) index="4" unique_id=1623109392]
+[node name="stateBar" parent="." index="1" unique_id=1623109392]
 position = Vector2(0, -148)

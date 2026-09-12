@@ -34,5 +34,5 @@ frame_progress = 0.7660225
 position = Vector2(0, -52)
 shape = SubResource("RectangleShape2D_780vb")
 
-[node name="stateBar" parent="texture" parent_id_path=PackedInt32Array(1274454792) index="4" unique_id=1623109392]
+[node name="stateBar" parent="." index="1" unique_id=1623109392]
 position = Vector2(0, -114)

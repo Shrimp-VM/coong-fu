@@ -1,6 +1,8 @@
 extends Area2D
 class_name BaseBullet
 
+signal entityHit(entity: BaseEntity)
+
 class BaseAI extends Resource:
 	func run(bullet: BaseBullet):
 		return bullet
@@ -15,6 +17,8 @@ class BaseAI extends Resource:
 @export var stats: Dictionary[Stats.Bullet, float] = {
 	Stats.Bullet.PENETRATE: 0
 }
+@export var impact: float = 1
+@export var recoil: float = 1
 
 var spawnPosition: Vector2
 var spawnTime: float
@@ -38,11 +42,13 @@ func hitEntity(entity: BaseEntity) -> bool:
 	match GameRuleManager.judgeCirt(launcher, getBaseDamage()):
 		[ var state, var dmg]:
 			DamageSource.new(launcher, dmg, state, entity).apply()
+	entityHit.emit(entity)
+	entity.impact(GameRuleManager.impactVector(Vector2.from_angle(rotation), impact))
 	return true
 
 func getBaseDamage() -> float:
 	if launcher is BaseLiving:
-		return launcher.getStat(Stats.Living.ATTACK_POWER) * launcher.getStat(Stats.Living.ATTACK_FACTOR) * (energyInjected * 0.1) * damageFactor
+		return launcher.getStat(Stats.Living.ATTACK_POWER) * launcher.getStat(Stats.Living.ATTACK_FACTOR) * GameRuleManager.energyMapDamage(energyInjected) * damageFactor
 	else:
 		return defaultDamage * damageFactor
 func getAI() -> Array[BaseAI]:

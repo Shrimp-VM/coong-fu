@@ -20,5 +20,5 @@ func _physics_process(delta: float) -> void:
 				attracted = player
 
 func collect(player: BasePlayer):
-	player.expCount += value
+	player.storeExp(value)
 	queue_free()

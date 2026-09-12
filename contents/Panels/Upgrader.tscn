@@ -1,38 +1,10 @@
 [gd_scene format=3 uid="uid://bi411ylxm4fkl"]
 
 [ext_resource type="PackedScene" uid="uid://da0yr7vcby2a" path="res://abstracts/BasePanel.tscn" id="1_us2je"]
-[ext_resource type="PackedScene" uid="uid://daf1is503pe2i" path="res://addons/shrimpvm/scenes/node_block.tscn" id="2_ek2hm"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ek2hm"]
-content_margin_left = 20.0
-content_margin_top = 20.0
-content_margin_right = 20.0
-content_margin_bottom = 20.0
-bg_color = Color(0, 0, 0, 0.5)
-border_width_left = 2
-border_width_top = 10
-border_width_right = 2
-border_width_bottom = 10
-border_color = Color(1, 1, 1, 1)
-border_blend = true
-corner_radius_top_left = 15
-corner_radius_bottom_right = 15
-corner_detail = 1
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_32vyv"]
-content_margin_left = 10.0
-content_margin_top = 10.0
-content_margin_right = 10.0
-content_margin_bottom = 10.0
-bg_color = Color(0, 0, 0, 0.5)
-border_width_left = 2
-border_width_right = 2
-border_color = Color(0.36189318, 0.36189318, 0.36189318, 1)
-corner_radius_top_right = 10
-corner_radius_bottom_left = 10
-corner_detail = 1
+[ext_resource type="Script" uid="uid://d2egrws8hacsr" path="res://contents/Panels/Upgrader.gd" id="2_ek2hm"]
 
 [node name="Upgrader" unique_id=77133632 instance=ExtResource("1_us2je")]
+script = ExtResource("2_ek2hm")
 
 [node name="title" parent="wrapper/wrapper" parent_id_path=PackedInt32Array(1494958561) index="0" unique_id=463746385]
 text = "升级"
@@ -45,34 +17,7 @@ layout_mode = 2
 text = "选择一块积木"
 horizontal_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="wrapper/wrapper/content" index="1" unique_id=961618642]
+[node name="blocks" type="HBoxContainer" parent="wrapper/wrapper/content" index="1" unique_id=961618642]
+unique_name_in_owner = true
 layout_mode = 2
 alignment = 1
-
-[node name="PanelContainer" type="PanelContainer" parent="wrapper/wrapper/content/HBoxContainer" index="0" unique_id=1705926380]
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_ek2hm")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="wrapper/wrapper/content/HBoxContainer/PanelContainer" index="0" unique_id=1618384917]
-layout_mode = 2
-theme_override_constants/separation = 10
-
-[node name="NodeBlock" parent="wrapper/wrapper/content/HBoxContainer/PanelContainer/VBoxContainer" index="0" unique_id=1255986660 instance=ExtResource("2_ek2hm")]
-layout_mode = 2
-
-[node name="PanelContainer" type="PanelContainer" parent="wrapper/wrapper/content/HBoxContainer/PanelContainer/VBoxContainer" index="1" unique_id=195602891]
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_32vyv")
-
-[node name="ScrollContainer" type="ScrollContainer" parent="wrapper/wrapper/content/HBoxContainer/PanelContainer/VBoxContainer/PanelContainer" index="0" unique_id=112455228]
-custom_minimum_size = Vector2(200, 100)
-layout_mode = 2
-horizontal_scroll_mode = 0
-vertical_scroll_mode = 3
-
-[node name="RichTextLabel" type="RichTextLabel" parent="wrapper/wrapper/content/HBoxContainer/PanelContainer/VBoxContainer/PanelContainer/ScrollContainer" index="0" unique_id=212774590]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-bbcode_enabled = true
-text = "dawddawddawddawddawddawddawddawddawddawddawddawddawddawddawddawddawddawddawddawddawddawddawddawddawddawddawddawddawddawddawddawddawddawddawddawddawddawddawddawddawddawddawddawddawddawddawddawddawddawddawddawddawddawddawddawddawddawddawddawddawddawddawddawd"

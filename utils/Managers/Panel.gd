@@ -10,12 +10,18 @@ var current: BasePanel = null
 func _ready() -> void:
 	instance = self
 	for fp in ResourceLoader.list_directory(SCENE_DIR):
-		var panel = (load(SCENE_DIR.path_join(fp)) as PackedScene).instantiate() as BasePanel
-		panel.hide()
-		add_child(panel)
+		var scene = load(SCENE_DIR.path_join(fp))
+		if scene is PackedScene:
+			var panel = scene.instantiate() as BasePanel
+			panel.hide()
+			add_child(panel)
 
-static func setCurrent(namx: String):
+static func close():
+	instance.get_tree().paused = false
 	if is_instance_valid(instance.current):
-		instance.current.exit()
+		await instance.current.exit()
+static func setCurrent(namx: String):
+	close()
+	instance.get_tree().paused = true
 	instance.current = instance.get_node(namx)
 	await instance.current.enter()

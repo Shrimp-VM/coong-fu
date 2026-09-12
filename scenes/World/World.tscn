@@ -438,6 +438,7 @@ script = ExtResource("2_p47ta")
 visible = false
 
 [node name="PanelManager" type="CanvasLayer" parent="." unique_id=909977958]
+process_mode = 2
 script = ExtResource("5_dvfe2")
 metadata/_custom_type_script = "uid://d3snnnxwtodpe"
 

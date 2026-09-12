@@ -61,7 +61,7 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(2, 0, 0, 0.3, 0, 1, 0, 0, 0, 0),
+"points": PackedFloat32Array(2, 0, 0, 0.15, 0, 1, 0, 0, 0, 0),
 "times": PackedFloat32Array(0, 0.3)
 }
 tracks/1/type = "bezier"
@@ -72,7 +72,7 @@ tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(2, 0, 0, 0.3, 0, 1, 0, 0, 0, 0),
+"points": PackedFloat32Array(2, 0, 0, 0.15, 0, 1, 0, 0, 0, 0),
 "times": PackedFloat32Array(0, 0.3)
 }
 tracks/2/type = "bezier"
@@ -83,7 +83,7 @@ tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(-3.14, 0, 0, 0.3, 0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(-1.57, 0, 0, 0.15, 0, 0, 0, 0, 0, 0),
 "times": PackedFloat32Array(0, 0.3)
 }
 tracks/3/type = "bezier"
@@ -94,7 +94,7 @@ tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0, 0, 0, 0.3, 0, 1, 0, 0, 0, 0),
+"points": PackedFloat32Array(0, 0, 0, 0.15, 0, 1, 0, 0, 0, 0),
 "times": PackedFloat32Array(0, 0.3)
 }
 
@@ -110,7 +110,7 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(1, 0, 0, 0.3, 0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(1, 0, 0, 0.15, 0, 0, 0, 0, 0, 0),
 "times": PackedFloat32Array(0, 0.3)
 }
 tracks/1/type = "bezier"
@@ -121,7 +121,7 @@ tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(1, 0, 0, 0.3, 0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(1, 0, 0, 0.15, 0, 0, 0, 0, 0, 0),
 "times": PackedFloat32Array(0, 0.3)
 }
 tracks/2/type = "bezier"
@@ -132,7 +132,7 @@ tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "handle_modes": PackedInt32Array(2, 0),
-"points": PackedFloat32Array(0, 0, 0, 0.3, 0, 3.14, 0, 0, 0, 0),
+"points": PackedFloat32Array(0, 0, 0, 0.15, 0, 3.14, 0, 0, 0, 0),
 "times": PackedFloat32Array(0, 0.3)
 }
 tracks/3/type = "bezier"
@@ -143,7 +143,7 @@ tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "handle_modes": PackedInt32Array(2, 0),
-"points": PackedFloat32Array(1, 0, 0, 0.3, 0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(1, 0, 0, 0.15, 0, 0, 0, 0, 0, 0),
 "times": PackedFloat32Array(0, 0.3)
 }
 
@@ -171,7 +171,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset_ratio = Vector2(0.5, 0.5)
 script = ExtResource("1_q5ee2")
 
 [node name="animator" type="AnimationPlayer" parent="." unique_id=2114574475]
@@ -194,6 +193,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
 theme_override_styles/panel = SubResource("StyleBoxEmpty_q5ee2")
 
 [node name="wrapper" type="VBoxContainer" parent="wrapper" unique_id=1494958561]

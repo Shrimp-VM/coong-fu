@@ -1,10 +1,13 @@
 extends BaseLiving
 class_name BasePlayer
 
+const COST_PER_LEVEL = 300
+
 @export var dashSpeed: float = 40
 
 var hurtCooldown: CooldownController = CooldownController.new(1000)
 var expCount: float = 0
+var currentLevel: int = 1
 
 func spawn():
 	CameraManager.follow(self)
@@ -26,3 +29,19 @@ func isInvincible() -> bool:
 	return !hurtCooldown.canFlagNow() || super.isInvincible()
 func die() -> bool:
 	return false
+
+func getUpgradeCost() -> float:
+	return currentLevel * COST_PER_LEVEL
+func canUpgrade() -> bool:
+	return expCount >= getUpgradeCost()
+func upgrade() -> bool:
+	if canUpgrade():
+		expCount -= getUpgradeCost()
+		return true
+	else:
+		return false
+func storeExp(count: float):
+	expCount += count
+	if upgrade():
+		print("upgrade")
+		PanelManager.setCurrent("Upgrader")

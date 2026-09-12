@@ -1,0 +1,152 @@
+[gd_scene format=3 uid="uid://dk6qj3ro470yg"]
+
+[ext_resource type="Script" uid="uid://dcqp1jpjelc4t" path="res://contents/Bar/UpgradeBar.gd" id="1_0ts7g"]
+[ext_resource type="PackedScene" uid="uid://daf1is503pe2i" path="res://addons/shrimpvm/scenes/node_block.tscn" id="1_104vb"]
+[ext_resource type="Script" uid="uid://1hlfdlxujevh" path="res://irs/CreateBulletNode.gd" id="2_art3g"]
+[ext_resource type="PackedScene" uid="uid://cwjvn21pj3cv0" path="res://contents/Bar/Triangle.tscn" id="3_366hu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ek2hm"]
+content_margin_left = 20.0
+content_margin_top = 20.0
+content_margin_right = 20.0
+content_margin_bottom = 20.0
+bg_color = Color(0, 0, 0, 0.5)
+border_width_left = 2
+border_width_top = 10
+border_width_right = 2
+border_width_bottom = 10
+border_color = Color(1, 1, 1, 1)
+border_blend = true
+corner_radius_top_left = 15
+corner_radius_bottom_right = 15
+corner_detail = 1
+
+[sub_resource type="Resource" id="Resource_366hu"]
+script = ExtResource("2_art3g")
+metadata/_custom_type_script = "uid://1hlfdlxujevh"
+
+[sub_resource type="Animation" id="Animation_366hu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("wrapper/wrapper2/wrapper/t1:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_p86h4"]
+resource_name = "loop"
+length = 0.25
+loop_mode = 2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("wrapper/wrapper2/wrapper/t1:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("wrapper/wrapper2/wrapper/t2:modulate:a")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x5d7a"]
+_data = {
+&"RESET": SubResource("Animation_366hu"),
+&"loop": SubResource("Animation_p86h4")
+}
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p86h4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_32vyv"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0, 0, 0, 0.5)
+border_width_left = 2
+border_width_right = 2
+border_color = Color(0.36189318, 0.36189318, 0.36189318, 1)
+corner_radius_top_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 1
+
+[node name="UpgradeBar" type="PanelContainer" unique_id=734359202]
+theme_override_styles/panel = SubResource("StyleBoxFlat_ek2hm")
+script = ExtResource("1_0ts7g")
+ir = SubResource("Resource_366hu")
+
+[node name="animator" type="AnimationPlayer" parent="." unique_id=2140310474]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_x5d7a")
+autoplay = &"loop"
+
+[node name="wrapper" type="VBoxContainer" parent="." unique_id=868001836]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="wrapper2" type="PanelContainer" parent="wrapper" unique_id=506004365]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_p86h4")
+
+[node name="wrapper" type="HBoxContainer" parent="wrapper/wrapper2" unique_id=699372457]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="t1" parent="wrapper/wrapper2/wrapper" unique_id=567482577 instance=ExtResource("3_366hu")]
+custom_minimum_size = Vector2(15, 10)
+layout_mode = 2
+size_flags_horizontal = 1
+size_flags_vertical = 4
+
+[node name="preview" parent="wrapper/wrapper2/wrapper" unique_id=1255986660 instance=ExtResource("1_104vb")]
+unique_name_in_owner = true
+layout_mode = 2
+inDesk = true
+
+[node name="t2" parent="wrapper/wrapper2/wrapper" unique_id=2105296170 instance=ExtResource("3_366hu")]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 10)
+layout_mode = 2
+size_flags_horizontal = 1
+size_flags_vertical = 4
+direction = 1
+
+[node name="wrapper" type="PanelContainer" parent="wrapper" unique_id=1295728795]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_32vyv")
+
+[node name="wrapper" type="ScrollContainer" parent="wrapper/wrapper" unique_id=1305351266]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="description" type="RichTextLabel" parent="wrapper/wrapper/wrapper" unique_id=257539844]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "No descritpion."

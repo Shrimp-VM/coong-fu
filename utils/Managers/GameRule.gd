@@ -18,3 +18,6 @@ static func energyMapDamage(energy: float) -> float:
 	return energy * 0.1
 static func impactVector(direction: Vector2, speed: float):
 	return direction.normalized() * speed * 100
+static func enemySpawnOffset() -> Vector2:
+	var inner = MathUtil.halfDiagonal(CameraManager.getScreenSize())
+	return MathUtil.sampleRing(inner, inner + 500)

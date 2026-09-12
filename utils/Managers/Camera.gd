@@ -14,3 +14,5 @@ func _physics_process(_delta: float) -> void:
 
 static func follow(node: Node2D):
 	instance.following = node
+static func getScreenSize() -> Vector2:
+	return instance.get_viewport_rect().size

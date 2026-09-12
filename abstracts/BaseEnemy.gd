@@ -6,4 +6,4 @@ func isPlayer() -> bool:
 func ai(delta: float):
 	super.ai(delta)
 	if !is_instance_valid(focusingEntity):
-		focusingEntity = ObjectManager.attractPlayer()
+		focusingEntity = ObjectManager.getPlayer()

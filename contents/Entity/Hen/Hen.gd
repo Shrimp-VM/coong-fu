@@ -1,4 +1,5 @@
 extends BaseEnemy
+class_name HenEnemy
 
 func spawn():
 	super.spawn()

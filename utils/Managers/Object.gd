@@ -37,8 +37,12 @@ static func addEntity(namx: String, positiox: Vector2 = Vector2.ZERO) -> Array[B
 	else:
 		entity.add_to_group("enemy")
 	return [entity]
-static func attractPlayer():
-	return MathUtil.weightPick(collectAttractonMap(instance.get_tree().get_nodes_in_group("player")))
+static func getEnemyCount(type: String) -> int:
+	return len(instance.get_tree().get_nodes_in_group("enemy").filter(func(x: Node): return x.get_script().get_global_name() == type))
+static func spawnAroundPlayer(namx: String) -> Array[BaseEntity]:
+	return addEntity(namx, getPlayer().position + GameRuleManager.enemySpawnOffset())
+static func getPlayer() -> BasePlayer:
+	return instance.get_tree().get_nodes_in_group("player")[0]
 static func collectAttractonMap(livings: Array) -> Dictionary[BaseLiving, float]:
 	return livings.reduce(
 		func(current: Dictionary, next):

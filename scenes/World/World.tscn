@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cfabockefwadv" path="res://utils/Managers/World.gd" id="1_kurpr"]
 [ext_resource type="Texture2D" uid="uid://dhhjg1pr6dq86" path="res://resources/tiles/Hospital_A4.png" id="2_1bnsl"]
+[ext_resource type="Script" uid="uid://do3mm7p52m7hj" path="res://utils/Managers/Wave.gd" id="2_evp4r"]
 [ext_resource type="Script" uid="uid://dg4qnjilpkyvv" path="res://utils/Managers/Object.gd" id="2_kurpr"]
 [ext_resource type="Script" uid="uid://hbqyi720ydet" path="res://utils/Managers/Editor.gd" id="2_p47ta"]
 [ext_resource type="PackedScene" uid="uid://twhmsepd8isx" path="res://addons/shrimpvm/scenes/ir_editor.tscn" id="3_ictkp"]
@@ -424,6 +425,9 @@ sources/3 = SubResource("TileSetAtlasSource_fngvn")
 
 [node name="World" type="Node2D" unique_id=1864932419]
 script = ExtResource("1_kurpr")
+
+[node name="WaveManager" type="Node" parent="." unique_id=1207477771]
+script = ExtResource("2_evp4r")
 
 [node name="EditorManager" type="Node" parent="." unique_id=1625709633]
 process_mode = 3

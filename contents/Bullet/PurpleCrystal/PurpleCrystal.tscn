@@ -5,6 +5,70 @@
 [ext_resource type="Script" uid="uid://d4dd3x8rjd780" path="res://contents/Bullet/PurpleCrystal/PurpleCrystal.gd" id="2_lrwsk"]
 [ext_resource type="AudioStream" uid="uid://buj8u3bo5jqxm" path="res://contents/Bullet/PurpleCrystal/Low Whoosh.wav" id="4_lrwsk"]
 
+[sub_resource type="Curve" id="Curve_lrwsk"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_v78qm"]
+curve = SubResource("Curve_lrwsk")
+
+[sub_resource type="Curve" id="Curve_lryhl"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.6), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_wssvi"]
+curve = SubResource("Curve_lryhl")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_yjuxp"]
+particle_flag_disable_z = true
+direction = Vector3(-1, 0, 0)
+spread = 0.0
+initial_velocity_min = 100.0
+initial_velocity_max = 100.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.9
+scale_max = 0.9
+scale_curve = SubResource("CurveTexture_wssvi")
+alpha_curve = SubResource("CurveTexture_v78qm")
+
+[sub_resource type="Curve" id="Curve_v78qm"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.1, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_lryhl"]
+curve = SubResource("Curve_v78qm")
+
+[sub_resource type="Gradient" id="Gradient_wssvi"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 0.88793176, 0.25666898, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_yjuxp"]
+gradient = SubResource("Gradient_wssvi")
+
+[sub_resource type="Curve" id="Curve_6rinb"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_x3jxa"]
+curve = SubResource("Curve_6rinb")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rgtsy"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 9.8
+angle_min = 1.0728835e-05
+angle_max = 90.000015
+direction = Vector3(-1, 0, 0)
+spread = 15.0
+initial_velocity_min = 100.0
+initial_velocity_max = 200.0
+gravity = Vector3(0, 0, 0)
+scale_min = 3.0
+scale_max = 8.0
+scale_curve = SubResource("CurveTexture_x3jxa")
+color = Color(0.6820464, 0, 1, 1)
+color_initial_ramp = SubResource("GradientTexture1D_yjuxp")
+alpha_curve = SubResource("CurveTexture_lryhl")
+
 [sub_resource type="Animation" id="Animation_72ib2"]
 resource_name = "spawn"
 step = 0.1
@@ -36,11 +100,24 @@ size = Vector2(23, 14)
 
 [node name="BaseBullet" unique_id=568331356 instance=ExtResource("1_k4xp3")]
 script = ExtResource("2_lrwsk")
-lifeTime = 2000.0
-baseMovement = 300.0
+lifeTime = 3000.0
+baseMovement = 750.0
 
 [node name="static" parent="texture" parent_id_path=PackedInt32Array(1274454792) index="1" unique_id=193572939]
 texture = ExtResource("2_72ib2")
+
+[node name="trail" type="GPUParticles2D" parent="texture/static" index="0" unique_id=1239623335]
+z_index = -1
+amount = 5
+texture = ExtResource("2_72ib2")
+preprocess = 1.0
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_yjuxp")
+
+[node name="trail2" type="GPUParticles2D" parent="texture/static" index="1" unique_id=1006307634]
+amount = 50
+preprocess = 1.0
+process_material = SubResource("ParticleProcessMaterial_rgtsy")
 
 [node name="animator" parent="texture" parent_id_path=PackedInt32Array(1274454792) index="2" unique_id=1284344607]
 libraries/ = SubResource("AnimationLibrary_lrwsk")

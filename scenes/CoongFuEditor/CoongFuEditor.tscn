@@ -17,6 +17,7 @@ metadata/_custom_type_script = "uid://drn2wt71gsryb"
 
 [sub_resource type="Resource" id="Resource_d6eph"]
 script = ExtResource("4_d6eph")
+content = 1
 metadata/_custom_type_script = "uid://1hlfdlxujevh"
 
 [sub_resource type="Resource" id="Resource_vuoy2"]
@@ -30,6 +31,18 @@ body = Array[ExtResource("2_mj2nh")]([SubResource("Resource_kki3y"), SubResource
 metadata/_custom_type_script = "uid://uw4oee4tvks"
 
 [node name="CoongFuEditor" unique_id=2000783686 instance=ExtResource("1_k7vvl")]
+treeData = {
+"body": [{
+"type": "inject_energy"
+}, {
+"bullet": {
+"content": 0.0,
+"type": "create_bullet"
+},
+"type": "bullet_shoot"
+}],
+"type": "root"
+}
 finiteBlockCount = true
 initialDesk = Array[ExtResource("2_mj2nh")]([SubResource("Resource_mj2nh")])
 defaultFileSystem = Dictionary[StringName, ExtResource("2_mj2nh")]({
@@ -73,9 +86,13 @@ text = "删除节点"
 [node name="decoration" parent="layout/layout/workspace/workspace/wrapper" parent_id_path=PackedInt32Array(171671562) index="0" unique_id=30092913]
 text = "工作区："
 
+[node name="scriptName" parent="layout/layout/workspace/workspace/wrapper" parent_id_path=PackedInt32Array(171671562) index="1" unique_id=699603676]
+text = "normalAttack"
+
 [node name="title" parent="layout/layout/fileManager/wrapper" parent_id_path=PackedInt32Array(442025681) index="0" unique_id=1322068035]
 text = "脚本列表"
 
 [node name="fileTip" parent="layout/layout/fileManager/wrapper/wrapper/files" parent_id_path=PackedInt32Array(210109251) index="0" unique_id=156850020]
+visible = false
 text = "没有脚本
 点击上面的按钮创建一个！"

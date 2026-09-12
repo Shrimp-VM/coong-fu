@@ -26,6 +26,7 @@ var currentPenetrated: int = 0
 var launcher: BaseEntity
 var ais: Array[BaseAI] = []
 var energyInjected: float = 10
+var dieing: bool = false
 
 func _ready() -> void:
 	spawnPosition = position
@@ -36,7 +37,7 @@ func _physics_process(delta: float) -> void:
 		for composedAI in ais:
 			composedAI.physics(self, delta)
 	else:
-		queue_free()
+		enterDie()
 
 func hitEntity(entity: BaseEntity) -> bool:
 	if !is_instance_valid(launcher): return true
@@ -46,7 +47,15 @@ func hitEntity(entity: BaseEntity) -> bool:
 	entityHit.emit(entity)
 	entity.impact(GameRuleManager.impactVector(Vector2.from_angle(rotation), impact))
 	return true
+func die():
+	pass
 
+func enterDie():
+	if dieing: return
+	dieing = true
+	await die()
+	dieing = false
+	queue_free()
 func getBaseDamage() -> float:
 	if !is_instance_valid(launcher): return 0
 	if launcher is BaseLiving:
@@ -64,7 +73,8 @@ func isLiving() -> bool:
 		is_instance_valid(launcher) &&
 		position.distance_to(spawnPosition) < lifeDistance &&
 		TimeUtil.current() - spawnTime < lifeTime &&
-		!isFullPenetrated()
+		!isFullPenetrated() &&
+		!dieing
 	)
 func isFullPenetrated() -> bool:
 	return currentPenetrated > getStat(Stats.Bullet.PENETRATE)

@@ -14,10 +14,10 @@ func beforeEnter():
 		bar.ir = ir
 		bar.select.connect(
 			func():
-				EditorManager.instance.editor.store_block(ir.get_node_type())
-				PanelManager.close()
 				for bars in blocksContainer.get_children():
 					if bars is UpgradeBar:
 						bars.disable()
+				EditorManager.instance.editor.store_block(ir.get_node_type())
+				EditorManager.open()
 		)
 		blocksContainer.add_child(bar)

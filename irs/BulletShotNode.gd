@@ -9,6 +9,7 @@ func execute(vm: ShrimpVM, context: ExecutionContext) -> Variant:
 	if player is BasePlayer:
 		ObjectManager.shootToMouse(await vm.execute(bullet, context), player)
 		player.energyInjected = 0
+		await TimeUtil.millseconds(50)
 	return
 func decompile() -> Dictionary:
 	return {

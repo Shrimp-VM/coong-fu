@@ -3,7 +3,7 @@ extends ShrimpIR
 class_name RandomIntNode
 
 func execute(_vm: ShrimpVM, _context: ExecutionContext) -> Variant:
-	return randi_range(1, 3)
+	return randi_range(0, 3)
 func decompile() -> Dictionary:
 	return {}
 
@@ -14,4 +14,4 @@ static func get_node_type() -> String:
 static func create_from(_wrapper: Dictionary) -> RandomIntNode:
 	return new()
 static func get_wrapper_schema() -> Dictionary:
-	return Model.wrapper_schema("随机1~3", {}, "获取一个较小的随机整数")
+	return Model.wrapper_schema("随机0~3", {}, "获取一个较小的随机整数")

@@ -16,7 +16,9 @@ func _physics_process(_delta: float) -> void:
 		if isOpening():
 			PanelManager.close()
 		else:
-			PanelManager.setCurrent("Editor")
+			open()
 
+static func open():
+	PanelManager.setCurrent("Editor")
 static func isOpening() -> bool:
 	return PanelManager.getCurrent() == "Editor"

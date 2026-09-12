@@ -22,7 +22,7 @@ static func get_node_type() -> String:
 static func get_wrapper_schema() -> Dictionary:
 	return Model.wrapper_schema("凝聚子弹", {
 		"content": Model.attribute_schema(
-			["PurpleCrystal"],
+			CheckpointManager.unlockedBullets,
 			"子弹类型"
 		)
 	}, "发射子弹前必须凝聚。")

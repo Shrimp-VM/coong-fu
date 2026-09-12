@@ -7,10 +7,11 @@ static var instance: EditorManager
 
 func _ready() -> void:
 	instance = self
-	editor.build_desk(ShrimpVMUtil.get_configured_ir_nodes())
+	editor.build_desk(ShrimpVMUtil.get_configured_irs())
 func _physics_process(_delta: float) -> void:
 	if Input.is_action_just_pressed("editor"):
 		editor.visible = !editor.visible
+		get_tree().paused = editor.visible
 
 static func isOpening() -> bool:
 	return instance.editor.visible

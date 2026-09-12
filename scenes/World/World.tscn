@@ -426,6 +426,7 @@ sources/3 = SubResource("TileSetAtlasSource_fngvn")
 script = ExtResource("1_kurpr")
 
 [node name="EditorManager" type="Node" parent="." unique_id=1625709633]
+process_mode = 3
 script = ExtResource("2_p47ta")
 
 [node name="editor" parent="EditorManager" unique_id=1041740263 instance=ExtResource("3_ictkp")]

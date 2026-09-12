@@ -16,4 +16,4 @@ static func get_node_type() -> String:
 static func create_from(_wrapper: Dictionary) -> InjectEnergyNode:
 	return new()
 static func get_wrapper_schema() -> Dictionary:
-	return Model.wrapper_schema("注入10能量", {})
+	return Model.wrapper_schema("注入10能量", {}, "没有能量的子弹将无法造成伤害。")

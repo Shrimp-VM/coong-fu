@@ -13,7 +13,7 @@ content_margin_left = 20.0
 content_margin_top = 20.0
 content_margin_right = 20.0
 content_margin_bottom = 20.0
-bg_color = Color(0, 0, 0, 0.5)
+bg_color = Color(0, 0, 0, 0.3)
 border_width_left = 2
 border_width_top = 10
 border_width_right = 2
@@ -140,7 +140,7 @@ layout_mode = 2
 inDesk = true
 
 [node name="t2" parent="wrapper/wrapper2/wrapper" unique_id=2105296170 instance=ExtResource("3_366hu")]
-modulate = Color(1, 1, 1, 0.50666666)
+modulate = Color(1, 1, 1, 0.318592)
 custom_minimum_size = Vector2(15, 10)
 layout_mode = 2
 size_flags_horizontal = 1
@@ -163,4 +163,10 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 bbcode_enabled = true
-text = "No descritpion."
+text = "Execute all codes in body."
+
+[node name="selectBtn" type="Button" parent="wrapper" unique_id=1509169719]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 1
+text = "就它了！"

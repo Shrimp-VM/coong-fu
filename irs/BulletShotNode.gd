@@ -22,4 +22,4 @@ static func create_from(wrapper: Dictionary) -> BulletShootNode:
 static func get_wrapper_schema() -> Dictionary:
 	return Model.wrapper_schema("向鼠标发射子弹", {
 		"bullet": Model.attribute_schema(ShrimpIR.TYPE_ENUM, "子弹")
-	})
+	}, "顾名思义，发射一颗子弹。")

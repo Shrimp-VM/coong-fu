@@ -10,4 +10,5 @@ func beforeEnter():
 		var ir = irs.pick_random()
 		var bar = preload("res://contents/Bar/UpgradeBar.tscn").instantiate() as UpgradeBar
 		bar.ir = ir
+		bar.select.connect(PanelManager.close)
 		blocksContainer.add_child(bar)

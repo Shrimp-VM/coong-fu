@@ -11,11 +11,9 @@ func afterExit():
 
 func enter():
 	await beforeEnter()
-	show()
 	animator.play("enter")
 	await animator.animation_finished
 func exit():
 	animator.play("exit")
 	await animator.animation_finished
-	hide()
 	await afterExit()

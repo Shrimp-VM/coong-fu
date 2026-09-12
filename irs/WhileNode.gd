@@ -24,4 +24,4 @@ static func get_wrapper_schema() -> Dictionary:
 	return Model.wrapper_schema("重复执行", {
 		"count": Model.attribute_schema(ShrimpIR.TYPE_ENUM, "次数"),
 		"body": Model.attribute_schema(ShrimpIR.TYPE_ENUM, "内容", true)
-	})
+	}, "将指定代码重复执行指定次数。")

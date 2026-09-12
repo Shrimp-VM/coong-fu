@@ -37,11 +37,11 @@ func canUpgrade() -> bool:
 func upgrade() -> bool:
 	if canUpgrade():
 		expCount -= getUpgradeCost()
+		currentLevel += 1
 		return true
 	else:
 		return false
 func storeExp(count: float):
 	expCount += count
 	if upgrade():
-		print("upgrade")
 		PanelManager.setCurrent("Upgrader")

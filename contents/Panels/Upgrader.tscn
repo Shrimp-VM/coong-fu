@@ -3,6 +3,21 @@
 [ext_resource type="PackedScene" uid="uid://da0yr7vcby2a" path="res://abstracts/BasePanel.tscn" id="1_us2je"]
 [ext_resource type="Script" uid="uid://d2egrws8hacsr" path="res://contents/Panels/Upgrader.gd" id="2_ek2hm"]
 [ext_resource type="PackedScene" uid="uid://dk6qj3ro470yg" path="res://contents/Bar/UpgradeBar.tscn" id="3_32vyv"]
+[ext_resource type="Script" uid="uid://ypjkdf7lnpoi" path="res://addons/shrimpvm/nodes/literals/bool_node.gd" id="4_yn2o6"]
+[ext_resource type="Script" uid="uid://da63e86ydg0o" path="res://addons/shrimpvm/nodes/functions/print_node.gd" id="5_3xqs2"]
+[ext_resource type="Script" uid="uid://drn2wt71gsryb" path="res://irs/InjectEnergyNode.gd" id="6_rcvw6"]
+
+[sub_resource type="Resource" id="Resource_xfq14"]
+script = ExtResource("4_yn2o6")
+metadata/_custom_type_script = "uid://ypjkdf7lnpoi"
+
+[sub_resource type="Resource" id="Resource_lialn"]
+script = ExtResource("5_3xqs2")
+metadata/_custom_type_script = "uid://da63e86ydg0o"
+
+[sub_resource type="Resource" id="Resource_ixi6g"]
+script = ExtResource("6_rcvw6")
+metadata/_custom_type_script = "uid://drn2wt71gsryb"
 
 [node name="Upgrader" unique_id=77133632 instance=ExtResource("1_us2je")]
 script = ExtResource("2_ek2hm")
@@ -27,9 +42,12 @@ alignment = 1
 
 [node name="UpgradeBar" parent="wrapper/wrapper/content/blocks" index="0" unique_id=734359202 instance=ExtResource("3_32vyv")]
 layout_mode = 2
+ir = SubResource("Resource_xfq14")
 
 [node name="UpgradeBar2" parent="wrapper/wrapper/content/blocks" index="1" unique_id=1018365276 instance=ExtResource("3_32vyv")]
 layout_mode = 2
+ir = SubResource("Resource_lialn")
 
 [node name="UpgradeBar3" parent="wrapper/wrapper/content/blocks" index="2" unique_id=1965269690 instance=ExtResource("3_32vyv")]
 layout_mode = 2
+ir = SubResource("Resource_ixi6g")

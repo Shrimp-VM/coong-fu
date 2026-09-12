@@ -13,8 +13,9 @@ func _ready() -> void:
 		var scene = load(SCENE_DIR.path_join(fp))
 		if scene is PackedScene:
 			var panel = scene.instantiate() as BasePanel
-			panel.hide()
+			panel.show()
 			add_child(panel)
+			panel.animator.play("RESET")
 
 static func close():
 	instance.get_tree().paused = false

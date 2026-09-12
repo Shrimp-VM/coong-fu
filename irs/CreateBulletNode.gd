@@ -21,4 +21,4 @@ static func get_wrapper_schema() -> Dictionary:
 			["PurpleCrystal"],
 			"子弹类型"
 		)
-	})
+	}, "发射子弹前必须凝聚。")

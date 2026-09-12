@@ -3,9 +3,12 @@ class_name BasePlayer
 
 @export var dashSpeed: float = 20
 
+var hurtCooldown: CooldownController = CooldownController.new(1000)
+
 func spawn():
 	CameraManager.follow(self)
 	WorldManager.fightContext.env.write_symbol("player", self)
+	damageTaken.connect(func(_d): hurtCooldown.flag())
 func ai(delta: float):
 	super.ai(delta)
 	if EditorManager.isOpening(): return
@@ -15,6 +18,8 @@ func ai(delta: float):
 	if Input.is_action_pressed("attack"):
 		enterAttack(0)
 	if Input.is_action_just_pressed("dash"):
-		dash(GameRuleManager.impactVector(controlledDirection if controlledDirection.length() > 0 else Vector2(faceX, 0), dashSpeed), 200)
+		dash(GameRuleManager.impactVector(controlledDirection if controlledDirection.length() > 0 else Vector2(faceX, 0), dashSpeed), 100)
 func isPlayer() -> bool:
 	return true
+func isInvincible() -> bool:
+	return !hurtCooldown.canFlagNow() || super.isInvincible()

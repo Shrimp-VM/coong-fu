@@ -5,7 +5,7 @@ class_name InjectEnergyNode
 func execute(_vm: ShrimpVM, context: ExecutionContext) -> Variant:
 	var player = context.env.read_symbol("player")
 	if player is BasePlayer:
-		await TimeUtil.millseconds(200)
+		await TimeUtil.millseconds(400)
 		player.energyInjected += 10
 	return
 
@@ -16,4 +16,4 @@ static func get_node_type() -> String:
 static func create_from(_wrapper: Dictionary) -> InjectEnergyNode:
 	return new()
 static func get_wrapper_schema() -> Dictionary:
-	return Model.wrapper_schema("消耗0.2秒，注入10能量", {})
+	return Model.wrapper_schema("注入10能量", {})

@@ -55,12 +55,12 @@ func getAI() -> Array[BaseAI]:
 func dash(force: Vector2, duration: float):
 	if !dashCooldown.flag(): return
 	dashing = true
-	fraction *= 0.1
+	fraction *= 0.2
 	dashCooldown.lock()
 	impact(force)
 	await TimeUtil.millseconds(duration)
 	dashCooldown.unlock()
-	fraction /= 0.1
+	fraction /= 0.2
 	dashing = false
 func impact(force: Vector2):
 	return super.impact(force / (1 + getStat(Stats.Living.ANTI_IMPACT)))

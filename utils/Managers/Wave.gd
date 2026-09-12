@@ -41,4 +41,3 @@ static func detectNext():
 			spawned = true
 	if spawned:
 		instance.currentWave += 1
-		print("Current wave:", instance.currentWave)

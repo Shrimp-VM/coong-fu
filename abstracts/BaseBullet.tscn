@@ -4,6 +4,14 @@
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_opx8x"]
 
+[sub_resource type="Animation" id="Animation_giotv"]
+resource_name = "spawn"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2plmj"]
+_data = {
+&"spawn": SubResource("Animation_giotv")
+}
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_opx8x"]
 
 [node name="BaseBullet" type="Area2D" unique_id=568331356]
@@ -19,6 +27,12 @@ sprite_frames = SubResource("SpriteFrames_opx8x")
 
 [node name="static" type="Sprite2D" parent="texture" unique_id=193572939]
 unique_name_in_owner = true
+
+[node name="animator" type="AnimationPlayer" parent="texture" unique_id=1284344607]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_2plmj")
+
+[node name="animationSound" type="AudioStreamPlayer2D" parent="texture/animator" unique_id=1924743759]
 
 [node name="movebox" type="CollisionShape2D" parent="." unique_id=721984946]
 shape = SubResource("CircleShape2D_opx8x")

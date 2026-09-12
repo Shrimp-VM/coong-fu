@@ -52,15 +52,16 @@ func attack(type: int):
 
 func getAI() -> Array[BaseAI]:
 	return []
-func dash(force: Vector2, duration: float):
+func dash(force: Vector2):
 	if !dashCooldown.flag(): return
 	dashing = true
-	fraction *= 0.2
+	fraction *= 0.75
 	dashCooldown.lock()
 	impact(force)
-	await TimeUtil.millseconds(duration)
+	while velocity.length() >= baseMovement * 10:
+		await get_tree().process_frame
 	dashCooldown.unlock()
-	fraction /= 0.2
+	fraction /= 0.75
 	dashing = false
 func impact(force: Vector2):
 	return super.impact(force / (1 + getStat(Stats.Living.ANTI_IMPACT)))

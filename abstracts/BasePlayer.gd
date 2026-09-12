@@ -18,7 +18,7 @@ func ai(delta: float):
 	if Input.is_action_pressed("attack"):
 		enterAttack(0)
 	if Input.is_action_just_pressed("dash"):
-		dash(GameRuleManager.impactVector(controlledDirection if controlledDirection.length() > 0 else Vector2(faceX, 0), dashSpeed), 100)
+		dash(GameRuleManager.impactVector(controlledDirection if controlledDirection.length() > 0 else Vector2(faceX, 0), dashSpeed))
 func isPlayer() -> bool:
 	return true
 func isInvincible() -> bool:

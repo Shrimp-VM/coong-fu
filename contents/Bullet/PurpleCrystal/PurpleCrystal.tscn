@@ -3,6 +3,33 @@
 [ext_resource type="PackedScene" uid="uid://ccuxtysvx8rc" path="res://abstracts/BaseBullet.tscn" id="1_k4xp3"]
 [ext_resource type="Texture2D" uid="uid://bhl375eulqa53" path="res://contents/Bullet/PurpleCrystal/crystal-b.svg" id="2_72ib2"]
 [ext_resource type="Script" uid="uid://d4dd3x8rjd780" path="res://contents/Bullet/PurpleCrystal/PurpleCrystal.gd" id="2_lrwsk"]
+[ext_resource type="AudioStream" uid="uid://buj8u3bo5jqxm" path="res://contents/Bullet/PurpleCrystal/Low Whoosh.wav" id="4_lrwsk"]
+
+[sub_resource type="Animation" id="Animation_72ib2"]
+resource_name = "spawn"
+step = 0.1
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%animator/animationSound")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_lrwsk")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lrwsk"]
+_data = {
+&"spawn": SubResource("Animation_72ib2")
+}
+
+[sub_resource type="AudioStreamPolyphonic" id="AudioStreamPolyphonic_lrwsk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k4xp3"]
 size = Vector2(23, 14)
@@ -14,6 +41,13 @@ baseMovement = 300.0
 
 [node name="static" parent="texture" parent_id_path=PackedInt32Array(1274454792) index="1" unique_id=193572939]
 texture = ExtResource("2_72ib2")
+
+[node name="animator" parent="texture" parent_id_path=PackedInt32Array(1274454792) index="2" unique_id=1284344607]
+libraries/ = SubResource("AnimationLibrary_lrwsk")
+autoplay = &"spawn"
+
+[node name="animationSound" parent="texture/animator" index="0" unique_id=1924743759]
+stream = SubResource("AudioStreamPolyphonic_lrwsk")
 
 [node name="movebox" parent="." index="1" unique_id=721984946]
 position = Vector2(-11.5, 0)

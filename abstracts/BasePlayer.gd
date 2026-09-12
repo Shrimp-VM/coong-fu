@@ -1,7 +1,8 @@
 extends BaseLiving
 class_name BasePlayer
 
-const UPGRADE_COST = 300
+const UPGRADE_COST_INIT = 300
+const UPGRADE_COST_PERLEVEL = 600
 
 @export var dashSpeed: float = 50
 
@@ -31,7 +32,7 @@ func die() -> bool:
 	return false
 
 func getUpgradeCost() -> float:
-	return UPGRADE_COST * 1.5 ** currentLevel
+	return UPGRADE_COST_INIT + currentLevel * UPGRADE_COST_PERLEVEL
 func canUpgrade() -> bool:
 	return expCount >= getUpgradeCost()
 func upgrade() -> bool:

@@ -5,7 +5,7 @@ class_name BaseEnemy
 
 func spawn():
 	super.spawn()
-	setStat(Stats.Living.MAX_HEALTH, getStat(Stats.Living.MAX_HEALTH) + WaveManager.current() * 10)
+	setStat(Stats.Living.MAX_HEALTH, getStat(Stats.Living.MAX_HEALTH) * 1.05 ** WaveManager.current())
 func isPlayer() -> bool:
 	return false
 func ai(delta: float):

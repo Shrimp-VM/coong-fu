@@ -1,0 +1,2 @@
+extends BaseLiving.BaseAI
+class_name EntityFollowAI

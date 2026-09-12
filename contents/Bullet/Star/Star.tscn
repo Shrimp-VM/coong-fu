@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://da77t3jsh7deh"]
+
+[ext_resource type="PackedScene" uid="uid://ccuxtysvx8rc" path="res://abstracts/BaseBullet.tscn" id="1_52hw3"]
+[ext_resource type="Texture2D" uid="uid://bax2uab7t1wi1" path="res://contents/Bullet/Star/star.svg" id="2_38wsh"]
+[ext_resource type="Script" uid="uid://digc1bjctaeyy" path="res://contents/Bullet/Star/Star.gd" id="2_75ws4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_38wsh"]
+radius = 6.0
+
+[node name="BaseBullet" unique_id=568331356 instance=ExtResource("1_52hw3")]
+script = ExtResource("2_75ws4")
+
+[node name="static" parent="texture" parent_id_path=PackedInt32Array(1274454792) index="1" unique_id=193572939]
+rotation = -0.08806022
+scale = Vector2(0.5169607, 0.5169607)
+texture = ExtResource("2_38wsh")
+
+[node name="movebox" parent="." index="1" unique_id=721984946]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_38wsh")

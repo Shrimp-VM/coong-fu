@@ -4,6 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://cgbxfx3gqev3u" path="res://contents/Bar/ColorBar.tscn" id="1_xjsuh"]
 
 [node name="StateBar" type="Node2D" unique_id=1623109392]
+z_index = 10
+z_as_relative = false
 script = ExtResource("1_obv78")
 
 [node name="healthBar" parent="." unique_id=103800454 instance=ExtResource("1_xjsuh")]

@@ -7,6 +7,7 @@ func spawn():
 	CameraManager.follow(self)
 	WorldManager.fightContext.env.write_symbol("player", self)
 func ai(delta: float):
+	super.ai(delta)
 	if EditorManager.isOpening(): return
 	var controlledDirection = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	if dashing: return

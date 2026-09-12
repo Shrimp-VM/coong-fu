@@ -3,7 +3,7 @@ class_name BaseBullet
 
 signal entityHit(entity: BaseEntity)
 
-class BaseAI extends Resource:
+class BaseAI:
 	func run(bullet: BaseBullet):
 		return bullet
 	func physics(bullet: BaseBullet, delta: float):
@@ -30,11 +30,11 @@ var energyInjected: float = 10
 func _ready() -> void:
 	spawnPosition = position
 	spawnTime = TimeUtil.current()
+	ais = getAI()
 func _physics_process(delta: float) -> void:
 	if isLiving():
-		for ai in ShrimpVMUtil.concat_array(ais, getAI()):
-			if ai is BaseAI:
-				ai.physics(self, delta)
+		for composedAI in ais:
+			composedAI.physics(self, delta)
 	else:
 		queue_free()
 

@@ -1,6 +1,12 @@
 extends BaseEntity
 class_name BaseLiving
 
+class BaseAI:
+	func run(entity: BaseEntity):
+		return entity
+	func physics(entity: BaseEntity, delta: float):
+		return [entity, delta]
+
 @export var attackGap: float = 500
 
 @onready var stateBar: StateBar = $%stateBar
@@ -21,6 +27,8 @@ var stats: Dictionary[Stats.Living, float] = {
 var energyInjected: float = 10
 var dashing: bool = false
 var dashCooldown: CooldownController = CooldownController.new(1000)
+var ais: Array[BaseAI] = []
+var focusingEntity: BaseEntity = null
 
 func _ready() -> void:
 	super._ready()
@@ -29,7 +37,11 @@ func _ready() -> void:
 			stateBar.healthBar.setCurrent(new)
 	)
 	applyMaxHealth()
+	ais = getAI()
 
+func ai(delta: float):
+	for composedAI in ais:
+		composedAI.physics(self, delta)
 func accelerationFactor() -> float:
 	return getStat(Stats.Living.MOVEMENT_FACTOR)
 func attack(type: int):
@@ -37,6 +49,8 @@ func attack(type: int):
 		0:
 			pass
 
+func getAI() -> Array[BaseAI]:
+	return []
 func dash(force: Vector2, duration: float):
 	if !dashCooldown.flag(): return
 	dashing = true

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cw7wgwagmrxxs"
-path="res://.godot/imported/rooster-a.svg-1f91b585f8ecee1036b061e6e905c505.ctex"
+uid="uid://bax2uab7t1wi1"
+path="res://.godot/imported/star.svg-c41352e1733aa62ddba20b1d4bccb545.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/entities/rooster/rooster-a.svg"
-dest_files=["res://.godot/imported/rooster-a.svg-1f91b585f8ecee1036b061e6e905c505.ctex"]
+source_file="res://contents/Bullet/Star/star.svg"
+dest_files=["res://.godot/imported/star.svg-c41352e1733aa62ddba20b1d4bccb545.ctex"]
 
 [params]
 

@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://b1w28mkl2r82l" path="res://abstracts/BasePlayer.tscn" id="1_dkvhb"]
 [ext_resource type="Script" uid="uid://dofhway4awopc" path="res://contents/Entity/Rooster/Rooster.gd" id="2_514sj"]
-[ext_resource type="Texture2D" uid="uid://cw7wgwagmrxxs" path="res://resources/entities/rooster/rooster-a.svg" id="2_ov2j6"]
-[ext_resource type="Texture2D" uid="uid://58ubgxot2jfb" path="res://resources/entities/rooster/rooster-b.svg" id="3_514sj"]
+[ext_resource type="Texture2D" uid="uid://cw7wgwagmrxxs" path="res://contents/Entity/Rooster/walk/rooster-a.svg" id="2_ov2j6"]
+[ext_resource type="Texture2D" uid="uid://58ubgxot2jfb" path="res://contents/Entity/Rooster/walk/rooster-b.svg" id="3_514sj"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1xu8l"]
 animations = [{

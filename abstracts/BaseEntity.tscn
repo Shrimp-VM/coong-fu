@@ -7,7 +7,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ngy2r"]
 size = Vector2(38, 52.25)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_opx8x"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4dj1"]
+size = Vector2(38, 20)
 
 [node name="BaseEntity" type="CharacterBody2D" unique_id=334154807]
 script = ExtResource("1_ngy2r")
@@ -33,4 +34,4 @@ position = Vector2(0, -26.125)
 shape = SubResource("RectangleShape2D_ngy2r")
 
 [node name="movebox" type="CollisionShape2D" parent="." unique_id=721984946]
-shape = SubResource("CircleShape2D_opx8x")
+shape = SubResource("RectangleShape2D_g4dj1")

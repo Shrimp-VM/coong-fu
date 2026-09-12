@@ -3,6 +3,9 @@ class_name BaseEnemy
 
 @export var value: Vector2i = Vector2i(3, 6)
 
+func spawn():
+	super.spawn()
+	setStat(Stats.Living.MAX_HEALTH, getStat(Stats.Living.MAX_HEALTH) + WaveManager.current() * 10)
 func isPlayer() -> bool:
 	return false
 func ai(delta: float):

@@ -39,6 +39,7 @@ func _physics_process(delta: float) -> void:
 		queue_free()
 
 func hitEntity(entity: BaseEntity) -> bool:
+	if !is_instance_valid(launcher): return true
 	match GameRuleManager.judgeCirt(launcher, getBaseDamage()):
 		[ var state, var dmg]:
 			DamageSource.new(launcher, dmg, state, entity).apply()

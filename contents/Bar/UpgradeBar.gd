@@ -20,3 +20,5 @@ func rebuild():
 	var schema = ir.get_wrapper_schema()
 	descriptionLabel.text = schema.description
 	preview.rebuild(schema, {"type": ir.get_node_type()})
+func disable():
+	selectBtn.disabled = true

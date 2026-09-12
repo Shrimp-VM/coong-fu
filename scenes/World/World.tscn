@@ -430,17 +430,18 @@ script = ExtResource("1_kurpr")
 [node name="WaveManager" type="Node" parent="." unique_id=1207477771]
 script = ExtResource("2_evp4r")
 
+[node name="PanelManager" type="CanvasLayer" parent="." unique_id=909977958]
+process_mode = 3
+script = ExtResource("5_dvfe2")
+metadata/_custom_type_script = "uid://d3snnnxwtodpe"
+
 [node name="EditorManager" type="Node" parent="." unique_id=1625709633]
 process_mode = 3
 script = ExtResource("2_p47ta")
 
 [node name="editor" parent="EditorManager" unique_id=1041740263 instance=ExtResource("3_ictkp")]
 visible = false
-
-[node name="PanelManager" type="CanvasLayer" parent="." unique_id=909977958]
-process_mode = 3
-script = ExtResource("5_dvfe2")
-metadata/_custom_type_script = "uid://d3snnnxwtodpe"
+finiteBlockCount = true
 
 [node name="vm" type="Node" parent="." unique_id=1545776356]
 unique_name_in_owner = true

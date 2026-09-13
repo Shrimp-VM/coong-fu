@@ -6,7 +6,7 @@ signal damageTaken(dmg: DamageSource)
 
 @export var currentHealth: float = 100
 @export var baseMovement: float = 20
-@export var fraction: float = 10
+@export var fraction: float = 5
 
 @onready var anchorParent: Node2D = $%anchors
 @onready var hurtboxArea: Area2D = $%hurtbox

@@ -59,13 +59,11 @@ func getBaseDamage() -> float:
 func dash(force: Vector2):
 	if !dashCooldown.flag(): return
 	dashing = true
-	fraction *= 0.75
 	dashCooldown.lock()
 	impact(force)
 	while velocity.length() >= baseMovement * 10:
 		await get_tree().process_frame
 	dashCooldown.unlock()
-	fraction /= 0.75
 	dashing = false
 func impact(force: Vector2):
 	return super.impact(force / (1 + getStat(Stats.Living.ANTI_IMPACT)))

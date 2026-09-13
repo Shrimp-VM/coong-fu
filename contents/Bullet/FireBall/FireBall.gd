@@ -9,5 +9,7 @@ func getAI() -> Array[BaseAI]:
 func die():
 	smoke.emitting = false
 	fireHead.emitting = false
+	fireHead.speed_scale = 1
 	fireTrail.emitting = false
+	fireTrail.speed_scale = 1
 	await TimeUtil.millseconds(3000)

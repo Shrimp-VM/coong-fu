@@ -4,6 +4,8 @@ class_name BaseBullet
 signal entityHit(entity: BaseEntity)
 
 class BaseAI:
+	func config(_bullet: BaseBullet):
+		pass
 	func run(bullet: BaseBullet):
 		return bullet
 	func physics(bullet: BaseBullet, delta: float):
@@ -32,6 +34,8 @@ func _ready() -> void:
 	spawnPosition = position
 	spawnTime = TimeUtil.current()
 	ais = getAI()
+	for ai in ais:
+		ai.config(self)
 func _physics_process(delta: float) -> void:
 	if isLiving():
 		for composedAI in ais:
@@ -71,10 +75,14 @@ func getStat(key: Stats.Bullet) -> float:
 func isLiving() -> bool:
 	return (
 		is_instance_valid(launcher) &&
-		position.distance_to(spawnPosition) < lifeDistance &&
-		TimeUtil.current() - spawnTime < lifeTime &&
+		distanceTraveled() < lifeDistance &&
+		timeLived() < lifeTime &&
 		!isFullPenetrated() &&
 		!dieing
 	)
 func isFullPenetrated() -> bool:
 	return currentPenetrated > getStat(Stats.Bullet.PENETRATE)
+func timeLived() -> float:
+	return TimeUtil.current() - spawnTime
+func distanceTraveled() -> float:
+	return position.distance_to(spawnPosition)

@@ -5,11 +5,9 @@ extends BaseBullet
 @onready var fireTrail: GPUParticles2D = $%fireTrail
 
 func getAI() -> Array[BaseAI]:
-	return [BulletForwardAI.new()]
+	return [BulletForwardAI.new(), BulletAccelerateAI.new(1000)]
 func die():
-	await NodeUtil.waitParticlesFinished(fireHead)
-	print(2)
-	await NodeUtil.waitParticlesFinished(fireTrail)
-	print(3)
-	await NodeUtil.waitParticlesFinished(smoke)
-	print(1)
+	smoke.emitting = false
+	fireHead.emitting = false
+	fireTrail.emitting = false
+	await TimeUtil.millseconds(3000)

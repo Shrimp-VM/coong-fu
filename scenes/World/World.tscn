@@ -444,6 +444,7 @@ script = ExtResource("4_evp4r")
 metadata/_custom_type_script = "uid://drxoblkew75eu"
 
 [node name="camera" type="Camera2D" parent="." unique_id=1369065500]
+offset = Vector2(0, -100)
 process_callback = 0
 limit_left = -2836
 limit_top = -1675

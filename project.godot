@@ -25,6 +25,10 @@ gdscript/warnings/static_called_on_instance=0
 window/size/viewport_width=1600
 window/size/viewport_height=900
 
+[dotnet]
+
+project/assembly_name="CoongFu"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/shrimpvm/plugin.cfg")

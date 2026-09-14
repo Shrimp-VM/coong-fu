@@ -6,13 +6,6 @@
 [ext_resource type="Script" uid="uid://uw4oee4tvks" path="res://addons/shrimpvm/nodes/base/root_node.gd" id="3_w4jcu"]
 [ext_resource type="Script" uid="uid://1hlfdlxujevh" path="res://irs/CreateBulletNode.gd" id="4_d6eph"]
 [ext_resource type="Script" uid="uid://c3vuueq616p48" path="res://irs/BulletShotNode.gd" id="5_vuoy2"]
-[ext_resource type="Script" uid="uid://cvqni0e6mnw20" path="res://addons/shrimpvm/nodes/literals/number_node.gd" id="7_c3bls"]
-[ext_resource type="Script" uid="uid://b60gj4dvoyto0" path="res://addons/shrimpvm/nodes/base/read_symbol.gd" id="7_jf2f6"]
-[ext_resource type="Script" uid="uid://4e7vf5klfk8u" path="res://addons/shrimpvm/nodes/macros/return_node.gd" id="7_vuoy2"]
-[ext_resource type="Script" uid="uid://dy5pnqath5i5g" path="res://addons/shrimpvm/nodes/maths/add_node.gd" id="8_2e453"]
-[ext_resource type="Script" uid="uid://dipbdjhg4p62u" path="res://addons/shrimpvm/nodes/macros/function_definition_node.gd" id="8_lsboy"]
-[ext_resource type="Script" uid="uid://df4i8jqw37216" path="res://addons/shrimpvm/nodes/macros/function_call_node.gd" id="11_jf2f6"]
-[ext_resource type="Script" uid="uid://da63e86ydg0o" path="res://addons/shrimpvm/nodes/functions/print_node.gd" id="12_22hea"]
 
 [sub_resource type="Resource" id="Resource_kki3y"]
 script = ExtResource("3_kki3y")
@@ -33,70 +26,24 @@ script = ExtResource("3_w4jcu")
 body = Array[ExtResource("2_mj2nh")]([SubResource("Resource_kki3y"), SubResource("Resource_vuoy2")])
 metadata/_custom_type_script = "uid://uw4oee4tvks"
 
-[sub_resource type="Resource" id="Resource_37hla"]
-script = ExtResource("7_jf2f6")
-symbol = "a"
-metadata/_custom_type_script = "uid://b60gj4dvoyto0"
-
-[sub_resource type="Resource" id="Resource_mrdcu"]
-script = ExtResource("7_jf2f6")
-symbol = "b"
-metadata/_custom_type_script = "uid://b60gj4dvoyto0"
-
-[sub_resource type="Resource" id="Resource_iaqij"]
-script = ExtResource("8_2e453")
-a = SubResource("Resource_37hla")
-b = SubResource("Resource_mrdcu")
-metadata/_custom_type_script = "uid://dy5pnqath5i5g"
-
-[sub_resource type="Resource" id="Resource_jdrpb"]
-script = ExtResource("7_vuoy2")
-data = SubResource("Resource_iaqij")
-metadata/_custom_type_script = "uid://4e7vf5klfk8u"
-
-[sub_resource type="Resource" id="Resource_tmt2d"]
-script = ExtResource("8_lsboy")
-functionName = "add"
-params = Array[String](["a", "b"])
-body = Array[ExtResource("2_mj2nh")]([SubResource("Resource_jdrpb")])
-metadata/_custom_type_script = "uid://dipbdjhg4p62u"
-
-[sub_resource type="Resource" id="Resource_m8kfl"]
-script = ExtResource("7_c3bls")
-content = 3.0
-metadata/_custom_type_script = "uid://cvqni0e6mnw20"
-
-[sub_resource type="Resource" id="Resource_h2iij"]
-script = ExtResource("7_c3bls")
-content = 2.0
-metadata/_custom_type_script = "uid://cvqni0e6mnw20"
-
-[sub_resource type="Resource" id="Resource_1pgm1"]
-script = ExtResource("11_jf2f6")
-functionName = "add"
-paramIRs = Array[ExtResource("2_mj2nh")]([SubResource("Resource_m8kfl"), SubResource("Resource_h2iij")])
-metadata/_custom_type_script = "uid://df4i8jqw37216"
-
-[sub_resource type="Resource" id="Resource_p2lyo"]
-script = ExtResource("12_22hea")
-content = SubResource("Resource_1pgm1")
-metadata/_custom_type_script = "uid://da63e86ydg0o"
-
-[sub_resource type="Resource" id="Resource_22hea"]
-script = ExtResource("3_w4jcu")
-body = Array[ExtResource("2_mj2nh")]([SubResource("Resource_tmt2d"), SubResource("Resource_p2lyo")])
-metadata/_custom_type_script = "uid://uw4oee4tvks"
-
 [node name="CoongFuEditor" unique_id=2000783686 instance=ExtResource("1_k7vvl")]
-treeData = {}
+treeData = {
+"body": [{
+"type": "inject_energy"
+}, {
+"bullet": {
+"content": 1.0,
+"type": "create_bullet"
+},
+"type": "bullet_shoot"
+}],
+"type": "root"
+}
 finiteBlockCount = true
 defaultFileSystem = Dictionary[StringName, ExtResource("2_mj2nh")]({
 &"normalAttack": SubResource("Resource_lsboy")
 })
 loadBuiltins = true
-
-[node name="vm" parent="." index="0" unique_id=1396633106]
-auto_run = SubResource("Resource_22hea")
 
 [node name="fileManager" parent="." index="1" unique_id=1307891398]
 allowArchive = false

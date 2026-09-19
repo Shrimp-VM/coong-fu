@@ -19,6 +19,6 @@ func rebuild():
 	if !is_instance_valid(ir): return
 	var schema = ir.get_wrapper_schema()
 	descriptionLabel.text = schema.description
-	preview.rebuild(schema, {"type": ir.get_node_type()})
+	preview.rebuild()
 func disable():
 	selectBtn.disabled = true

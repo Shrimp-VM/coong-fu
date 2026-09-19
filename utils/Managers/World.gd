@@ -11,6 +11,7 @@ var running: float = 0
 
 func _ready() -> void:
 	instance = self
-	ObjectManager.addEntity("Rooster")
+	if !Engine.is_editor_hint():
+		ObjectManager.addEntity("Rooster")
 func _process(delta: float) -> void:
 	running += delta

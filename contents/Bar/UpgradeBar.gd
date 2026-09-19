@@ -8,7 +8,7 @@ signal select()
 @export var ir: ShrimpIR
 
 @onready var descriptionLabel: RichTextLabel = $%description
-@onready var preview: NodeBlock = $%preview
+@onready var previewBox: PanelContainer = $%previewBox
 @onready var selectBtn: Button = $%selectBtn
 
 func _ready() -> void:
@@ -19,6 +19,9 @@ func rebuild():
 	if !is_instance_valid(ir): return
 	var schema = ir.get_wrapper_schema()
 	descriptionLabel.text = schema.description
+	var preview = NodeBlock.create(null, true, INF, ir.get_node_type())
+	ShrimpVMUtil.disconnect_children(previewBox)
+	previewBox.add_child(preview)
 	preview.rebuild()
 func disable():
 	selectBtn.disabled = true

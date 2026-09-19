@@ -1,12 +1,9 @@
 [gd_scene format=3 uid="uid://dk6qj3ro470yg"]
 
 [ext_resource type="Script" uid="uid://dcqp1jpjelc4t" path="res://contents/Bar/UpgradeBar.gd" id="1_0ts7g"]
-[ext_resource type="PackedScene" uid="uid://daf1is503pe2i" path="res://addons/shrimpvm/scenes/node_block.tscn" id="1_104vb"]
 [ext_resource type="Script" uid="uid://qq17orpp58tj" path="res://addons/shrimpvm/shrimp_ir.gd" id="2_nd3jx"]
 [ext_resource type="PackedScene" uid="uid://cwjvn21pj3cv0" path="res://addons/shrimpvm/scenes/triangle.tscn" id="3_366hu"]
-[ext_resource type="Script" uid="uid://wcx6kruoo167" path="res://addons/shrimpvm/nodes/literals/string_node.gd" id="3_masfi"]
-[ext_resource type="Script" uid="uid://da63e86ydg0o" path="res://addons/shrimpvm/nodes/functions/print_node.gd" id="4_y8j1k"]
-[ext_resource type="Script" uid="uid://uw4oee4tvks" path="res://addons/shrimpvm/nodes/base/root_node.gd" id="5_ahs37"]
+[ext_resource type="Script" uid="uid://df4i8jqw37216" path="res://addons/shrimpvm/nodes/macros/function_call_node.gd" id="3_p86h4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ek2hm"]
 content_margin_left = 20.0
@@ -24,27 +21,16 @@ corner_radius_top_left = 15
 corner_radius_bottom_right = 15
 corner_detail = 1
 
-[sub_resource type="Resource" id="Resource_wgnbx"]
-script = ExtResource("3_masfi")
-content = "data"
-metadata/_custom_type_script = "uid://wcx6kruoo167"
-
-[sub_resource type="Resource" id="Resource_dpqxb"]
-script = ExtResource("4_y8j1k")
-content = SubResource("Resource_wgnbx")
-metadata/_custom_type_script = "uid://da63e86ydg0o"
-
-[sub_resource type="Resource" id="Resource_ni6rw"]
-script = ExtResource("5_ahs37")
-body = Array[ExtResource("2_nd3jx")]([SubResource("Resource_dpqxb")])
-metadata/_custom_type_script = "uid://uw4oee4tvks"
+[sub_resource type="Resource" id="Resource_x5d7a"]
+script = ExtResource("3_p86h4")
+metadata/_custom_type_script = "uid://df4i8jqw37216"
 
 [sub_resource type="Animation" id="Animation_366hu"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("wrapper/wrapper2/wrapper/t1:modulate:a")
+tracks/0/path = NodePath("wrapper/previewWrapper/wrapper/t1:modulate:a")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -62,7 +48,7 @@ step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("wrapper/wrapper2/wrapper/t1:modulate:a")
+tracks/0/path = NodePath("wrapper/previewWrapper/wrapper/t1:modulate:a")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -74,7 +60,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("wrapper/wrapper2/wrapper/t2:modulate:a")
+tracks/1/path = NodePath("wrapper/previewWrapper/wrapper/t2:modulate:a")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -92,6 +78,8 @@ _data = {
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p86h4"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x5d7a"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_32vyv"]
 content_margin_left = 10.0
 content_margin_top = 10.0
@@ -108,7 +96,7 @@ corner_detail = 1
 [node name="UpgradeBar" type="PanelContainer" unique_id=734359202]
 theme_override_styles/panel = SubResource("StyleBoxFlat_ek2hm")
 script = ExtResource("1_0ts7g")
-ir = SubResource("Resource_ni6rw")
+ir = SubResource("Resource_x5d7a")
 
 [node name="animator" type="AnimationPlayer" parent="." unique_id=2140310474]
 unique_name_in_owner = true
@@ -119,27 +107,27 @@ autoplay = &"loop"
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="wrapper2" type="PanelContainer" parent="wrapper" unique_id=506004365]
+[node name="previewWrapper" type="PanelContainer" parent="wrapper" unique_id=506004365]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_p86h4")
 
-[node name="wrapper" type="HBoxContainer" parent="wrapper/wrapper2" unique_id=699372457]
+[node name="wrapper" type="HBoxContainer" parent="wrapper/previewWrapper" unique_id=699372457]
 layout_mode = 2
 theme_override_constants/separation = 10
 alignment = 1
 
-[node name="t1" parent="wrapper/wrapper2/wrapper" unique_id=567482577 instance=ExtResource("3_366hu")]
+[node name="t1" parent="wrapper/previewWrapper/wrapper" unique_id=567482577 instance=ExtResource("3_366hu")]
 custom_minimum_size = Vector2(15, 10)
 layout_mode = 2
 size_flags_horizontal = 1
 size_flags_vertical = 4
 
-[node name="preview" parent="wrapper/wrapper2/wrapper" unique_id=1255986660 instance=ExtResource("1_104vb")]
+[node name="previewBox" type="PanelContainer" parent="wrapper/previewWrapper/wrapper" unique_id=1027106914]
 unique_name_in_owner = true
 layout_mode = 2
-inDesk = true
+theme_override_styles/panel = SubResource("StyleBoxEmpty_x5d7a")
 
-[node name="t2" parent="wrapper/wrapper2/wrapper" unique_id=2105296170 instance=ExtResource("3_366hu")]
+[node name="t2" parent="wrapper/previewWrapper/wrapper" unique_id=2105296170 instance=ExtResource("3_366hu")]
 modulate = Color(1, 1, 1, 0.318592)
 custom_minimum_size = Vector2(15, 10)
 layout_mode = 2
@@ -147,23 +135,23 @@ size_flags_horizontal = 1
 size_flags_vertical = 4
 direction = 1
 
-[node name="wrapper" type="PanelContainer" parent="wrapper" unique_id=1295728795]
+[node name="descriptionWrapper" type="PanelContainer" parent="wrapper" unique_id=1295728795]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_32vyv")
 
-[node name="wrapper" type="ScrollContainer" parent="wrapper/wrapper" unique_id=1305351266]
+[node name="wrapper" type="ScrollContainer" parent="wrapper/descriptionWrapper" unique_id=1305351266]
 custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 3
 
-[node name="description" type="RichTextLabel" parent="wrapper/wrapper/wrapper" unique_id=257539844]
+[node name="description" type="RichTextLabel" parent="wrapper/descriptionWrapper/wrapper" unique_id=257539844]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 bbcode_enabled = true
-text = "Execute all codes in body."
+text = "Run a function symbol in current context."
 
 [node name="selectBtn" type="Button" parent="wrapper" unique_id=1509169719]
 unique_name_in_owner = true

@@ -7,6 +7,8 @@ func execute(_vm: ShrimpVM, context: ExecutionContext) -> Variant:
 	if player is BasePlayer:
 		player.energyInjected += 10
 	return
+func decompile() -> Dictionary:
+	return {}
 
 static func get_category_tag() -> String:
 	return "能量"

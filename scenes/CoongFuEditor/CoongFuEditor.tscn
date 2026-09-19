@@ -43,13 +43,9 @@ finiteBlockCount = true
 defaultFileSystem = Dictionary[StringName, ExtResource("2_mj2nh")]({
 &"normalAttack": SubResource("Resource_lsboy")
 })
-loadBuiltins = true
 
 [node name="fileManager" parent="." index="1" unique_id=1307891398]
 allowArchive = false
-
-[node name="bg" parent="." index="2" unique_id=481410875]
-visible = false
 
 [node name="openBtn" parent="layout/nav/wrapper" parent_id_path=PackedInt32Array(119838587) index="0" unique_id=1580073565]
 text = "从电脑加载"
@@ -66,23 +62,17 @@ text = "停止编辑"
 [node name="deleteFileBtn" parent="layout/nav/wrapper" parent_id_path=PackedInt32Array(119838587) index="4" unique_id=1440390961]
 text = "删除脚本"
 
-[node name="treeTip" parent="layout/layout/workspace/wrapper/center" parent_id_path=PackedInt32Array(1266214890) index="0" unique_id=287250670]
+[node name="treeTip" parent="layout/layout/workspace/block/wrapper/mergin/center" parent_id_path=PackedInt32Array(1266214890) index="0" unique_id=287250670]
 text = "没有根节点。
 点击“Root Node”创建一个！"
 
-[node name="runBtn" parent="layout/layout/workspace/margins/wrapper/wrapper" parent_id_path=PackedInt32Array(556257705) index="0" unique_id=98607733]
+[node name="runBtn" parent="layout/layout/workspace/tools/wrapper/wrapper" parent_id_path=PackedInt32Array(556257705) index="0" unique_id=98607733]
 text = "运行"
 
-[node name="title" parent="layout/layout/workspace/margins/wrapper/inspector/wrapper" parent_id_path=PackedInt32Array(743684548) index="0" unique_id=1672490136]
-text = "检查器"
-
-[node name="deleteNode" parent="layout/layout/workspace/margins/wrapper/inspector/wrapper" parent_id_path=PackedInt32Array(743684548) index="3" unique_id=1007425784]
-text = "删除节点"
-
-[node name="decoration" parent="layout/layout/workspace/workspace/wrapper" parent_id_path=PackedInt32Array(171671562) index="0" unique_id=30092913]
+[node name="decoration" parent="layout/layout/workspace/tip/wrapper" parent_id_path=PackedInt32Array(171671562) index="0" unique_id=30092913]
 text = "工作区："
 
-[node name="scriptName" parent="layout/layout/workspace/workspace/wrapper" parent_id_path=PackedInt32Array(171671562) index="1" unique_id=699603676]
+[node name="scriptName" parent="layout/layout/workspace/tip/wrapper" parent_id_path=PackedInt32Array(171671562) index="1" unique_id=699603676]
 text = "normalAttack"
 
 [node name="title" parent="layout/layout/fileManager/wrapper" parent_id_path=PackedInt32Array(442025681) index="0" unique_id=1322068035]

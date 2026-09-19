@@ -21,7 +21,8 @@ class EntityWrapper:
 static var instance: WaveManager
 
 var WAVES: Array[EntityWrapper] = [
-	EntityWrapper.new("Hen")
+	EntityWrapper.new("Hen", false, 30),
+	EntityWrapper.new("Chick", false, 5)
 ]
 var currentWave: int = 0
 var autoDetect: bool = true

@@ -35,14 +35,18 @@ func getUpgradeCost() -> float:
 	return UPGRADE_COST_INIT + currentLevel * UPGRADE_COST_PERLEVEL
 func canUpgrade() -> bool:
 	return expCount >= getUpgradeCost()
+func setExp(value: float):
+	expCount = value
+	HUDPlayer.instance.expBar.maxValue = getUpgradeCost()
+	HUDPlayer.setExp(expCount)
 func upgrade() -> bool:
 	if canUpgrade():
-		expCount -= getUpgradeCost()
+		setExp(expCount - getUpgradeCost())
 		currentLevel += 1
 		return true
 	else:
 		return false
 func storeExp(count: float):
-	expCount += count
+	setExp(expCount + count)
 	if upgrade():
 		PanelManager.setCurrent("Upgrader")

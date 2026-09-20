@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dhhjg1pr6dq86" path="res://resources/tiles/Hospital_A4.png" id="2_1bnsl"]
 [ext_resource type="Script" uid="uid://do3mm7p52m7hj" path="res://utils/Managers/Wave.gd" id="2_evp4r"]
 [ext_resource type="Script" uid="uid://dg4qnjilpkyvv" path="res://utils/Managers/Object.gd" id="2_kurpr"]
+[ext_resource type="PackedScene" uid="uid://bdsh56nojstvs" path="res://scenes/HUD/HUD.tscn" id="3_dvfe2"]
 [ext_resource type="Texture2D" uid="uid://dofkf2g40oc4k" path="res://resources/tiles/Modern_Int_A4.png" id="3_mbmvx"]
 [ext_resource type="Texture2D" uid="uid://cbnybut0p01kw" path="res://resources/tiles/Inside_A5.png" id="4_3fwkt"]
 [ext_resource type="Script" uid="uid://smd2owv864g8" path="res://utils/Controllers/HookController.gd" id="4_dvfe2"]
@@ -428,6 +429,11 @@ script = ExtResource("1_kurpr")
 
 [node name="WaveManager" type="Node" parent="." unique_id=1207477771]
 script = ExtResource("2_evp4r")
+
+[node name="hud" type="CanvasLayer" parent="." unique_id=1015082475]
+process_mode = 3
+
+[node name="HUD" parent="hud" unique_id=1344594368 instance=ExtResource("3_dvfe2")]
 
 [node name="PanelManager" type="CanvasLayer" parent="." unique_id=909977958]
 process_mode = 3

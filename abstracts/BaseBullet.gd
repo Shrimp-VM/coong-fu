@@ -45,7 +45,7 @@ func _physics_process(delta: float) -> void:
 
 func hitEntity(entity: BaseEntity) -> bool:
 	if !is_instance_valid(launcher): return true
-	match GameRuleManager.judgeCirt(launcher, getBaseDamage()):
+	match GameRuleManager.judgeDamage(launcher, getBaseDamage()):
 		[ var state, var dmg]:
 			DamageSource.new(launcher, dmg, state, entity).apply()
 	entityHit.emit(entity)

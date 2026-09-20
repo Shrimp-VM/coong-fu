@@ -6,7 +6,6 @@ class_name DamageBar
 var damage: DamageSource
 
 func _ready() -> void:
-	position += MathUtil.sampleCircle(20)
 	rebuild()
 	animator.play("spawn")
 	await animator.animation_finished
@@ -19,4 +18,5 @@ func rebuild():
 static func create(dmg: DamageSource) -> DamageBar:
 	var instance = preload("res://contents/Bar/DamageBar.tscn").instantiate() as DamageBar
 	instance.damage = dmg
+	instance.position = dmg.to.position + MathUtil.sampleCircle(30)
 	return instance

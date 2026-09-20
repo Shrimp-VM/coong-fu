@@ -3,7 +3,8 @@
 [ext_resource type="Script" uid="uid://chnilxm4xnbk8" path="res://contents/Bar/DamageBar.gd" id="1_ucnrn"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ucnrn"]
-outline_size = 2
+font_size = 25
+outline_size = 3
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Animation" id="Animation_ucnrn"]
@@ -65,7 +66,7 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "handle_modes": PackedInt32Array(2, 0),
-"points": PackedFloat32Array(0, 0, 0, 0, 0, -50, -0.3, 0, 0, 0),
+"points": PackedFloat32Array(0, 0, 0, 0, 0, -100, -0.3, 0, 0, 0),
 "times": PackedFloat32Array(0, 0.3)
 }
 tracks/1/type = "bezier"
@@ -109,6 +110,8 @@ _data = {
 }
 
 [node name="DamageBar" type="Node2D" unique_id=310935489]
+z_index = 30
+z_as_relative = false
 script = ExtResource("1_ucnrn")
 
 [node name="anchor" type="Node2D" parent="." unique_id=628789094]

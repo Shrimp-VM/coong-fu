@@ -26,6 +26,7 @@ var WAVES: Array[EntityWrapper] = [
 ]
 var currentWave: int = 0
 var autoDetect: bool = true
+var detectCooldown: CooldownController = CooldownController.new(1000)
 
 func _ready() -> void:
 	instance = self
@@ -35,6 +36,7 @@ func _physics_process(_delta: float) -> void:
 static func current() -> int:
 	return instance.currentWave
 static func detectNext():
+	if !instance.detectCooldown.flag(): return
 	var spawned = false
 	for wave in instance.WAVES:
 		if wave.shouldNext():

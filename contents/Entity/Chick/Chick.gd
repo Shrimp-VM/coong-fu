@@ -11,4 +11,6 @@ func getAI() -> Array[BaseAI]:
 func attack(type: int):
 	match type:
 		0:
-			ObjectManager.addBullet("Star", self, getAnchor("shooter"), rotationToFocusing())
+			for i in 3:
+				ObjectManager.addBullet("Star", self, getAnchor("shooter"), rotationToFocusing())
+				await TimeUtil.millseconds(200)

@@ -2,17 +2,13 @@
 
 [ext_resource type="PackedScene" uid="uid://da0yr7vcby2a" path="res://abstracts/BasePanel.tscn" id="1_3kcwa"]
 [ext_resource type="Script" uid="uid://hbqyi720ydet" path="res://utils/Managers/Editor.gd" id="2_2j3yr"]
+[ext_resource type="Script" uid="uid://dgsl1uj07y20d" path="res://contents/Panels/Editor.gd" id="2_7osl2"]
 [ext_resource type="PackedScene" uid="uid://xupooukqxg26" path="res://scenes/CoongFuEditor/CoongFuEditor.tscn" id="3_5swli"]
-[ext_resource type="Script" uid="uid://qq17orpp58tj" path="res://addons/shrimpvm/shrimp_ir.gd" id="4_vdi60"]
-[ext_resource type="Script" uid="uid://uw4oee4tvks" path="res://addons/shrimpvm/nodes/base/root_node.gd" id="5_tifde"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5swli"]
 
-[sub_resource type="Resource" id="Resource_rssrr"]
-script = ExtResource("5_tifde")
-metadata/_custom_type_script = "uid://uw4oee4tvks"
-
 [node name="Editor" unique_id=77133632 instance=ExtResource("1_3kcwa")]
+script = ExtResource("2_7osl2")
 
 [node name="EditorManager" type="Node" parent="." index="0" unique_id=1437495932]
 script = ExtResource("2_2j3yr")
@@ -26,4 +22,3 @@ visible = false
 [node name="editor" parent="wrapper/wrapper/content" parent_id_path=PackedInt32Array(231915332) index="0" unique_id=2000783686 instance=ExtResource("3_5swli")]
 unique_name_in_owner = true
 layout_mode = 2
-deskIRs = Array[ExtResource("4_vdi60")]([SubResource("Resource_rssrr")])

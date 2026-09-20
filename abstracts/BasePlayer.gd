@@ -2,7 +2,7 @@ extends BaseLiving
 class_name BasePlayer
 
 const UPGRADE_COST_INIT = 300
-const UPGRADE_COST_PERLEVEL = 600
+const UPGRADE_COST_PERLEVEL = 1000
 
 @export var dashSpeed: float = 50
 

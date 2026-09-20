@@ -5,29 +5,30 @@
 [ext_resource type="Texture2D" uid="uid://d0qvaubrjoqtm" path="res://contents/Entity/Chick/walk/chick-a.svg" id="2_itvuk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_itvuk"]
-radius = 15.033297
+radius = 76.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5xh4a"]
-size = Vector2(20, 8)
+size = Vector2(95, 22)
 
 [node name="BaseEntity" unique_id=334154807 instance=ExtResource("1_yyakb")]
 script = ExtResource("2_5xh4a")
 value = Vector2i(5, 10)
 
 [node name="static" parent="texture" parent_id_path=PackedInt32Array(1274454792) index="1" unique_id=193572939]
-position = Vector2(1.0000038, -18)
-scale = Vector2(0.49025318, 0.49025318)
+position = Vector2(1.0000038, -87)
+scale = Vector2(2.447781, 2.447781)
 texture = ExtResource("2_itvuk")
 
 [node name="shooter" parent="texture/anchors" parent_id_path=PackedInt32Array(1589403422) index="0" unique_id=813056254]
 position = Vector2(15, -24)
 
 [node name="hitbox" parent="texture/hurtbox" parent_id_path=PackedInt32Array(1386083865) index="0" unique_id=2083183266]
-position = Vector2(0, -16)
+position = Vector2(-3, -90)
 shape = SubResource("CircleShape2D_itvuk")
 
 [node name="stateBar" parent="." index="2" unique_id=1623109392]
-position = Vector2(0, -40)
+position = Vector2(0, -187)
 
 [node name="movebox" parent="." index="3" unique_id=721984946]
+position = Vector2(-6, 0)
 shape = SubResource("RectangleShape2D_5xh4a")

@@ -102,6 +102,7 @@ size = Vector2(23, 14)
 script = ExtResource("2_lrwsk")
 lifeTime = 3000.0
 baseMovement = 750.0
+damageFactor = 1.5
 
 [node name="static" parent="texture" parent_id_path=PackedInt32Array(1274454792) index="1" unique_id=193572939]
 texture = ExtResource("2_72ib2")

@@ -7,6 +7,8 @@ static var instance: ObjectManager
 func _ready() -> void:
 	instance = self
 
+static func addObject(obj: Node):
+	instance.add_child(obj)
 static func shootToMouse(bullet: String, launcher: BaseEntity, anchor: String = "shootEntry") -> Array[BaseBullet]:
 	return addBullet(
 		bullet,

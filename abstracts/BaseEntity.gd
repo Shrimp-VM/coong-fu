@@ -51,6 +51,7 @@ func setHealth(newHealth: float):
 func applyDamage(dmg: DamageSource):
 	damageTaken.emit(dmg)
 	setHealth(currentHealth - dmg.amount)
+	ObjectManager.addObject(DamageBar.create(dmg))
 func impact(force: Vector2):
 	velocity += force
 func accelerate(direction: Vector2, delta: float, maxSpeed: float) -> Vector2:

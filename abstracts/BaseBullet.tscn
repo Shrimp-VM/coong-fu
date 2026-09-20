@@ -32,7 +32,7 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_2plmj")
 
-[node name="animationSound" type="AudioStreamPlayer2D" parent="texture/animator" unique_id=1924743759]
+[node name="animationSound" type="AudioStreamPlayer" parent="texture/animator" unique_id=1560075624]
 
 [node name="movebox" type="CollisionShape2D" parent="." unique_id=721984946]
 shape = SubResource("CircleShape2D_opx8x")

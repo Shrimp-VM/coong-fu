@@ -76,8 +76,8 @@ tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "handle_modes": PackedInt32Array(2, 0, 0, 2),
-"points": PackedFloat32Array(0, 0, 0, 0, 0, 1, -0.3, 0, 0, 0, 1, 0, 0, 0, 0, 0, -0.2, 0, 0, 0),
-"times": PackedFloat32Array(0, 0.3, 1.8000001, 2)
+"points": PackedFloat32Array(0, 0, 0, 0, 0, 1, -0.3, 0, 0, 0, 1, 0, 0, 0, 0, 0, -0.3, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.3, 1.7, 2)
 }
 tracks/2/type = "bezier"
 tracks/2/imported = false
@@ -87,8 +87,8 @@ tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "handle_modes": PackedInt32Array(2, 0, 2),
-"points": PackedFloat32Array(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, -0.2, 0, 0, 0),
-"times": PackedFloat32Array(0, 1.8000001, 2)
+"points": PackedFloat32Array(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, -0.3, 0, 0, 0),
+"times": PackedFloat32Array(0, 1.7, 2)
 }
 tracks/3/type = "bezier"
 tracks/3/imported = false
@@ -98,8 +98,8 @@ tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "handle_modes": PackedInt32Array(2, 0, 2),
-"points": PackedFloat32Array(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, -0.2, 0, 0, 0),
-"times": PackedFloat32Array(0, 1.8000001, 2)
+"points": PackedFloat32Array(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, -0.3, 0, 0, 0),
+"times": PackedFloat32Array(0, 1.7, 2)
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_r4u6r"]
@@ -130,5 +130,5 @@ text = "114514"
 label_settings = SubResource("LabelSettings_ucnrn")
 
 [node name="animator" type="AnimationPlayer" parent="." unique_id=1793307657]
+unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_r4u6r")
-autoplay = &"spawn"

@@ -2,11 +2,15 @@ extends Node2D
 class_name DamageBar
 
 @onready var textLabel: Label = $%text
+@onready var animator: AnimationPlayer = $%animator
 var damage: DamageSource
 
 func _ready() -> void:
 	position += MathUtil.sampleCircle(20)
 	rebuild()
+	animator.play("spawn")
+	await animator.animation_finished
+	queue_free()
 
 func rebuild():
 	if is_instance_valid(damage):

@@ -5,6 +5,41 @@
 [ext_resource type="Texture2D" uid="uid://cms08l8m086n0" path="res://contents/Bullet/Egg/egg-a.svg" id="2_hnfyn"]
 [ext_resource type="AudioStream" uid="uid://dybkctqgbxqcu" path="res://contents/Bullet/Egg/Pew.wav" id="3_5uovl"]
 
+[sub_resource type="Curve" id="Curve_cqykt"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.1, 0.5), 0.0, 0.0, 0, 0, Vector2(0.4, 0.5), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_vbs8a"]
+curve = SubResource("Curve_cqykt")
+
+[sub_resource type="Curve" id="Curve_vbs8a"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_oi32v"]
+curve = SubResource("Curve_vbs8a")
+
+[sub_resource type="Curve" id="Curve_oi32v"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.1, 1), 0.0, 0.0, 0, 0, Vector2(0.8, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_r7r03"]
+curve = SubResource("Curve_oi32v")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7rvlq"]
+particle_flag_disable_z = true
+angle_min = 1.0728835e-05
+angle_max = 360.00003
+angle_curve = SubResource("CurveTexture_oi32v")
+direction = Vector3(0, 1, 0)
+spread = 180.0
+initial_velocity_max = 50.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.75
+scale_max = 0.9
+scale_curve = SubResource("CurveTexture_r7r03")
+alpha_curve = SubResource("CurveTexture_vbs8a")
+
 [sub_resource type="Animation" id="Animation_cqykt"]
 resource_name = "spawn"
 length = 0.26666668
@@ -29,23 +64,32 @@ _data = {
 &"spawn": SubResource("Animation_cqykt")
 }
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5uovl"]
-radius = 9.0
-height = 26.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_cqykt"]
+radius = 26.305893
 
 [node name="BaseBullet" unique_id=568331356 instance=ExtResource("1_wh4i7")]
 script = ExtResource("2_cqykt")
-lifeTime = 2000.0
+lifeTime = 3000.0
+baseMovement = 1000.0
 
 [node name="static" parent="texture" parent_id_path=PackedInt32Array(1274454792) index="1" unique_id=193572939]
 rotation = 1.5707964
-scale = Vector2(0.4819669, 0.4819669)
+scale = Vector2(1.229793, 1.229793)
 texture = ExtResource("2_hnfyn")
+
+[node name="trail" type="GPUParticles2D" parent="texture/static" index="0" unique_id=2141892769]
+z_index = -1
+amount = 20
+texture = ExtResource("2_hnfyn")
+lifetime = 0.25
+visibility_rect = Rect2(-99999, -99999, 99999, 99999)
+process_material = SubResource("ParticleProcessMaterial_7rvlq")
 
 [node name="animator" parent="texture" parent_id_path=PackedInt32Array(1274454792) index="2" unique_id=1284344607]
 libraries/ = SubResource("AnimationLibrary_vbs8a")
 autoplay = &"spawn"
 
 [node name="movebox" parent="." index="1" unique_id=721984946]
+visible = false
 rotation = 1.5707964
-shape = SubResource("CapsuleShape2D_5uovl")
+shape = SubResource("CircleShape2D_cqykt")

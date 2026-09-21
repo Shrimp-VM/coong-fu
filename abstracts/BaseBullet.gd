@@ -22,6 +22,7 @@ class BaseAI:
 @export var impact: float = 1
 @export var recoil: float = 0
 
+@onready var texture: Node2D = $%texture
 var spawnPosition: Vector2
 var spawnTime: float
 var currentPenetrated: int = 0

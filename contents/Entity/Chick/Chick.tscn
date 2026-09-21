@@ -20,7 +20,7 @@ scale = Vector2(2.447781, 2.447781)
 texture = ExtResource("2_itvuk")
 
 [node name="shooter" parent="texture/anchors" parent_id_path=PackedInt32Array(1589403422) index="0" unique_id=813056254]
-position = Vector2(15, -24)
+position = Vector2(74, -118)
 
 [node name="hitbox" parent="texture/hurtbox" parent_id_path=PackedInt32Array(1386083865) index="0" unique_id=2083183266]
 position = Vector2(-3, -90)

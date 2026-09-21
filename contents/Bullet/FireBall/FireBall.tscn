@@ -145,7 +145,7 @@ impact = 10.0
 unique_name_in_owner = true
 amount = 200
 lifetime = 3.0
-visibility_rect = Rect2(-1000, -1000, 2000, 2000)
+visibility_rect = Rect2(-99999, -99999, 99999, 99999)
 process_material = SubResource("ParticleProcessMaterial_sl8tr")
 
 [node name="fireHead" type="GPUParticles2D" parent="texture/static" parent_id_path=PackedInt32Array(193572939) index="1" unique_id=560579740]

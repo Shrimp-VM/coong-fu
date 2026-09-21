@@ -9,6 +9,7 @@ signal select()
 
 @onready var descriptionLabel: RichTextLabel = $%description
 @onready var previewBox: PanelContainer = $%previewBox
+@onready var categoryLabel: Label = $%category
 @onready var selectBtn: Button = $%selectBtn
 
 func _ready() -> void:
@@ -17,6 +18,7 @@ func _ready() -> void:
 
 func rebuild():
 	if !is_instance_valid(ir): return
+	categoryLabel.text = ir.get_category_tag()
 	var schema = ir.get_wrapper_schema()
 	descriptionLabel.text = schema.description
 	var preview = NodeBlock.create(null, true, INF, ir.get_node_type())

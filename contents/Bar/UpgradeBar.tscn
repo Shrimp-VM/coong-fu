@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dcqp1jpjelc4t" path="res://contents/Bar/UpgradeBar.gd" id="1_0ts7g"]
 [ext_resource type="Script" uid="uid://qq17orpp58tj" path="res://addons/shrimpvm/shrimp_ir.gd" id="2_nd3jx"]
 [ext_resource type="PackedScene" uid="uid://cwjvn21pj3cv0" path="res://addons/shrimpvm/scenes/triangle.tscn" id="3_366hu"]
-[ext_resource type="Script" uid="uid://df4i8jqw37216" path="res://addons/shrimpvm/nodes/macros/function_call_node.gd" id="3_p86h4"]
+[ext_resource type="Script" uid="uid://bothww7eqqhtv" path="res://addons/shrimpvm/nodes/streams/if_node.gd" id="3_p86h4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ek2hm"]
 content_margin_left = 20.0
@@ -23,14 +23,14 @@ corner_detail = 1
 
 [sub_resource type="Resource" id="Resource_x5d7a"]
 script = ExtResource("3_p86h4")
-metadata/_custom_type_script = "uid://df4i8jqw37216"
+metadata/_custom_type_script = "uid://bothww7eqqhtv"
 
 [sub_resource type="Animation" id="Animation_366hu"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("wrapper/previewWrapper/wrapper/t1:modulate:a")
+tracks/0/path = NodePath("wrapper/previewWrapper/wrapper/block/t1:modulate:a")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -48,7 +48,7 @@ step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("wrapper/previewWrapper/wrapper/t1:modulate:a")
+tracks/0/path = NodePath("wrapper/previewWrapper/wrapper/block/t1:modulate:a")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -60,7 +60,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("wrapper/previewWrapper/wrapper/t2:modulate:a")
+tracks/1/path = NodePath("wrapper/previewWrapper/wrapper/block/t2:modulate:a")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -79,6 +79,20 @@ _data = {
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p86h4"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x5d7a"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nd3jx"]
+content_margin_left = 20.0
+content_margin_top = 5.0
+content_margin_right = 20.0
+content_margin_bottom = 5.0
+bg_color = Color(0, 0, 0, 0.5)
+corner_radius_top_left = 1000
+corner_radius_top_right = 1000
+corner_radius_bottom_right = 1000
+corner_radius_bottom_left = 1000
+
+[sub_resource type="LabelSettings" id="LabelSettings_366hu"]
+font_size = 12
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_32vyv"]
 content_margin_left = 10.0
@@ -111,29 +125,44 @@ theme_override_constants/separation = 10
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_p86h4")
 
-[node name="wrapper" type="HBoxContainer" parent="wrapper/previewWrapper" unique_id=699372457]
+[node name="wrapper" type="VBoxContainer" parent="wrapper/previewWrapper" unique_id=762639990]
+layout_mode = 2
+
+[node name="block" type="HBoxContainer" parent="wrapper/previewWrapper/wrapper" unique_id=699372457]
 layout_mode = 2
 theme_override_constants/separation = 10
 alignment = 1
 
-[node name="t1" parent="wrapper/previewWrapper/wrapper" unique_id=567482577 instance=ExtResource("3_366hu")]
+[node name="t1" parent="wrapper/previewWrapper/wrapper/block" unique_id=567482577 instance=ExtResource("3_366hu")]
 custom_minimum_size = Vector2(15, 10)
 layout_mode = 2
 size_flags_horizontal = 1
 size_flags_vertical = 4
 
-[node name="previewBox" type="PanelContainer" parent="wrapper/previewWrapper/wrapper" unique_id=1027106914]
+[node name="previewBox" type="PanelContainer" parent="wrapper/previewWrapper/wrapper/block" unique_id=1027106914]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_x5d7a")
 
-[node name="t2" parent="wrapper/previewWrapper/wrapper" unique_id=2105296170 instance=ExtResource("3_366hu")]
+[node name="t2" parent="wrapper/previewWrapper/wrapper/block" unique_id=2105296170 instance=ExtResource("3_366hu")]
 modulate = Color(1, 1, 1, 0.318592)
 custom_minimum_size = Vector2(15, 10)
 layout_mode = 2
 size_flags_horizontal = 1
 size_flags_vertical = 4
 direction = 1
+
+[node name="label" type="PanelContainer" parent="wrapper/previewWrapper/wrapper" unique_id=944415996]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_nd3jx")
+
+[node name="category" type="Label" parent="wrapper/previewWrapper/wrapper/label" unique_id=1038615244]
+unique_name_in_owner = true
+layout_mode = 2
+text = "标签"
+label_settings = SubResource("LabelSettings_366hu")
 
 [node name="descriptionWrapper" type="PanelContainer" parent="wrapper" unique_id=1295728795]
 layout_mode = 2
@@ -151,7 +180,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 bbcode_enabled = true
-text = "Run a function symbol in current context."
+text = "No descritpion."
 
 [node name="selectBtn" type="Button" parent="wrapper" unique_id=1509169719]
 unique_name_in_owner = true

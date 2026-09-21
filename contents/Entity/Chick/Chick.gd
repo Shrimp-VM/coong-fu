@@ -12,5 +12,5 @@ func attack(type: int):
 	match type:
 		0:
 			for i in 3:
-				ObjectManager.addBullet("Star", self, getAnchor("shooter"), rotationToFocusing())
-				await TimeUtil.millseconds(200)
+				ObjectManager.addBullet("Egg", self, getAnchor("shooter"), rotationToFocusing() + i * deg_to_rad(20))
+				await TimeUtil.millseconds(300)

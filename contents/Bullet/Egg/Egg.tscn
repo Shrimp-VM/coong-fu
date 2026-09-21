@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://onv4m3jryu1h"]
+
+[ext_resource type="PackedScene" uid="uid://ccuxtysvx8rc" path="res://abstracts/BaseBullet.tscn" id="1_wh4i7"]
+[ext_resource type="Script" uid="uid://blslikxyfwyls" path="res://contents/Bullet/Egg/Egg.gd" id="2_cqykt"]
+[ext_resource type="Texture2D" uid="uid://cms08l8m086n0" path="res://contents/Bullet/Egg/egg-a.svg" id="2_hnfyn"]
+[ext_resource type="AudioStream" uid="uid://dybkctqgbxqcu" path="res://contents/Bullet/Egg/Pew.wav" id="3_5uovl"]
+
+[sub_resource type="Animation" id="Animation_cqykt"]
+resource_name = "spawn"
+length = 0.26666668
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%animator/animationSound")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_5uovl")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vbs8a"]
+_data = {
+&"spawn": SubResource("Animation_cqykt")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5uovl"]
+radius = 9.0
+height = 26.0
+
+[node name="BaseBullet" unique_id=568331356 instance=ExtResource("1_wh4i7")]
+script = ExtResource("2_cqykt")
+lifeTime = 2000.0
+
+[node name="static" parent="texture" parent_id_path=PackedInt32Array(1274454792) index="1" unique_id=193572939]
+rotation = 1.5707964
+scale = Vector2(0.4819669, 0.4819669)
+texture = ExtResource("2_hnfyn")
+
+[node name="animator" parent="texture" parent_id_path=PackedInt32Array(1274454792) index="2" unique_id=1284344607]
+libraries/ = SubResource("AnimationLibrary_vbs8a")
+autoplay = &"spawn"
+
+[node name="movebox" parent="." index="1" unique_id=721984946]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_5uovl")

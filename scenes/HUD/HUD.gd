@@ -7,6 +7,7 @@ static var instance: HUDPlayer
 
 func _ready() -> void:
 	instance = self
+	setExp(0)
 
 static func setExp(value: float):
 	instance.expBar.setCurrent(value)

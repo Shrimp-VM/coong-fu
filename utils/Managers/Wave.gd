@@ -22,11 +22,11 @@ static var instance: WaveManager
 
 var WAVES: Array[EntityWrapper] = [
 	EntityWrapper.new("Hen", false, 30),
-	EntityWrapper.new("Chick", false, 2)
+	EntityWrapper.new("Chick", false, 1)
 ]
 var currentWave: int = 0
 var autoDetect: bool = true
-var detectCooldown: CooldownController = CooldownController.new(5000)
+var detectCooldown: CooldownController = CooldownController.new(1000)
 
 func _ready() -> void:
 	instance = self

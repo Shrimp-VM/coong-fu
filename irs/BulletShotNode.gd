@@ -17,7 +17,7 @@ func decompile() -> Dictionary:
 	}
 
 static func get_category_tag() -> String:
-	return "攻击"
+	return "远程攻击"
 static func get_node_type() -> String:
 	return "bullet_shoot"
 static func create_from(wrapper: Dictionary) -> BulletShootNode:

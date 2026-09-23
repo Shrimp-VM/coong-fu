@@ -118,13 +118,14 @@ process_material = SubResource("ParticleProcessMaterial_yjuxp")
 [node name="trail2" type="GPUParticles2D" parent="texture/static" index="1" unique_id=1006307634]
 amount = 50
 preprocess = 1.0
+visibility_rect = Rect2(-9999, -9999, 9999, 9999)
 process_material = SubResource("ParticleProcessMaterial_rgtsy")
 
 [node name="animator" parent="texture" parent_id_path=PackedInt32Array(1274454792) index="2" unique_id=1284344607]
 libraries/ = SubResource("AnimationLibrary_lrwsk")
 autoplay = &"spawn"
 
-[node name="animationSound" parent="texture/animator" index="0" unique_id=1924743759]
+[node name="animationSound" parent="texture/animator" index="0" unique_id=1560075624]
 stream = SubResource("AudioStreamPolyphonic_lrwsk")
 
 [node name="movebox" parent="." index="1" unique_id=721984946]

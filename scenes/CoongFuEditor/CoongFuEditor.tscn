@@ -2,10 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://twhmsepd8isx" path="res://addons/shrimpvm/scenes/ir_editor.tscn" id="1_k7vvl"]
 [ext_resource type="Script" uid="uid://qq17orpp58tj" path="res://addons/shrimpvm/shrimp_ir.gd" id="2_mj2nh"]
+[ext_resource type="Script" uid="uid://cugsr7dffsgdw" path="res://scenes/CoongFuEditor/CoongFuEditor.gd" id="2_vuoy2"]
 [ext_resource type="Script" uid="uid://drn2wt71gsryb" path="res://irs/InjectEnergyNode.gd" id="3_kki3y"]
 [ext_resource type="Script" uid="uid://uw4oee4tvks" path="res://addons/shrimpvm/nodes/base/root_node.gd" id="3_w4jcu"]
 [ext_resource type="Script" uid="uid://1hlfdlxujevh" path="res://irs/CreateBulletNode.gd" id="4_d6eph"]
 [ext_resource type="Script" uid="uid://c3vuueq616p48" path="res://irs/BulletShotNode.gd" id="5_vuoy2"]
+[ext_resource type="Script" uid="uid://vjqr0exaodsu" path="res://addons/shrimpvm/plugin/shrimp_plugin.gd" id="7_d6eph"]
 
 [sub_resource type="Resource" id="Resource_kki3y"]
 script = ExtResource("3_kki3y")
@@ -27,6 +29,7 @@ body = Array[ExtResource("2_mj2nh")]([SubResource("Resource_kki3y"), SubResource
 metadata/_custom_type_script = "uid://uw4oee4tvks"
 
 [node name="CoongFuEditor" unique_id=2000783686 instance=ExtResource("1_k7vvl")]
+script = ExtResource("2_vuoy2")
 treeData = {
 "body": [{
 "type": "inject_energy"
@@ -43,6 +46,16 @@ finiteBlockCount = true
 defaultFileSystem = Dictionary[StringName, ExtResource("2_mj2nh")]({
 &"normalAttack": SubResource("Resource_lsboy")
 })
+loadBuiltins = false
+
+[node name="fight" type="Node" parent="pluginManager" parent_id_path=PackedInt32Array(1968528528) index="1" unique_id=1837535608]
+script = ExtResource("7_d6eph")
+categoryColors = Dictionary[String, Color]({
+"数值": Color(0, 0.73675454, 0.21158586, 1),
+"远程攻击": Color(1, 0.44690263, 0, 1),
+"通用攻击": Color(0.61837727, 0, 0.45220596, 1)
+})
+metadata/_custom_type_script = "uid://vjqr0exaodsu"
 
 [node name="fileManager" parent="." index="1" unique_id=1307891398]
 allowArchive = false
@@ -53,13 +66,13 @@ text = "从电脑加载"
 [node name="saveBtn" parent="layout/nav/wrapper" parent_id_path=PackedInt32Array(119838587) index="1" unique_id=942157068]
 text = "保存到电脑"
 
-[node name="newFileBtn" parent="layout/nav/wrapper" parent_id_path=PackedInt32Array(119838587) index="2" unique_id=806747857]
+[node name="newFileBtn" parent="layout/nav/wrapper" parent_id_path=PackedInt32Array(119838587) index="3" unique_id=806747857]
 text = "创建新脚本"
 
-[node name="closeFileBtn" parent="layout/nav/wrapper" parent_id_path=PackedInt32Array(119838587) index="3" unique_id=901052568]
+[node name="closeFileBtn" parent="layout/nav/wrapper" parent_id_path=PackedInt32Array(119838587) index="4" unique_id=901052568]
 text = "停止编辑"
 
-[node name="deleteFileBtn" parent="layout/nav/wrapper" parent_id_path=PackedInt32Array(119838587) index="4" unique_id=1440390961]
+[node name="deleteFileBtn" parent="layout/nav/wrapper" parent_id_path=PackedInt32Array(119838587) index="5" unique_id=1440390961]
 text = "删除脚本"
 
 [node name="treeTip" parent="layout/layout/workspace/block/wrapper/mergin/center" parent_id_path=PackedInt32Array(1266214890) index="0" unique_id=287250670]

@@ -19,7 +19,7 @@ func decompile() -> Dictionary:
 	return {}
 
 static func get_category_tag() -> String:
-	return "攻击"
+	return "通用攻击"
 static func get_node_type() -> String:
 	return "speedup"
 static func create_from(_wrapper: Dictionary) -> SpeedUpNode:

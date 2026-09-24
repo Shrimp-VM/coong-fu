@@ -9,44 +9,32 @@
 [ext_resource type="Script" uid="uid://c3vuueq616p48" path="res://irs/BulletShotNode.gd" id="5_vuoy2"]
 [ext_resource type="Script" uid="uid://vjqr0exaodsu" path="res://addons/shrimpvm/plugin/shrimp_plugin.gd" id="7_d6eph"]
 
-[sub_resource type="Resource" id="Resource_kki3y"]
+[sub_resource type="Resource" id="Resource_vuoy2"]
 script = ExtResource("3_kki3y")
 metadata/_custom_type_script = "uid://drn2wt71gsryb"
 
-[sub_resource type="Resource" id="Resource_d6eph"]
+[sub_resource type="Resource" id="Resource_lsboy"]
 script = ExtResource("4_d6eph")
-content = 1
 metadata/_custom_type_script = "uid://1hlfdlxujevh"
 
-[sub_resource type="Resource" id="Resource_vuoy2"]
+[sub_resource type="Resource" id="Resource_ytym4"]
 script = ExtResource("5_vuoy2")
-bullet = SubResource("Resource_d6eph")
+bullet = SubResource("Resource_lsboy")
 metadata/_custom_type_script = "uid://c3vuueq616p48"
 
-[sub_resource type="Resource" id="Resource_lsboy"]
+[sub_resource type="Resource" id="Resource_c3bls"]
 script = ExtResource("3_w4jcu")
-body = Array[ExtResource("2_mj2nh")]([SubResource("Resource_kki3y"), SubResource("Resource_vuoy2")])
+body = Array[ExtResource("2_mj2nh")]([SubResource("Resource_vuoy2"), SubResource("Resource_ytym4")])
 metadata/_custom_type_script = "uid://uw4oee4tvks"
 
 [node name="CoongFuEditor" unique_id=2000783686 instance=ExtResource("1_k7vvl")]
 script = ExtResource("2_vuoy2")
-treeData = {
-"body": [{
-"type": "inject_energy"
-}, {
-"bullet": {
-"content": 1.0,
-"type": "create_bullet"
-},
-"type": "bullet_shoot"
-}],
-"type": "root"
-}
 finiteBlockCount = true
-defaultFileSystem = Dictionary[StringName, ExtResource("2_mj2nh")]({
-&"normalAttack": SubResource("Resource_lsboy")
+initialFileSystem = Dictionary[StringName, ExtResource("2_mj2nh")]({
+&"normalAttack": SubResource("Resource_c3bls")
 })
-loadBuiltins = false
+autoOpen = &"normalAttack"
+rootWrapper = {}
 
 [node name="fight" type="Node" parent="pluginManager" parent_id_path=PackedInt32Array(1968528528) index="1" unique_id=1837535608]
 script = ExtResource("7_d6eph")
@@ -76,6 +64,7 @@ text = "停止编辑"
 text = "删除脚本"
 
 [node name="treeTip" parent="layout/layout/workspace/block/wrapper/mergin/center" parent_id_path=PackedInt32Array(1266214890) index="0" unique_id=287250670]
+visible = true
 text = "没有根节点。
 点击“Root Node”创建一个！"
 

@@ -8,4 +8,4 @@ func spawn():
 func attack(type: int):
 	match type:
 		0:
-			await WorldManager.instance.vm.execute(EditorManager.instance.editor.fileManager.get_compilation("normalAttack"), WorldManager.instance.fightContext)
+			await WorldManager.instance.vm.execute(EditorManager.instance.editor.fileManager.get_compilation("普通攻击"), WorldManager.instance.fightContext)

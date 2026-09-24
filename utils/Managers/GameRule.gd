@@ -14,7 +14,7 @@ static func judgeDamage(launcher: BaseEntity, base: float = 0):
 	else:
 		return [false, base]
 static func energyMapDamage(energy: float) -> float:
-	return energy * 0.1
+	return energy * 0.01
 static func impactVector(direction: Vector2, speed: float):
 	return direction.normalized() * speed * 100
 static func enemySpawnOffset() -> Vector2:

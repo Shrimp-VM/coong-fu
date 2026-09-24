@@ -2,7 +2,7 @@
 extends BasePanel
 
 @onready var blocksContainer: Control = $%blocks
-var irs: Array = ShrimpVMUtil.scan_ir_nodes(["res://irs/"]) + [RepeatNode.new()]
+var irs: Array = ShrimpVMUtil.without(ShrimpVMUtil.scan_ir_nodes(["res://irs/"]), ["inject_full_energy"]) + [RepeatNode.new()]
 
 func beforeEnter():
 	ShrimpVMUtil.disconnect_children(blocksContainer)

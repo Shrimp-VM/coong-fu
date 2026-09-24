@@ -22,7 +22,7 @@ static func close():
 		var currency = instance.current
 		await currency.exit()
 		currency.hide()
-	instance.current = null
+		instance.current = null
 static func setCurrent(namx: String):
 	close()
 	instance.get_tree().paused = true

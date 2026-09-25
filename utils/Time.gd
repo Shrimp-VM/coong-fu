@@ -8,4 +8,4 @@ static func current() -> float:
 	else:
 		return 0
 static func frame():
-	return WorldManager.instance.get_tree().process_frame
+	return WorldManager.instance.ShrimpPluginManager.frame()

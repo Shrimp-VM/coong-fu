@@ -37,7 +37,7 @@ func spawn():
 func ai(delta: float):
 	return delta
 func die() -> bool:
-	await get_tree().process_frame
+	await ShrimpPluginManager.frame()
 	return true
 
 func enterDie():

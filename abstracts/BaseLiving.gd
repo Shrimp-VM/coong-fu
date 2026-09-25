@@ -62,7 +62,7 @@ func dash(force: Vector2):
 	dashCooldown.lock()
 	impact(force)
 	while velocity.length() >= baseMovement * 10:
-		await get_tree().process_frame
+		await ShrimpPluginManager.frame()
 	dashCooldown.unlock()
 	dashing = false
 func impact(force: Vector2):

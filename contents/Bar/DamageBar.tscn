@@ -3,9 +3,9 @@
 [ext_resource type="Script" uid="uid://chnilxm4xnbk8" path="res://contents/Bar/DamageBar.gd" id="1_ucnrn"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ucnrn"]
+resource_local_to_scene = true
 font_size = 25
 outline_size = 3
-outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Animation" id="Animation_ucnrn"]
 length = 0.001
@@ -113,6 +113,10 @@ _data = {
 z_index = 30
 z_as_relative = false
 script = ExtResource("1_ucnrn")
+damageColor = Color(1, 0, 0, 1)
+critColor = Color(1, 0.76049334, 0, 1)
+missColor = Color(0.513153, 0.513153, 0.513153, 1)
+healColor = Color(0, 0.7827901, 0.118311815, 1)
 
 [node name="anchor" type="Node2D" parent="." unique_id=628789094]
 scale = Vector2(1e-05, 1e-05)

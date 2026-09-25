@@ -16,13 +16,13 @@ class BaseAI:
 @export var baseMovement: float = 100
 @export var defaultDamage: float = 10
 @export var damageFactor: float = 1
-@export var stats: Dictionary[Stats.Bullet, float] = {
-	Stats.Bullet.PENETRATE: 0
-}
 @export var impact: float = 1
 @export var recoil: float = 0
 
 @onready var texture: Node2D = $%texture
+var stats: Dictionary[Stats.Bullet, float] = {
+	Stats.Bullet.PENETRATE: 0
+}
 var spawnPosition: Vector2
 var spawnTime: float
 var currentPenetrated: int = 0
@@ -32,6 +32,7 @@ var energyInjected: float = GameRuleManager.FULL_ENERGY
 var dieing: bool = false
 
 func _ready() -> void:
+	spawn()
 	spawnPosition = position
 	spawnTime = TimeUtil.current()
 	ais = getAI()
@@ -44,6 +45,8 @@ func _physics_process(delta: float) -> void:
 	else:
 		enterDie()
 
+func spawn():
+	pass
 func hitEntity(entity: BaseEntity) -> bool:
 	if !is_instance_valid(launcher): return true
 	match GameRuleManager.judgeDamage(launcher, getBaseDamage()):

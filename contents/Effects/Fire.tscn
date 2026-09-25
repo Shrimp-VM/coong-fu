@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://crbr1hsa2u3ol"]
+
+[ext_resource type="PackedScene" uid="uid://d3m1o8sv3diav" path="res://abstracts/BaseEffect.tscn" id="1_u5o44"]
+[ext_resource type="AudioStream" uid="uid://cx4vbmbiwmtw6" path="res://contents/Bullet/FireBall/Flame.ogg" id="2_xg0ds"]
+[ext_resource type="Texture2D" uid="uid://b83c4l1qt45xr" path="res://contents/Bullet/Common/circle.svg" id="3_8lnaa"]
+
+[sub_resource type="Curve" id="Curve_j3quc"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.2, 1), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_31glb"]
+curve = SubResource("Curve_j3quc")
+
+[sub_resource type="Gradient" id="Gradient_05hqq"]
+colors = PackedColorArray(1, 0, 0, 1, 1, 0.7555198, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_05hqq"]
+gradient = SubResource("Gradient_05hqq")
+
+[sub_resource type="Curve" id="Curve_8lnaa"]
+_limits = [0.0, 2.0, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.2, 1), 0.0, 0.0, 0, 0, Vector2(1, 2), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_skkc8"]
+curve = SubResource("Curve_8lnaa")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_u5o44"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 20.0
+spread = 10.0
+initial_velocity_min = 200.0
+initial_velocity_max = 2000.0
+gravity = Vector3(0, 0, 0)
+radial_accel_min = -400.0
+radial_accel_max = -400.0
+attractor_interaction_enabled = false
+scale_min = 0.19999999
+scale_max = 0.59999996
+scale_curve = SubResource("CurveTexture_skkc8")
+color_initial_ramp = SubResource("GradientTexture1D_05hqq")
+alpha_curve = SubResource("CurveTexture_31glb")
+
+[node name="Fire" unique_id=2138295709 instance=ExtResource("1_u5o44")]
+
+[node name="shotSound" parent="." index="0" unique_id=520321420]
+stream = ExtResource("2_xg0ds")
+
+[node name="particles" parent="." index="1" unique_id=2135548421]
+amount = 300
+texture = ExtResource("3_8lnaa")
+explosiveness = 1.0
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_u5o44")

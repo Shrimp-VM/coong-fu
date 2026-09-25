@@ -28,7 +28,7 @@ var spawnTime: float
 var currentPenetrated: int = 0
 var launcher: BaseEntity
 var ais: Array[BaseAI] = []
-var energyInjected: float = 10
+var energyInjected: float = GameRuleManager.FULL_ENERGY
 var dieing: bool = false
 
 func _ready() -> void:
@@ -64,7 +64,7 @@ func enterDie():
 func getBaseDamage() -> float:
 	if !is_instance_valid(launcher): return 0
 	if launcher is BaseLiving:
-		return launcher.getBaseDamage() * GameRuleManager.energyMapDamage(energyInjected) * damageFactor
+		return launcher.getBaseDamage() * GameRuleManager.getDamageFactor(energyInjected) * damageFactor
 	else:
 		return defaultDamage * damageFactor
 func getAI() -> Array[BaseAI]:

@@ -5,7 +5,7 @@ class_name InjectFullEnergyNode
 func execute(_vm: ShrimpVM, context: ExecutionContext) -> Variant:
 	var player = context.env.read_symbol("player")
 	if player is BasePlayer:
-		player.energyInjected += 100
+		player.energyInjected += GameRuleManager.FULL_ENERGY
 	return
 func decompile() -> Dictionary:
 	return {}

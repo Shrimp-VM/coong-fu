@@ -34,7 +34,7 @@ autoLoadBuiltins = false
 initialFileSystem = Dictionary[StringName, ExtResource("2_mj2nh")]({
 &"普通攻击": SubResource("Resource_c3bls")
 })
-autoOpen = &"normalAttack"
+autoOpen = &"普通攻击"
 rootWrapper = {
 "body": [{
 "type": "inject_full_energy"
@@ -47,6 +47,7 @@ rootWrapper = {
 }],
 "type": "root"
 }
+allowArchive = false
 allowDeleteFile = false
 allowCreateFile = false
 
@@ -95,3 +96,7 @@ text = "脚本列表"
 [node name="fileTip" parent="layout/layout/fileManager/wrapper/wrapper/files" parent_id_path=PackedInt32Array(210109251) index="0" unique_id=156850020]
 text = "没有脚本
 点击上面的按钮创建一个！"
+
+[node name="loadingScreen" parent="." index="6" unique_id=1393937438]
+process_mode = 4
+visible = false

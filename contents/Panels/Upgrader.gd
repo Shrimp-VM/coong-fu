@@ -18,6 +18,6 @@ func beforeEnter():
 					if bars is UpgradeBar:
 						bars.disable()
 				EditorManager.instance.editor.store_block(ir.get_node_type())
-				EditorManager.open()
+				PanelManager.close()
 		)
 		blocksContainer.add_child(bar)

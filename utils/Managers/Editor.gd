@@ -16,5 +16,6 @@ func _physics_process(_delta: float) -> void:
 
 static func open():
 	PanelManager.setCurrent("Editor")
+	instance.editor.rebuild()
 static func isOpening() -> bool:
 	return PanelManager.getCurrent() == "Editor"

@@ -1,5 +1,7 @@
 class_name GameRuleManager
 
+const FULL_ENERGY = 20
+
 static func bulletHitEntity(bullet: BaseBullet, entity: BaseEntity):
 	if entity.isInvincible(): return
 	if !bullet.isLiving(): return
@@ -10,11 +12,12 @@ static func bulletHitEntity(bullet: BaseBullet, entity: BaseEntity):
 static func judgeDamage(launcher: BaseEntity, base: float = 0):
 	if launcher is BaseLiving:
 		var state = MathUtil.rate(launcher.getStat(Stats.Living.CRIT_RATE))
-		return [state, base * (1 + randf_range(-1, 1) * 0.2) * (1 + int(state) * launcher.getStat(Stats.Living.CRIT_DAMAGE))]
+		return [state, base * (1 + randf_range(-1, 1) * 0.1) * (1 + int(state) * launcher.getStat(Stats.Living.CRIT_DAMAGE))]
 	else:
 		return [false, base]
-static func energyMapDamage(energy: float) -> float:
-	return energy * 0.01
+static func getDamageFactor(energy: float) -> float:
+	# 30能量=100%伤害
+	return energy / FULL_ENERGY
 static func impactVector(direction: Vector2, speed: float):
 	return direction.normalized() * speed * 100
 static func enemySpawnOffset() -> Vector2:

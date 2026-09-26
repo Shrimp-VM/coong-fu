@@ -11,9 +11,11 @@ config_version=5
 [application]
 
 config/name="CoongFu"
+config/version="1.0.0"
 run/main_scene="uid://bvop3erna71a7"
 config/features=PackedStringArray("4.6", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="uid://csubs2s8prw1a"
+config/windows_native_icon="res://icon.ico"
 
 [debug]
 

@@ -2,7 +2,7 @@
 extends ShrimpIR
 class_name InjectFullEnergyNode
 
-func execute(_vm: ShrimpVM, context: ExecutionContext) -> Variant:
+func execute(_vm: ShrimpVM, context: ShrimPoroutine) -> Variant:
 	var player = context.env.read_symbol("player")
 	if player is BasePlayer:
 		player.energyInjected += GameRuleManager.FULL_ENERGY

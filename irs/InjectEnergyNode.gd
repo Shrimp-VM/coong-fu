@@ -4,7 +4,7 @@ class_name InjectEnergyNode
 
 @export var energy: ShrimpIR
 
-func execute(vm: ShrimpVM, context: ExecutionContext) -> Variant:
+func execute(vm: ShrimpVM, context: ShrimPoroutine) -> Variant:
 	var player = context.env.read_symbol("player")
 	if player is BasePlayer:
 		player.energyInjected += await vm.execute(energy, context)

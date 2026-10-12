@@ -10,7 +10,7 @@ class SpeedUpEffect extends FightHook:
 	func onLivingAttack(_living: BaseLiving, _type: int):
 		exit()
 
-func execute(_vm: ShrimpVM, context: ExecutionContext) -> Variant:
+func execute(_vm: ShrimpVM, context: ShrimPoroutine) -> Variant:
 	var player = context.env.read_symbol("player")
 	if player is BasePlayer:
 		player.hook.subscribe(SpeedUpEffect.new())

@@ -2,7 +2,7 @@
 extends ShrimpIR
 class_name RandomIntNode
 
-func execute(_vm: ShrimpVM, _context: ExecutionContext) -> Variant:
+func execute(_vm: ShrimpVM, _context: ShrimPoroutine) -> Variant:
 	return randi_range(1, 2)
 func decompile() -> Dictionary:
 	return {}

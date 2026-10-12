@@ -3,7 +3,7 @@ extends Node2D
 class_name WorldManager
 
 static var instance: WorldManager
-static var fightContext: ExecutionContext = ExecutionContext.new()
+static var fightContext: ShrimPoroutine = ShrimPoroutine.new()
 
 @onready var vm: ShrimpVM = $%vm
 @onready var hook: HookController = $%hook

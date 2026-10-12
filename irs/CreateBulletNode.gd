@@ -4,7 +4,7 @@ class_name CreateBulletNode
 
 @export var content: int
 
-func execute(_vm: ShrimpVM, _context: ExecutionContext) -> Variant:
+func execute(_vm: ShrimpVM, _context: ShrimPoroutine) -> Variant:
 	return get_keys_type("content")[content]
 func decompile() -> Dictionary:
 	return {

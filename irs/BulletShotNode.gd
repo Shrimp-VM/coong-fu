@@ -4,7 +4,7 @@ class_name BulletShootNode
 
 @export var bullet: ShrimpIR
 
-func execute(vm: ShrimpVM, context: ExecutionContext) -> Variant:
+func execute(vm: ShrimpVM, context: ShrimPoroutine) -> Variant:
 	var player = context.env.read_symbol("player")
 	if player is BasePlayer:
 		ObjectManager.shootToMouse(await vm.execute(bullet, context), player)
